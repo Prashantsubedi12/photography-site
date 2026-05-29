@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Prashant Captures — Portrait, Event and Lifestyle photography based in Osaka, Japan." />
+  <title>Portfolio | Prashant Captures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/portfolio.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">Prashant Captures</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" data-en="Home" data-jp="ホーム">Home</a></li>
+        <li><a href="portfolio.html" class="active" data-en="Portfolio" data-jp="作品集">Portfolio</a></li>
+        <li><a href="about.html" data-en="About" data-jp="プロフィール">About</a></li>
+        <li><a href="services.html" data-en="Services" data-jp="サービス">Services</a></li>
+        <li><a href="blog.html" data-en="Blog" data-jp="ブログ">Blog</a></li>
+        <li><a href="presets.html" data-en="Presets" data-jp="プリセット">Presets</a></li>
+        <li><a href="contact.html" data-en="Contact" data-jp="お問い合わせ">Contact</a></li>
+        <li><button class="lang-toggle" id="langToggle">JP</button></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <h1 data-en="Portfolio" data-jp="作品集">Portfolio</h1>
+      <p data-en="A selection of my favourite work — portraits, events & lifestyle." data-jp="ポートレート、イベント、ライフスタイルのお気に入り作品集。">A selection of my favourite work — portraits, events & lifestyle.</p>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <section class="portfolio-section">
+    <div class="container">
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all" data-en="All" data-jp="すべて">All</button>
+        <button class="filter-btn" data-filter="portraits" data-en="Portraits" data-jp="ポートレート">Portraits</button>
+        <button class="filter-btn" data-filter="events" data-en="Events" data-jp="イベント">Events</button>
+        <button class="filter-btn" data-filter="friends" data-en="Friends" data-jp="友人">Friends</button>
+      </div>
+
+      <!-- GALLERY GRID -->
+      <div class="portfolio-grid" id="portfolioGrid">
+
+        <!-- PORTRAITS -->
+        <div class="gallery-item" data-category="portraits">
+          <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80" alt="Portrait of a woman with soft natural light" loading="lazy" />
+          <div class="gallery-overlay"><span data-en="Portraits" data-jp="ポートレート">Portraits</span></div>
+        </div>
+        <div class="gallery-item" data-category="portraits">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&q=80" alt="Male portrait with dramatic lighting" loading="lazy" />
+          <div class="gallery-overlay"><span data-en="Portraits" data-jp="ポートレート">Portraits</span></div>
+        </div>
+        <div class="gallery-item" data-category="portraits">
+          <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&q=80" alt="Portrait outdoors golden hour" loading="lazy" />
+          <div class="gallery-overlay"><span data-en="Portraits" data-jp="ポートレート">Portraits</span></div>
+        </div>
+        <div class="gallery-item" data-category="portraits">
+          <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=600&q=80" alt="Close up portrait natural light" loading="lazy" />
+          <div class="gallery-overlay"><span data-en="Portraits" data-jp="ポートレート">Portraits</span></div>
+        </div>
+        <div class="gallery-item" data-category="portraits">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&q=80" alt="Street portrait Osaka" loading="lazy" />
+          <div class="gallery-overlay"><span data-en="Portraits" data-jp="ポートレート">Portraits</span></div>
+        </div>
+        <div class="gallery-item" data-category="portraits">
+          <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600&q=80" alt="Portrait with bokeh background" loading="lazy" />
+          <div class="gallery-overlay"><span data-en="Portraits" data-jp="ポートレート">Portraits</span></div>
+        </div>
+
+        <!-- EVENTS -->
+        <div class="gallery-item" data-category="events">
+          <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&q=80" alt="Concert photography with stage lights" loading="lazy" />
+          <div class="gallery-overlay"><span data-en="Events" data-jp="イベント">Events</span></div>
+        </div>
+        <div class="gallery-item" data-category="events">
+          <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=600&q=80" alt="Live music event crowd" loading="lazy" />
+          <div class="gallery-overlay"><span data-en="Events" data-jp="イベント">Events</span></div>
+        </div>
+        <div class="gallery-item" data-category="events">
+          <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=600&q=80" alt="Sports event action shot" loading="lazy" />
+          <div class="gallery-overlay"><span data-en="Events" data-jp="イベント">Events</span></div>
+        </div>
+        <div class="gallery-item" data-category="events">
+          <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=600&q=80" alt="Event photography crowd energy" loading="lazy" />
+          <div class="gallery-overlay"><span data-en="Events" data-jp="イベント">Events</span></div>
+        </div>
+
+        <!-- FRIENDS -->
+        <div class="gallery-item" data-category="friends">
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="Friends laughing lifestyle photo" loading="lazy" />
+          <div class="gallery-overlay"><span data-en="Friends" data-jp="友人">Friends</span></div>
+        </div>
+        <div class="gallery-item" data-category="friends">
+          <img src="https://images.unsplash.com/photo-1543807535-eceef0bc6599?w=600&q=80" alt="Friends at a restaurant Osaka" loading="lazy" />
+          <div class="gallery-overlay"><span data-en="Friends" data-jp="友人">Friends</span></div>
+        </div>
+        <div class="gallery-item" data-category="friends">
+          <img src="https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?w=600&q=80" alt="Friends lifestyle candid shot" loading="lazy" />
+          <div class="gallery-overlay"><span data-en="Friends" data-jp="友人">Friends</span></div>
+        </div>
+
+      </div>
+      <!-- end grid -->
+
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+    <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous">&#8592;</button>
+    <button class="lightbox-next" id="lightboxNext" aria-label="Next">&#8594;</button>
+    <div class="lightbox-img-wrap">
+      <img src="" alt="" id="lightboxImg" />
+    </div>
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+  <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="nav-logo">Prashant Captures</span>
+          <p data-en="Portrait photographer based in Osaka, Japan." data-jp="大阪を拠点とするポートレート写真家。">Portrait photographer based in Osaka, Japan.</p>
+          <div class="footer-social">
+            <a href="https://instagram.com/prashantsub12" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://tiktok.com/@prashantsub12" target="_blank" rel="noopener">TikTok</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading" data-en="Pages" data-jp="ページ">Pages</h4>
+          <div class="footer-links">
+            <a href="portfolio.html" data-en="Portfolio" data-jp="作品集">Portfolio</a>
+            <a href="about.html" data-en="About" data-jp="プロフィール">About</a>
+            <a href="services.html" data-en="Services" data-jp="サービス">Services</a>
+            <a href="blog.html" data-en="Blog" data-jp="ブログ">Blog</a>
+            <a href="presets.html" data-en="Presets" data-jp="プリセット">Presets</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading" data-en="Contact" data-jp="お問い合わせ">Contact</h4>
+          <div class="footer-links">
+            <a href="contact.html" data-en="Send a Message" data-jp="メッセージを送る">Send a Message</a>
+            <a href="mailto:prashant.captures.photo@gmail.com">prashant.captures.photo@gmail.com</a>
+            <a>Osaka, Japan</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Prashant Captures. All rights reserved.</p>
+        <p data-en="Made with ❤️ in Osaka" data-jp="大阪で❤️を込めて制作">Made with ❤️ in Osaka</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>
