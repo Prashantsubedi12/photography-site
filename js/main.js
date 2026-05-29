@@ -18,8 +18,10 @@ const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');
 
 hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  navLinks.classList.toggle('nav-open');
+  const isOpen = navLinks.classList.toggle('nav-open');
+  hamburger.classList.toggle('open', isOpen);
+  // Prevent body scroll when menu is open
+  document.body.style.overflow = isOpen ? 'hidden' : '';
 });
 
 // Close nav when a link is clicked (mobile)
@@ -27,7 +29,17 @@ navLinks.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
     hamburger.classList.remove('open');
     navLinks.classList.remove('nav-open');
+    document.body.style.overflow = '';
   });
+});
+
+// Close on outside click
+document.addEventListener('click', (e) => {
+  if (!navbar.contains(e.target) && navLinks.classList.contains('nav-open')) {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('nav-open');
+    document.body.style.overflow = '';
+  }
 });
 
 // ---------- ACTIVE NAV LINK ----------
