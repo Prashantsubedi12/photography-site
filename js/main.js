@@ -5,6 +5,7 @@
 
 // ---------- NAVBAR SCROLL EFFECT ----------
 const navbar = document.querySelector('.navbar');
+
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
     navbar.style.boxShadow = '0 4px 20px rgba(92, 64, 51, 0.12)';
@@ -20,7 +21,6 @@ const navLinks  = document.getElementById('navLinks');
 hamburger.addEventListener('click', () => {
   const isOpen = navLinks.classList.toggle('nav-open');
   hamburger.classList.toggle('open', isOpen);
-  // Prevent body scroll when menu is open
   document.body.style.overflow = isOpen ? 'hidden' : '';
 });
 
@@ -53,14 +53,41 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   }
 });
 
-// ---------- LANGUAGE TOGGLE (EN ↔ JP) ----------
-const langToggle = document.getElementById('langToggle');
-let currentLang  = 'en';
+// ---------- LANGUAGE TOGGLE — PERSISTENT + DUAL BUTTON ----------
+const langToggle = document.getElementById('langToggle'); // navbar button (always)
+const langFloat  = document.getElementById('langFloat');  // floating button (mobile only)
 
-langToggle.addEventListener('click', () => {
-  currentLang = currentLang === 'en' ? 'jp' : 'en';
-  langToggle.textContent = currentLang === 'en' ? 'JP' : 'EN';
+// Load saved language (default = 'en')
+let currentLang = localStorage.getItem('lang') || 'en';
+
+function applyLanguage(lang) {
+  // Swap all text elements that have data-en attribute
   document.querySelectorAll('[data-en]').forEach(el => {
-    el.textContent = el.dataset[currentLang];
+    el.textContent = el.dataset[lang];
   });
-});
+  // Label shows what language you CAN switch TO
+  const label = lang === 'en' ? '日本語' : 'EN';
+  if (langToggle) langToggle.textContent = label;
+  if (langFloat)  langFloat.textContent  = label;
+}
+
+// Apply saved language immediately on every page load
+applyLanguage(currentLang);
+
+// Navbar button click
+if (langToggle) {
+  langToggle.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'jp' : 'en';
+    localStorage.setItem('lang', currentLang);
+    applyLanguage(currentLang);
+  });
+}
+
+// Floating button click (mobile)
+if (langFloat) {
+  langFloat.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'jp' : 'en';
+    localStorage.setItem('lang', currentLang);
+    applyLanguage(currentLang);
+  });
+}

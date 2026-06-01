@@ -1,0 +1,229 @@
+/* ============================================
+   ABOUT PAGE STYLES
+   ============================================ */
+
+/* --- Main About Grid --- */
+.about-main .about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+/* --- Image --- */
+.about-img-wrap {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: visible;
+}
+
+.about-img-wrap img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  display: block;
+}
+
+.about-img-badge {
+  position: absolute;
+  bottom: -1.25rem;
+  right: -1.25rem;
+  background: var(--color-brown);
+  color: var(--color-bg-primary);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(92,64,51,0.25);
+}
+
+.badge-num {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.badge-label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+/* --- Text --- */
+.about-eyebrow {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-tan);
+  margin-bottom: 0.5rem;
+}
+
+.about-name {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--color-brown);
+  line-height: 1;
+}
+
+.about-text p {
+  color: var(--color-text-muted);
+  line-height: 1.85;
+}
+
+.about-cta {
+  display: flex;
+  gap: 1rem;
+  margin-top: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* --- What I Shoot --- */
+.shoot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.shoot-card {
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.shoot-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(92,64,51,0.1);
+  border-color: var(--color-tan);
+}
+
+.shoot-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.shoot-card h3 {
+  font-size: 1.1rem;
+  color: var(--color-brown);
+  margin-bottom: 0.75rem;
+}
+
+.shoot-card p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* --- Gear --- */
+.gear-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.gear-item {
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: var(--transition);
+}
+
+.gear-item:hover {
+  border-color: var(--color-tan);
+  box-shadow: 0 8px 24px rgba(92,64,51,0.08);
+}
+
+.gear-icon {
+  font-size: 1.75rem;
+  flex-shrink: 0;
+}
+
+.gear-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-tan);
+  margin-bottom: 3px;
+}
+
+.gear-val {
+  font-size: 0.9rem;
+  color: var(--color-text-dark);
+  font-weight: 500;
+}
+
+.gear-note {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .about-main .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-img-wrap {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .shoot-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gear-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-img-badge {
+    bottom: -1rem;
+    right: -0.5rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .badge-num {
+    font-size: 1.5rem;
+  }
+
+  .about-cta {
+    flex-direction: column;
+  }
+
+  .about-cta .btn {
+    text-align: center;
+  }
+
+  .shoot-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gear-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .gear-item {
+    padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+}
