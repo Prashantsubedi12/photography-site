@@ -1,10 +1,5 @@
 /* ============================================
    PRASHANT CAPTURES — responsive.css
-   Full mobile-first responsive system
-   Breakpoints:
-   — Mobile:  max 640px
-   — Tablet:  max 900px
-   — Desktop: 901px+ (base styles in style.css)
    ============================================ */
 
 /* ==========================================
@@ -12,17 +7,14 @@
    ========================================== */
 @media (max-width: 900px) {
 
-  /* --- Layout --- */
   .container {
     padding: 0 1.5rem;
   }
 
-  /* --- Hero --- */
   .hero-title {
     font-size: clamp(3rem, 8vw, 5rem);
   }
 
-  /* --- Featured Grid --- */
   .featured-grid {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 220px 220px;
@@ -33,7 +25,6 @@
     grid-row: 1 / 2;
   }
 
-  /* --- About Snippet --- */
   .about-snippet-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -44,25 +35,21 @@
     aspect-ratio: auto;
   }
 
-  /* --- Services --- */
   .services-grid {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
 
-  /* --- Footer --- */
   .footer-grid {
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
   }
 
-  /* --- Portfolio Grid --- */
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
 
-  /* --- About Page --- */
   .about-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -73,25 +60,21 @@
     margin: 0 auto;
   }
 
-  /* --- Services Page --- */
   .packages-grid {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
 
-  /* --- Blog Grid --- */
   .blog-grid {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
 
-  /* --- Presets Grid --- */
   .presets-grid {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
 
-  /* --- Contact Grid --- */
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -104,19 +87,16 @@
    ========================================== */
 @media (max-width: 640px) {
 
-  /* --- Root spacing scale down --- */
   :root {
     --space-lg: 2.5rem;
     --space-xl: 3.5rem;
     --nav-height: 60px;
   }
 
-  /* --- Container --- */
   .container {
     padding: 0 1.25rem;
   }
 
-  /* --- Typography scale --- */
   h1 { font-size: clamp(2rem, 8vw, 3rem); }
   h2 { font-size: clamp(1.5rem, 6vw, 2rem); }
   h3 { font-size: 1.1rem; }
@@ -127,15 +107,9 @@
   }
 
   /* ======= NAVBAR ======= */
-  .hamburger {
-    display: flex;
-  }
 
-  .nav-logo {
-    font-size: 1.15rem;
-  }
-
-.nav-links {
+  /* Hide desktop nav links on mobile */
+  .nav-links {
     position: fixed;
     top: var(--nav-height);
     left: 0;
@@ -182,6 +156,23 @@
     margin: 1rem 1.5rem;
     padding: 0.5rem 1.2rem;
     font-size: 0.85rem;
+  }
+
+  /* Show mobile nav right (lang button + hamburger) */
+  .mobile-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: auto;
+  }
+
+  /* Hide standalone hamburger — it's inside mobile-nav-right now */
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-logo {
+    font-size: 1.15rem;
   }
 
   /* ======= HERO ======= */
@@ -332,7 +323,7 @@
   .form-group input,
   .form-group textarea,
   .form-group select {
-    font-size: 16px; /* prevents iOS auto-zoom on focus */
+    font-size: 16px;
   }
 
   /* ======= BUTTONS ======= */
@@ -341,7 +332,7 @@
     font-size: 0.85rem;
   }
 
-  /* ======= PAGE HERO (inner pages) ======= */
+  /* ======= PAGE HERO ======= */
   .page-hero {
     padding: 2rem 0 1.5rem;
   }
@@ -366,12 +357,10 @@
     gap: 1.25rem;
   }
 
-  /* ======= DIVIDER ======= */
   .divider {
     margin: 0.75rem auto 1.25rem;
   }
 
-  /* ======= SECTION SPACING ======= */
   .section {
     padding: 2.5rem 0;
   }
@@ -379,7 +368,6 @@
 
 /* ==========================================
    TINY MOBILE (max-width: 380px)
-   iPhone SE and very small screens
    ========================================== */
 @media (max-width: 380px) {
 
@@ -405,7 +393,6 @@
    ========================================== */
 @media (hover: none) and (pointer: coarse) {
 
-  /* Show overlays always on touch (no hover) */
   .featured-overlay {
     opacity: 1;
     background: linear-gradient(
@@ -419,7 +406,6 @@
     opacity: 1;
   }
 
-  /* Larger tap targets */
   .nav-links a {
     min-height: 48px;
     display: flex;
@@ -433,7 +419,6 @@
     justify-content: center;
   }
 
-  /* Remove hover transforms on touch */
   .service-card:hover {
     transform: none;
   }
@@ -446,7 +431,6 @@
 
 /* ==========================================
    LANDSCAPE MOBILE
-   Phone rotated sideways
    ========================================== */
 @media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
 
