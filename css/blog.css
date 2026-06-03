@@ -1,0 +1,113 @@
+/* ============================================
+   PRASHANT CAPTURES — blog.css
+   ============================================ */
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.blog-card {
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(92, 64, 51, 0.12);
+  border-color: var(--color-tan);
+}
+
+.blog-card-img {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.blog-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.blog-card:hover .blog-card-img img {
+  transform: scale(1.05);
+}
+
+.blog-card-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.blog-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.blog-category {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-tan);
+  background: rgba(139, 111, 71, 0.1);
+  padding: 0.2rem 0.7rem;
+  border-radius: 100px;
+}
+
+.blog-date {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.blog-card h3 {
+  font-size: 1.05rem;
+  color: var(--color-brown);
+  line-height: 1.35;
+}
+
+.blog-card p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.blog-read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-brown);
+  margin-top: 0.25rem;
+  transition: var(--transition);
+}
+
+.blog-read-more:hover {
+  color: var(--color-tan);
+  gap: 0.5rem;
+}
+
+.blog-coming-soon {
+  text-align: center;
+  padding: var(--space-lg) 0;
+}
+
+.blog-coming-soon p {
+  font-size: 1rem;
+  margin-bottom: var(--space-md);
+}
