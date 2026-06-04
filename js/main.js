@@ -18,27 +18,33 @@ window.addEventListener('scroll', () => {
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.getElementById('navLinks');
 
+function openNav() {
+  navLinks.classList.add('nav-open');
+  hamburger.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  if (window.lenis) window.lenis.stop();
+}
+
+function closeNav() {
+  hamburger.classList.remove('open');
+  navLinks.classList.remove('nav-open');
+  document.body.style.overflow = '';
+  if (window.lenis) window.lenis.start();
+}
+
 hamburger.addEventListener('click', () => {
-  const isOpen = navLinks.classList.toggle('nav-open');
-  hamburger.classList.toggle('open', isOpen);
-  document.body.style.overflow = isOpen ? 'hidden' : '';
+  navLinks.classList.contains('nav-open') ? closeNav() : openNav();
 });
 
 // Close nav when a link is clicked (mobile)
 navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('open');
-    navLinks.classList.remove('nav-open');
-    document.body.style.overflow = '';
-  });
+  link.addEventListener('click', closeNav);
 });
 
 // Close on outside click
 document.addEventListener('click', (e) => {
   if (!navbar.contains(e.target) && navLinks.classList.contains('nav-open')) {
-    hamburger.classList.remove('open');
-    navLinks.classList.remove('nav-open');
-    document.body.style.overflow = '';
+    closeNav();
   }
 });
 
@@ -54,27 +60,30 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 });
 
 // ---------- LANGUAGE TOGGLE — PERSISTENT + DUAL BUTTON ----------
-const langToggle = document.getElementById('langToggle'); // navbar button (always)
-const langFloat  = document.getElementById('langFloat');  // floating button (mobile only)
+const langToggle = document.getElementById('langToggle');
+const langFloat  = document.getElementById('langFloat');
 
-// Load saved language (default = 'en')
 let currentLang = localStorage.getItem('lang') || 'en';
 
 function applyLanguage(lang) {
-  // Swap all text elements that have data-en attribute
+  // Swap textContent for all elements with data-en / data-jp
   document.querySelectorAll('[data-en]').forEach(el => {
     el.textContent = el.dataset[lang];
   });
-  // Label shows what language you CAN switch TO
+
+  // Swap placeholder attributes for bilingual form fields
+  document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+    el.placeholder = lang === 'en' ? el.dataset.placeholderEn : el.dataset.placeholderJp;
+  });
+
+  // Label shows the language you can switch TO
   const label = lang === 'en' ? '日本語' : 'EN';
   if (langToggle) langToggle.textContent = label;
   if (langFloat)  langFloat.textContent  = label;
 }
 
-// Apply saved language immediately on every page load
 applyLanguage(currentLang);
 
-// Navbar button click
 if (langToggle) {
   langToggle.addEventListener('click', () => {
     currentLang = currentLang === 'en' ? 'jp' : 'en';
@@ -83,7 +92,6 @@ if (langToggle) {
   });
 }
 
-// Floating button click (mobile)
 if (langFloat) {
   langFloat.addEventListener('click', () => {
     currentLang = currentLang === 'en' ? 'jp' : 'en';

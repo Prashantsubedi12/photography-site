@@ -3,12 +3,11 @@
    ============================================ */
 
 // ---------- FILTER ----------
-const filterBtns  = document.querySelectorAll('.filter-btn');
+const filterBtns   = document.querySelectorAll('.filter-btn');
 const galleryItems = document.querySelectorAll('.gallery-item');
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    // Update active button
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
@@ -36,7 +35,6 @@ const lightboxClose    = document.getElementById('lightboxClose');
 const lightboxPrev     = document.getElementById('lightboxPrev');
 const lightboxNext     = document.getElementById('lightboxNext');
 
-// Only visible items
 let visibleItems = [];
 let currentIndex = 0;
 
@@ -47,17 +45,18 @@ function getVisibleItems() {
 function openLightbox(index) {
   visibleItems = getVisibleItems();
   currentIndex = index;
-  const item   = visibleItems[currentIndex];
-  const img    = item.querySelector('img');
+  const item = visibleItems[currentIndex];
+  const img  = item.querySelector('img');
 
-  lightboxImg.src = img.src.replace('w=600', 'w=1200');
-  lightboxImg.alt = img.alt;
+  lightboxImg.src           = img.src.replace('w=600', 'w=1200');
+  lightboxImg.alt           = img.alt;
   lightboxCaption.textContent = img.alt;
 
   lightbox.classList.add('open');
   lightboxBackdrop.classList.add('open');
   lightbox.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
+  if (window.lenis) window.lenis.stop();
 }
 
 function closeLightbox() {
@@ -65,14 +64,15 @@ function closeLightbox() {
   lightboxBackdrop.classList.remove('open');
   lightbox.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+  if (window.lenis) window.lenis.start();
 }
 
 function showNext() {
   visibleItems = getVisibleItems();
   currentIndex = (currentIndex + 1) % visibleItems.length;
   const img = visibleItems[currentIndex].querySelector('img');
-  lightboxImg.src = img.src.replace('w=600', 'w=1200');
-  lightboxImg.alt = img.alt;
+  lightboxImg.src           = img.src.replace('w=600', 'w=1200');
+  lightboxImg.alt           = img.alt;
   lightboxCaption.textContent = img.alt;
 }
 
@@ -80,17 +80,17 @@ function showPrev() {
   visibleItems = getVisibleItems();
   currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
   const img = visibleItems[currentIndex].querySelector('img');
-  lightboxImg.src = img.src.replace('w=600', 'w=1200');
-  lightboxImg.alt = img.alt;
+  lightboxImg.src           = img.src.replace('w=600', 'w=1200');
+  lightboxImg.alt           = img.alt;
   lightboxCaption.textContent = img.alt;
 }
 
 // Open on click
-document.querySelectorAll('.gallery-item').forEach((item, index) => {
+document.querySelectorAll('.gallery-item').forEach((item) => {
   item.addEventListener('click', () => {
     visibleItems = getVisibleItems();
-    const visibleIndex = visibleItems.indexOf(item);
-    openLightbox(visibleIndex);
+    const idx = visibleItems.indexOf(item);
+    if (idx !== -1) openLightbox(idx);
   });
 });
 
@@ -103,19 +103,19 @@ lightboxPrev.addEventListener('click', showPrev);
 // Keyboard navigation
 document.addEventListener('keydown', (e) => {
   if (!lightbox.classList.contains('open')) return;
-  if (e.key === 'Escape')      closeLightbox();
-  if (e.key === 'ArrowRight')  showNext();
-  if (e.key === 'ArrowLeft')   showPrev();
+  if (e.key === 'Escape')     closeLightbox();
+  if (e.key === 'ArrowRight') showNext();
+  if (e.key === 'ArrowLeft')  showPrev();
 });
 
-// Touch swipe support for mobile
+// Touch swipe — passive listeners for smooth performance
 let touchStartX = 0;
-lightbox.addEventListener('touchstart', e => {
+lightbox.addEventListener('touchstart', (e) => {
   touchStartX = e.changedTouches[0].screenX;
-});
-lightbox.addEventListener('touchend', e => {
+}, { passive: true });
+lightbox.addEventListener('touchend', (e) => {
   const diff = touchStartX - e.changedTouches[0].screenX;
   if (Math.abs(diff) > 50) {
     diff > 0 ? showNext() : showPrev();
   }
-});
+}, { passive: true });

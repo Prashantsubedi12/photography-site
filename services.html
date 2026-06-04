@@ -145,26 +145,35 @@
           <div class="form-row">
             <div class="form-group">
               <label for="b-name" data-en="Your Name" data-jp="お名前">Your Name</label>
-              <input type="text" id="b-name" name="name" required placeholder="Your name" />
+              <input type="text" id="b-name" name="name" required
+                placeholder="Your name"
+                data-placeholder-en="Your name"
+                data-placeholder-jp="お名前を入力" />
             </div>
             <div class="form-group">
               <label for="b-email" data-en="Email" data-jp="メールアドレス">Email</label>
-              <input type="email" id="b-email" name="email" required placeholder="you@example.com" />
+              <input type="email" id="b-email" name="email" required
+                placeholder="you@example.com"
+                data-placeholder-en="you@example.com"
+                data-placeholder-jp="メールアドレスを入力" />
             </div>
           </div>
           <div class="form-group">
             <label for="b-service" data-en="Service" data-jp="ご希望のサービス">Service</label>
             <select id="b-service" name="service" required>
-              <option value="">Select a service…</option>
-              <option value="portrait">Portrait Session</option>
-              <option value="tourist">Tourist Photo Session</option>
-              <option value="couple">Couple Session</option>
-              <option value="event">Event Coverage</option>
+              <option value="" data-en="Select a service…" data-jp="サービスを選択…">Select a service…</option>
+              <option value="portrait" data-en="Portrait Session" data-jp="ポートレートセッション">Portrait Session</option>
+              <option value="tourist" data-en="Tourist Photo Session" data-jp="観光フォトセッション">Tourist Photo Session</option>
+              <option value="couple" data-en="Couple Session" data-jp="カップルセッション">Couple Session</option>
+              <option value="event" data-en="Event Coverage" data-jp="イベント撮影">Event Coverage</option>
             </select>
           </div>
           <div class="form-group">
             <label for="b-message" data-en="Tell Me More" data-jp="詳細をお聞かせください">Tell Me More</label>
-            <textarea id="b-message" name="message" rows="5" placeholder="Date ideas, location preferences, what you're going for — anything helps."></textarea>
+            <textarea id="b-message" name="message" rows="5"
+              placeholder="Date ideas, location preferences, what you're going for — anything helps."
+              data-placeholder-en="Date ideas, location preferences, what you're going for — anything helps."
+              data-placeholder-jp="ご希望の日程、場所、撮影イメージなど、なんでもお気軽に。"></textarea>
           </div>
           <p class="form-status" aria-live="polite"></p>
           <button type="submit" class="btn btn-primary" data-en="Send Booking Request" data-jp="予約リクエストを送る">Send Booking Request</button>
@@ -181,8 +190,8 @@
           <span class="nav-logo">Prashant Captures</span>
           <p data-en="Portrait photographer based in Osaka, Japan. Available for portrait sessions and events." data-jp="大阪を拠点とするポートレート写真家。ポートレートセッションとイベント撮影受付中。">Portrait photographer based in Osaka, Japan. Available for portrait sessions and events.</p>
           <div class="footer-social">
-            <a href="https://instagram.com/prashantsub12" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://tiktok.com/@prashantsub12" target="_blank" rel="noopener">TikTok</a>
+            <a href="https://instagram.com/prashantsub12" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://tiktok.com/@prashantsub12" target="_blank" rel="noopener noreferrer">TikTok</a>
           </div>
         </div>
         <div>
