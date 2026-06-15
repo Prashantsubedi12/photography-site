@@ -1,0 +1,101 @@
+/* ============================================
+   PRASHANT CAPTURES — main.js
+   Handles: Nav, Hamburger, Language Toggle
+   ============================================ */
+
+// ---------- NAVBAR SCROLL EFFECT ----------
+const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    navbar.style.boxShadow = '0 4px 20px rgba(92, 64, 51, 0.12)';
+  } else {
+    navbar.style.boxShadow = 'none';
+  }
+});
+
+// ---------- HAMBURGER MENU ----------
+const hamburger = document.getElementById('hamburger');
+const navLinks  = document.getElementById('navLinks');
+
+function openNav() {
+  navLinks.classList.add('nav-open');
+  hamburger.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  if (window.lenis) window.lenis.stop();
+}
+
+function closeNav() {
+  hamburger.classList.remove('open');
+  navLinks.classList.remove('nav-open');
+  document.body.style.overflow = '';
+  if (window.lenis) window.lenis.start();
+}
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.contains('nav-open') ? closeNav() : openNav();
+});
+
+// Close nav when a link is clicked (mobile)
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', closeNav);
+});
+
+// Close on outside click
+document.addEventListener('click', (e) => {
+  if (!navbar.contains(e.target) && navLinks.classList.contains('nav-open')) {
+    closeNav();
+  }
+});
+
+// ---------- ACTIVE NAV LINK ----------
+const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+document.querySelectorAll('.nav-links a').forEach(link => {
+  const href = link.getAttribute('href');
+  if (href === currentPage) {
+    link.classList.add('active');
+  } else {
+    link.classList.remove('active');
+  }
+});
+
+// ---------- LANGUAGE TOGGLE — PERSISTENT + DUAL BUTTON ----------
+const langToggle = document.getElementById('langToggle');
+const langFloat  = document.getElementById('langFloat');
+
+let currentLang = localStorage.getItem('lang') || 'en';
+
+function applyLanguage(lang) {
+  // Swap textContent for all elements with data-en / data-jp
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.textContent = el.dataset[lang];
+  });
+
+  // Swap placeholder attributes for bilingual form fields
+  document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+    el.placeholder = lang === 'en' ? el.dataset.placeholderEn : el.dataset.placeholderJp;
+  });
+
+  // Label shows the language you can switch TO
+  const label = lang === 'en' ? '日本語' : 'EN';
+  if (langToggle) langToggle.textContent = label;
+  if (langFloat)  langFloat.textContent  = label;
+}
+
+applyLanguage(currentLang);
+
+if (langToggle) {
+  langToggle.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'jp' : 'en';
+    localStorage.setItem('lang', currentLang);
+    applyLanguage(currentLang);
+  });
+}
+
+if (langFloat) {
+  langFloat.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'jp' : 'en';
+    localStorage.setItem('lang', currentLang);
+    applyLanguage(currentLang);
+  });
+}

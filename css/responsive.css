@@ -1,0 +1,468 @@
+/* ============================================
+   PRASHANT CAPTURES — responsive.css
+   ============================================ */
+
+/* ==========================================
+   TABLET (max-width: 900px)
+   ========================================== */
+@media (max-width: 900px) {
+
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 8vw, 5rem);
+  }
+
+  .featured-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 220px 220px;
+  }
+
+  .featured-large {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+
+  .about-snippet-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-snippet-img {
+    max-height: 400px;
+    aspect-ratio: auto;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-img-wrap {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .packages-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .presets-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+
+/* ==========================================
+   MOBILE (max-width: 640px)
+   ========================================== */
+@media (max-width: 640px) {
+
+  :root {
+    --space-lg: 2.5rem;
+    --space-xl: 3.5rem;
+    --nav-height: 60px;
+  }
+
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  h1 { font-size: clamp(2rem, 8vw, 3rem); }
+  h2 { font-size: clamp(1.5rem, 6vw, 2rem); }
+  h3 { font-size: 1.1rem; }
+  p  { font-size: 0.95rem; }
+
+  .section-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  /* ======= NAVBAR ======= */
+
+  /* Hide desktop nav links on mobile */
+  .nav-links {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(245, 241, 232, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0;
+    padding: 0.5rem 0 2rem;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: calc(100vh - var(--nav-height));
+  }
+
+  .nav-links.nav-open {
+    transform: translateX(0);
+  }
+
+  .nav-links li {
+    width: 100%;
+    border-bottom: 0.5px solid var(--color-border);
+    flex-shrink: 0;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+
+  .nav-links .lang-toggle {
+    margin: 1rem 1.5rem;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.85rem;
+  }
+
+  /* Show mobile nav right (lang button + hamburger) */
+  .mobile-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: auto;
+  }
+
+  /* Hide standalone hamburger — it's inside mobile-nav-right now */
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-logo {
+    font-size: 1.15rem;
+  }
+
+  /* ======= HERO ======= */
+  .hero {
+    height: 100svh;
+    min-height: 500px;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+  }
+
+  .hero-title {
+    font-size: clamp(2.8rem, 12vw, 4rem);
+    margin-bottom: 1rem;
+  }
+
+  .hero-tagline {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+
+  /* ======= FEATURED GRID ======= */
+  .featured-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 280px 200px 200px;
+    gap: 8px;
+  }
+
+  .featured-large {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  /* ======= ABOUT SNIPPET ======= */
+  .about-snippet-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .about-snippet-img {
+    aspect-ratio: 4/3;
+    max-height: 280px;
+  }
+
+  /* ======= SERVICES TEASER ======= */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .service-card {
+    padding: 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  /* ======= PORTFOLIO PAGE ======= */
+  .filter-bar {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    font-size: 0.75rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  /* ======= ABOUT PAGE ======= */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .about-img-wrap {
+    max-width: 100%;
+    aspect-ratio: 1/1;
+  }
+
+  /* ======= SERVICES & BOOKING PAGE ======= */
+  .packages-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .package-card.featured-package {
+    transform: none;
+  }
+
+  /* ======= BLOG PAGE ======= */
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  /* ======= PRESETS PAGE ======= */
+  .presets-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  /* ======= CONTACT PAGE ======= */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contact-info {
+    order: 2;
+  }
+
+  .contact-form-wrap {
+    order: 1;
+  }
+
+  /* ======= FORMS ======= */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 16px;
+  }
+
+  /* ======= BUTTONS ======= */
+  .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  /* ======= PAGE HERO ======= */
+  .page-hero {
+    padding: 2rem 0 1.5rem;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+  }
+
+  /* ======= FOOTER ======= */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .footer-social {
+    gap: 1.25rem;
+  }
+
+  .divider {
+    margin: 0.75rem auto 1.25rem;
+  }
+
+  .section {
+    padding: 2.5rem 0;
+  }
+}
+
+/* ==========================================
+   TINY MOBILE (max-width: 380px)
+   ========================================== */
+@media (max-width: 380px) {
+
+  .hero-title {
+    font-size: clamp(2.2rem, 10vw, 3rem);
+  }
+
+  .nav-logo {
+    font-size: 1rem;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-grid {
+    grid-template-rows: 240px 180px 180px;
+  }
+}
+
+/* ==========================================
+   TOUCH DEVICE OPTIMIZATIONS
+   ========================================== */
+@media (hover: none) and (pointer: coarse) {
+
+  .featured-overlay {
+    opacity: 1;
+    background: linear-gradient(
+      to top,
+      rgba(62, 39, 35, 0.5) 0%,
+      transparent 50%
+    );
+  }
+
+  .gallery-item .gallery-overlay {
+    opacity: 1;
+  }
+
+  .nav-links a {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  .btn {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .service-card:hover {
+    transform: none;
+  }
+
+  .btn-primary:hover,
+  .btn-outline:hover {
+    transform: none;
+  }
+}
+
+/* ==========================================
+   LANDSCAPE MOBILE
+   ========================================== */
+@media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+
+  .hero {
+    height: auto;
+    min-height: 100svh;
+    padding: 5rem 0 3rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+
+  .hero-tagline {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* ==========================================
+   PRINT STYLES
+   ========================================== */
+@media print {
+  .navbar,
+  .hamburger,
+  .hero-scroll,
+  footer {
+    display: none;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+}

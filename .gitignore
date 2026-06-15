@@ -1,0 +1,14 @@
+# macOS metadata
+.DS_Store
+._.DS_Store
+._*
+.AppleDouble
+.LSOverride
+
+# Obsidian notes
+Photography site/
+
+# Empty stub files
+index.css
+index.js
+js/fo

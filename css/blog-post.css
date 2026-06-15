@@ -1,0 +1,193 @@
+/* ============================================
+   PRASHANT CAPTURES — blog-post.css
+   Individual blog post article styles
+   ============================================ */
+
+.post-hero {
+  padding: calc(var(--nav-height) + var(--space-lg)) 0 var(--space-lg);
+  background: var(--color-bg-white);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.post-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.post-category {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-tan);
+  background: rgba(139, 111, 71, 0.1);
+  padding: 0.2rem 0.7rem;
+  border-radius: 100px;
+}
+
+.post-date {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.post-hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  color: var(--color-brown);
+  line-height: 1.15;
+  max-width: 800px;
+  margin-bottom: 1.25rem;
+}
+
+.post-hero-lede {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: var(--color-text-muted);
+  max-width: 640px;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.post-hero-img {
+  margin-top: var(--space-md);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 21/9;
+}
+
+.post-hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- ARTICLE BODY ---------- */
+.post-body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+}
+
+.post-body p {
+  font-size: 1.05rem;
+  color: var(--color-text-dark);
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+}
+
+.post-body h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--color-brown);
+  margin: 2.5rem 0 1rem;
+}
+
+.post-body h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--color-tan);
+  margin: 2rem 0 0.75rem;
+}
+
+.post-body ul,
+.post-body ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.post-body li {
+  font-size: 1.05rem;
+  color: var(--color-text-dark);
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+}
+
+.post-body ul li {
+  list-style: disc;
+}
+
+.post-body ol li {
+  list-style: decimal;
+}
+
+.post-blockquote {
+  border-left: 3px solid var(--color-tan);
+  margin: 2rem 0;
+  padding: 1rem 1.5rem;
+  background: rgba(139, 111, 71, 0.06);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.post-blockquote p {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--color-brown);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.post-divider {
+  width: 60px;
+  height: 2px;
+  background: var(--color-tan);
+  margin: 2.5rem 0;
+}
+
+/* ---------- BACK LINK ---------- */
+.post-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-tan);
+  margin-bottom: 1.5rem;
+  transition: var(--transition);
+}
+
+.post-back:hover {
+  color: var(--color-brown);
+  gap: 0.6rem;
+}
+
+/* ---------- POST FOOTER / CTA ---------- */
+.post-cta {
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  text-align: center;
+  margin: var(--space-lg) auto;
+  max-width: 560px;
+}
+
+.post-cta h3 {
+  font-family: var(--font-heading);
+  color: var(--color-brown);
+  margin-bottom: 0.75rem;
+}
+
+.post-cta p {
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 640px) {
+  .post-body {
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .post-hero-img {
+    aspect-ratio: 4/3;
+    margin-top: var(--space-sm);
+  }
+
+  .post-blockquote {
+    padding: 0.75rem 1rem;
+  }
+}
