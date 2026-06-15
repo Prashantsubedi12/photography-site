@@ -1,229 +1,484 @@
 /* ============================================
-   ABOUT PAGE STYLES
+   PRASHANT CAPTURES — about.css
+   Pixieset-style About page — full redesign
    ============================================ */
 
-/* --- Main About Grid --- */
-.about-main .about-grid {
+/* ============================================
+   §1 SPLIT HERO — image left / intro right
+   ============================================ */
+.about-hero {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: var(--space-lg);
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
 }
 
-/* --- Image --- */
-.about-img-wrap {
-  position: relative;
-  border-radius: var(--radius-lg);
-  overflow: visible;
+/* Left: sticky portrait image */
+.about-hero-img {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.about-img-wrap img {
+.about-hero-img img {
   width: 100%;
-  aspect-ratio: 3/4;
+  height: 100%;
   object-fit: cover;
-  border-radius: var(--radius-lg);
+  object-position: center top;
   display: block;
 }
 
-.about-img-badge {
-  position: absolute;
-  bottom: -1.25rem;
-  right: -1.25rem;
-  background: var(--color-brown);
-  color: var(--color-bg-primary);
-  border-radius: var(--radius-md);
-  padding: 1rem 1.25rem;
-  text-align: center;
-  box-shadow: 0 8px 24px rgba(92,64,51,0.25);
+/* Right: intro text */
+.about-hero-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: calc(var(--nav-height) + var(--space-xl)) var(--space-lg) var(--space-xl);
+  background: var(--color-bg-primary);
 }
 
-.badge-num {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.badge-label {
+.about-hero-eyebrow {
   display: block;
   font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  opacity: 0.85;
-  margin-top: 4px;
-}
-
-/* --- Text --- */
-.about-eyebrow {
-  font-size: 0.85rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
+  font-weight: 600;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-tan);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.about-name {
+.about-hero-name {
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  color: var(--color-brown);
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  font-weight: 400;
+  color: var(--color-text-dark);
   line-height: 1;
+  margin-bottom: 0.25rem;
 }
 
-.about-text p {
+.about-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 1.8vw, 1.4rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-tan);
+  margin-bottom: 2rem;
+}
+
+.about-hero-divider {
+  width: 48px;
+  height: 1px;
+  background: var(--color-border);
+  margin-bottom: 2rem;
+}
+
+.about-hero-intro {
+  font-size: 1.02rem;
+  line-height: 1.9;
   color: var(--color-text-muted);
-  line-height: 1.85;
+  max-width: 440px;
+  margin-bottom: 2.5rem;
 }
 
-.about-cta {
+.about-hero-cta {
   display: flex;
   gap: 1rem;
-  margin-top: var(--space-md);
   flex-wrap: wrap;
 }
 
-/* --- What I Shoot --- */
-.shoot-grid {
+/* ============================================
+   §2 STORY SECTION
+   ============================================ */
+.about-story {
+  padding: var(--space-xl) 0;
+  background: var(--color-bg-white);
+}
+
+.about-story-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.about-story-eyebrow {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-tan);
+  margin-bottom: 1.25rem;
+}
+
+.about-story-inner h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  color: var(--color-text-dark);
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+.about-story-inner p {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.about-story-inner p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Story pull-quote */
+.about-pull-quote {
+  border-left: 2px solid var(--color-tan);
+  padding: 1rem 1.75rem;
+  margin: 2.5rem 0;
+}
+
+.about-pull-quote p {
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem) !important;
+  font-style: italic;
+  color: var(--color-brown) !important;
+  line-height: 1.55 !important;
+  margin-bottom: 0 !important;
+}
+
+/* ============================================
+   §3 PHILOSOPHY SECTION
+   ============================================ */
+.about-philosophy {
+  padding: var(--space-xl) 0;
+  background: var(--color-text-dark);
+  text-align: center;
+}
+
+.about-philosophy-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.about-philosophy-eyebrow {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-tan);
+  margin-bottom: 1.5rem;
+}
+
+.about-philosophy-inner h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  color: var(--color-bg-primary);
+  line-height: 1.25;
+  margin-bottom: 1.5rem;
+}
+
+.about-philosophy-inner p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: rgba(245, 241, 232, 0.65);
+  margin-bottom: 1.25rem;
+}
+
+.about-philosophy-inner p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   §4 PERSONAL FACTS
+   ============================================ */
+.about-facts {
+  padding: var(--space-lg) 0;
+}
+
+.about-facts-header {
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.about-facts-header h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 400;
+  color: var(--color-text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.about-facts-header p {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+}
+
+.facts-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-md);
-}
-
-.shoot-card {
-  background: var(--color-bg-primary);
+  gap: 1px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-md);
-  text-align: center;
-  transition: var(--transition);
-}
-
-.shoot-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 16px 40px rgba(92,64,51,0.1);
-  border-color: var(--color-tan);
-}
-
-.shoot-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.shoot-card h3 {
-  font-size: 1.1rem;
-  color: var(--color-brown);
-  margin-bottom: 0.75rem;
-}
-
-.shoot-card p {
-  font-size: 0.9rem;
-  line-height: 1.7;
-}
-
-/* --- Gear --- */
-.gear-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+  overflow: hidden;
   max-width: 900px;
   margin: 0 auto;
 }
 
-.gear-item {
+.fact-item {
+  padding: 1.75rem 1.5rem;
   background: var(--color-bg-white);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: 1.25rem;
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  transition: var(--transition);
+  flex-direction: column;
+  gap: 0.5rem;
+  border-right: 1px solid var(--color-border);
+  transition: background 0.25s ease;
 }
 
-.gear-item:hover {
-  border-color: var(--color-tan);
-  box-shadow: 0 8px 24px rgba(92,64,51,0.08);
+.fact-item:nth-child(3n) {
+  border-right: none;
 }
 
-.gear-icon {
-  font-size: 1.75rem;
-  flex-shrink: 0;
+.fact-item:nth-child(4),
+.fact-item:nth-child(5),
+.fact-item:nth-child(6) {
+  border-top: 1px solid var(--color-border);
 }
 
-.gear-name {
-  font-size: 0.75rem;
+.fact-item:hover {
+  background: var(--color-bg-primary);
+}
+
+.fact-label {
+  font-size: 0.65rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--color-tan);
-  margin-bottom: 3px;
 }
 
-.gear-val {
-  font-size: 0.9rem;
+.fact-value {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 400;
   color: var(--color-text-dark);
-  font-weight: 500;
+  line-height: 1.3;
 }
 
-.gear-note {
-  font-size: 0.8rem;
+/* ============================================
+   §5 PORTFOLIO PREVIEW
+   ============================================ */
+.about-portfolio-preview {
+  padding: var(--space-lg) 0;
+  background: var(--color-bg-white);
+}
+
+.about-portfolio-header {
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.about-portfolio-header h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 400;
+  color: var(--color-text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.about-portfolio-header p {
+  font-size: 0.92rem;
   color: var(--color-text-muted);
-  font-style: italic;
 }
 
-/* --- Responsive --- */
-@media (max-width: 900px) {
-  .about-main .about-grid {
+.about-preview-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: var(--space-md);
+}
+
+.about-preview-item {
+  display: block;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  position: relative;
+}
+
+.about-preview-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.about-preview-item:hover img {
+  transform: scale(1.04);
+}
+
+.about-portfolio-cta {
+  text-align: center;
+}
+
+/* ============================================
+   §6 CONTACT CTA
+   ============================================ */
+.about-contact-cta {
+  padding: var(--space-xl) 0;
+  text-align: center;
+  background: var(--color-text-dark);
+}
+
+.about-cta-eyebrow {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-tan);
+  margin-bottom: 1.25rem;
+}
+
+.about-contact-cta h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 400;
+  color: var(--color-bg-primary);
+  line-height: 1.2;
+  max-width: 580px;
+  margin: 0 auto 1.25rem;
+}
+
+.about-contact-cta p {
+  font-size: 1rem;
+  color: rgba(245, 241, 232, 0.6);
+  max-width: 440px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.8;
+}
+
+.btn-light {
+  background: var(--color-bg-primary);
+  color: var(--color-brown);
+  border: none;
+  padding: 0.9rem 2.2rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-light:hover {
+  background: var(--color-tan);
+  color: var(--color-bg-primary);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* Tablet: 768px–1024px — de-sticky, stack vertically */
+@media (max-width: 1024px) {
+  .about-hero {
     grid-template-columns: 1fr;
+    min-height: auto;
   }
 
-  .about-img-wrap {
-    max-width: 420px;
-    margin: 0 auto;
+  .about-hero-img {
+    position: relative;
+    height: 75vw;
+    max-height: 560px;
   }
 
-  .shoot-grid {
-    grid-template-columns: 1fr 1fr;
+  .about-hero-text {
+    padding: var(--space-lg) var(--space-md);
   }
 
-  .gear-grid {
-    grid-template-columns: 1fr 1fr;
+  .about-hero-intro {
+    max-width: 100%;
+  }
+
+  .facts-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fact-item:nth-child(2n) {
+    border-right: none;
+  }
+
+  .fact-item:nth-child(3n) {
+    border-right: 1px solid var(--color-border);
+  }
+
+  .fact-item:nth-child(3) {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .fact-item:nth-child(2n) {
+    border-right: none;
   }
 }
 
-@media (max-width: 640px) {
-  .about-img-badge {
-    bottom: -1rem;
-    right: -0.5rem;
-    padding: 0.75rem 1rem;
+/* Mobile: up to 600px */
+@media (max-width: 600px) {
+  .about-hero-img {
+    height: 100vw;
+    max-height: 420px;
   }
 
-  .badge-num {
-    font-size: 1.5rem;
+  .about-hero-text {
+    padding: var(--space-md) var(--space-sm);
   }
 
-  .about-cta {
+  .about-hero-name {
+    font-size: clamp(2.5rem, 12vw, 3.5rem);
+  }
+
+  .about-hero-cta {
     flex-direction: column;
   }
 
-  .about-cta .btn {
+  .about-hero-cta .btn {
     text-align: center;
   }
 
-  .shoot-grid {
-    grid-template-columns: 1fr;
+  .about-story-inner {
+    padding: 0 var(--space-sm);
   }
 
-  .gear-grid {
+  .about-pull-quote {
+    padding: 0.75rem 1.25rem;
+  }
+
+  .facts-list {
     grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
+    border-radius: var(--radius-md);
   }
 
-  .gear-item {
-    padding: 1rem;
-    flex-direction: column;
-    text-align: center;
-    gap: 0.5rem;
+  .fact-item:nth-child(3n) {
+    border-right: 1px solid var(--color-border);
+  }
+
+  .fact-item:nth-child(2n) {
+    border-right: none;
+  }
+
+  .about-preview-strip {
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+
+  .about-preview-strip .about-preview-item:last-child {
+    display: none;
   }
 }
