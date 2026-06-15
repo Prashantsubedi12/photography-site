@@ -6,7 +6,7 @@
   <meta name="description" content="Blog by Prashant Captures — photography tips, Osaka location guides, and stories behind the shots." />
   <meta property="og:title" content="Blog | Prashant Captures" />
   <meta property="og:description" content="Photography thoughts, Osaka location guides, and stories behind the shots." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&q=80" />
+  <meta property="og:image" content="images/anuj%26%20bd/DSC06082.jpg" />
   <meta property="og:url" content="https://photography-site-bay-three.vercel.app/blog.html" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -44,86 +44,153 @@
     </div>
   </nav>
 
-  <!-- PAGE HERO -->
-  <section class="page-hero">
+  <!-- BLOG HERO -->
+  <section class="blog-hero">
     <div class="container">
+      <span class="blog-hero-eyebrow" data-en="Prashant Captures" data-jp="Prashant Captures">Prashant Captures</span>
       <h1 data-en="Blog" data-jp="ブログ">Blog</h1>
-      <p data-en="Photography thoughts, Osaka location guides, and stories behind the shots." data-jp="写真の考え方、大阪のロケーションガイド、そして撮影の裏側。">Photography thoughts, Osaka location guides, and stories behind the shots.</p>
+      <p class="blog-hero-intro" data-en="Stories, photography tips, Osaka location guides, and behind-the-scenes moments from sessions and life on the streets." data-jp="ストーリー、写真のヒント、大阪のロケーションガイド、そしてセッションや日常の舞台裏。">Stories, photography tips, Osaka location guides, and behind-the-scenes moments from sessions and life on the streets.</p>
+      <div class="blog-hero-divider"></div>
     </div>
   </section>
 
-  <!-- BLOG GRID -->
-  <section class="section">
+  <!-- SEARCH + CATEGORY CONTROLS -->
+  <section class="blog-controls">
     <div class="container">
-      <div class="blog-grid">
+      <div class="blog-search-wrap">
+        <svg viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input
+          type="search"
+          class="blog-search"
+          id="blogSearch"
+          placeholder="Search articles…"
+          aria-label="Search blog posts"
+        />
+      </div>
+      <div class="blog-category-tabs" role="group" aria-label="Filter by category">
+        <button class="cat-tab active" data-cat="all" data-en="All" data-jp="すべて">All</button>
+        <button class="cat-tab" data-cat="Photography Tips" data-en="Photography Tips" data-jp="写真のヒント">Photography Tips</button>
+        <button class="cat-tab" data-cat="Locations" data-en="Locations" data-jp="ロケーション">Locations</button>
+        <button class="cat-tab" data-cat="Gear" data-en="Gear" data-jp="機材">Gear</button>
+        <button class="cat-tab" data-cat="Portraits" data-en="Portraits" data-jp="ポートレート">Portraits</button>
+      </div>
+    </div>
+  </section>
 
-        <!-- Post 1 -->
-        <article class="blog-card">
+  <!-- BLOG CONTENT -->
+  <section class="blog-section">
+    <div class="container">
+
+      <!-- FEATURED POST -->
+      <a href="blog/post-1.html" class="featured-post" data-category="Photography Tips" data-title="Why I Carry My Camera Everywhere" data-excerpt="The best shots don't announce themselves. They just happen — and you either have your camera or you don't." aria-label="Read: Why I Carry My Camera Everywhere">
+        <div class="featured-post-img">
+          <img src="images/anuj%26%20bd/DSC06082.jpg" alt="Candid portrait in Osaka — always have your camera" loading="eager" />
+        </div>
+        <div class="featured-post-body">
+          <span class="featured-label" data-en="Featured" data-jp="注目">Featured</span>
+          <div class="featured-post-meta">
+            <span class="blog-category">Photography Tips</span>
+            <span class="blog-date" data-en="June 1, 2026" data-jp="2026年6月1日">June 1, 2026</span>
+          </div>
+          <h2 data-en="Why I Carry My Camera Everywhere" data-jp="カメラをどこへでも持ち歩く理由">Why I Carry My Camera Everywhere</h2>
+          <p data-en="The best shots don't announce themselves. They just happen — and you either have your camera or you don't. Here's the mindset shift that changed everything." data-jp="最高のショットは予告なく訪れます。カメラを持っているかどうか、それだけです。すべてを変えたマインドセットの話。">The best shots don't announce themselves. They just happen — and you either have your camera or you don't. Here's the mindset shift that changed everything.</p>
+          <span class="post-read-link" aria-hidden="true">
+            Read Article
+            <svg viewBox="0 0 24 24" stroke-width="1.8"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- BLOG GRID (remaining posts) -->
+      <div class="blog-grid" id="blogGrid">
+
+        <a href="blog/post-2.html" class="blog-card" data-category="Locations" data-title="5 Best Photography Spots in Osaka" data-excerpt="From the castle grounds at golden hour to the neon chaos of Dotonbori at night." aria-label="Read: 5 Best Photography Spots in Osaka">
           <div class="blog-card-img">
-            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80" alt="Portrait photography" loading="lazy" />
+            <img src="images/parajuli%20and%20nabin/DSC05745.jpg" alt="Portrait at Osaka location" loading="lazy" />
           </div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
-              <span class="blog-category" data-en="Photography" data-jp="写真">Photography</span>
-              <span class="blog-date">June 1, 2026</span>
-            </div>
-            <h3 data-en="Why I Carry My Camera Everywhere" data-jp="カメラをどこへでも持ち歩く理由">Why I Carry My Camera Everywhere</h3>
-            <p data-en="The best shots don't announce themselves. They just happen — and you either have your camera or you don't. Here's the mindset shift that changed everything." data-jp="最高のショットは予告なく訪れます。カメラを持っているかどうか、それだけです。すべてを変えたマインドセットの話。">The best shots don't announce themselves. They just happen — and you either have your camera or you don't. Here's the mindset shift that changed everything.</p>
-            <a href="blog/post-1.html" class="blog-read-more" data-en="Read More →" data-jp="続きを読む →">Read More →</a>
-          </div>
-        </article>
-
-        <!-- Post 2 -->
-        <article class="blog-card">
-          <div class="blog-card-img">
-            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&q=80" alt="Osaka photography locations" loading="lazy" />
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-card-meta">
-              <span class="blog-category" data-en="Osaka" data-jp="大阪">Osaka</span>
-              <span class="blog-date">May 20, 2026</span>
+              <span class="blog-category">Locations</span>
+              <span class="blog-date" data-en="May 20, 2026" data-jp="2026年5月20日">May 20, 2026</span>
             </div>
             <h3 data-en="5 Best Photography Spots in Osaka" data-jp="大阪の写真スポット5選">5 Best Photography Spots in Osaka</h3>
             <p data-en="From the castle grounds at golden hour to the neon chaos of Dotonbori at night — the spots I keep coming back to, and why they work so well." data-jp="黄金時間の大阪城から夜のドトンボリのネオンまで。何度も足を運んでしまう場所と、その理由。">From the castle grounds at golden hour to the neon chaos of Dotonbori at night — the spots I keep coming back to, and why they work so well.</p>
-            <a href="blog/post-2.html" class="blog-read-more" data-en="Read More →" data-jp="続きを読む →">Read More →</a>
+            <span class="post-read-link" aria-hidden="true">
+              Read Article
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
           </div>
-        </article>
+        </a>
 
-        <!-- Post 3 -->
-        <article class="blog-card">
+        <a href="blog/post-3.html" class="blog-card" data-category="Gear" data-title="From iPhone to Real Camera: What Actually Changed" data-excerpt="I started on iPhone and the photos were honestly good. So what pushed me to pick up a real camera?" aria-label="Read: From iPhone to Real Camera">
           <div class="blog-card-img">
-            <img src="https://images.unsplash.com/photo-1600486913747-55e5470d9d9e?w=600&q=80" alt="From iPhone to camera" loading="lazy" />
+            <img src="images/anuj%26%20bd/DSC06115.jpg" alt="Close-up portrait — camera gear matters less than you think" loading="lazy" />
           </div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
-              <span class="blog-category" data-en="Gear" data-jp="機材">Gear</span>
-              <span class="blog-date">May 10, 2026</span>
+              <span class="blog-category">Gear</span>
+              <span class="blog-date" data-en="May 10, 2026" data-jp="2026年5月10日">May 10, 2026</span>
             </div>
             <h3 data-en="From iPhone to Real Camera: What Actually Changed" data-jp="iPhoneから一眼カメラへ：実際に何が変わったか">From iPhone to Real Camera: What Actually Changed</h3>
-            <p data-en="I started on iPhone and the photos were honestly good. So what pushed me to pick up a real camera — and was it worth it? Honest answer." data-jp="最初はiPhoneで撮り始め、写真は正直良かった。では何が私を本物のカメラへ向かわせたのか。そしてその価値はあったのか。正直な答え。">I started on iPhone and the photos were honestly good. So what pushed me to pick up a real camera — and was it worth it? Honest answer.</p>
-            <a href="blog/post-3.html" class="blog-read-more" data-en="Read More →" data-jp="続きを読む →">Read More →</a>
+            <p data-en="I started on iPhone and the photos were honestly good. So what pushed me to pick up a real camera — and was it worth it? Honest answer." data-jp="最初はiPhoneで撮り始め、写真は正直良かった。では何が私を本物のカメラへ向かわせたのか。正直な答え。">I started on iPhone and the photos were honestly good. So what pushed me to pick up a real camera — and was it worth it? Honest answer.</p>
+            <span class="post-read-link" aria-hidden="true">
+              Read Article
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
           </div>
-        </article>
+        </a>
 
-        <!-- Post 4 -->
-        <article class="blog-card">
+        <a href="blog/post-4.html" class="blog-card" data-category="Portraits" data-title="What I'm Really Doing When I Photograph Someone" data-excerpt="A good portrait isn't about the light or the lens. It's about making someone feel safe enough to just be." aria-label="Read: What I'm Really Doing When I Photograph Someone">
           <div class="blog-card-img">
-            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&q=80" alt="Portrait philosophy" loading="lazy" />
+            <img src="images/suprout/DSC06051.jpg" alt="Intimate portrait — the philosophy of photographing people" loading="lazy" />
           </div>
           <div class="blog-card-body">
             <div class="blog-card-meta">
-              <span class="blog-category" data-en="Portraits" data-jp="ポートレート">Portraits</span>
-              <span class="blog-date">April 28, 2026</span>
+              <span class="blog-category">Portraits</span>
+              <span class="blog-date" data-en="April 28, 2026" data-jp="2026年4月28日">April 28, 2026</span>
             </div>
             <h3 data-en="What I'm Really Doing When I Photograph Someone" data-jp="人を撮るとき、私が本当にやっていること">What I'm Really Doing When I Photograph Someone</h3>
-            <p data-en="A good portrait isn't about the light or the lens. It's about making someone feel safe enough to stop performing and just be. That's the job." data-jp="良いポートレートは光でもレンズでもない。その人が「演じること」をやめて、ただそこに存在できる空間を作ること。それが仕事です。">A good portrait isn't about the light or the lens. It's about making someone feel safe enough to stop performing and just be. That's the job.</p>
-            <a href="blog/post-4.html" class="blog-read-more" data-en="Read More →" data-jp="続きを読む →">Read More →</a>
+            <p data-en="A good portrait isn't about the light or the lens. It's about making someone feel safe enough to stop performing and just be. That's the job." data-jp="良いポートレートは光でもレンズでもない。その人がただそこに存在できる空間を作ること。それが仕事です。">A good portrait isn't about the light or the lens. It's about making someone feel safe enough to stop performing and just be. That's the job.</p>
+            <span class="post-read-link" aria-hidden="true">
+              Read Article
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </span>
           </div>
-        </article>
+        </a>
+
+        <p class="blog-no-results" id="blogNoResults" data-en="No articles found. Try a different search or category." data-jp="記事が見つかりませんでした。別の検索やカテゴリーをお試しください。">No articles found. Try a different search or category.</p>
 
       </div>
+    </div>
+  </section>
 
-      <p class="text-center mt-md" style="color: var(--color-text-muted); font-size: 0.9rem; font-style: italic;" data-en="More posts coming soon — follow on Instagram for behind-the-scenes." data-jp="記事は随時追加予定。Instagramでは舞台裏をフォローできます。">More posts coming soon — follow on Instagram for behind-the-scenes.</p>
+  <!-- NEWSLETTER -->
+  <section class="newsletter-section">
+    <div class="container">
+      <span class="newsletter-eyebrow" data-en="Stay Updated" data-jp="最新情報を受け取る">Stay Updated</span>
+      <h2 data-en="New Stories, Delivered" data-jp="新しいストーリーをお届け">New Stories, Delivered</h2>
+      <p data-en="Photography tips, location guides, and behind-the-scenes posts — straight to your inbox." data-jp="写真のヒント、ロケーションガイド、舞台裏の投稿をメールでお届けします。">Photography tips, location guides, and behind-the-scenes posts — straight to your inbox.</p>
+      <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+        <input
+          type="email"
+          class="newsletter-input"
+          placeholder="your@email.com"
+          aria-label="Email address"
+          required
+        />
+        <button type="submit" class="btn btn-primary" data-en="Subscribe" data-jp="登録する">Subscribe</button>
+      </form>
+      <p class="newsletter-note" data-en="No spam. Unsubscribe anytime." data-jp="スパムなし。いつでも登録解除できます。">No spam. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO CTA -->
+  <section class="blog-portfolio-cta">
+    <div class="container">
+      <span class="blog-portfolio-cta-eyebrow" data-en="Explore My Work" data-jp="作品を見る">Explore My Work</span>
+      <h2 data-en="See the Photos Behind the Stories" data-jp="ストーリーの裏にある写真を見る">See the Photos Behind the Stories</h2>
+      <p data-en="Every post points back to a session. Browse the full portfolio — portraits, events, and lifestyle." data-jp="すべての記事はセッションに通じています。ポートレート、イベント、ライフスタイルのポートフォリオをご覧ください。">Every post points back to a session. Browse the full portfolio — portraits, events, and lifestyle.</p>
+      <a href="portfolio.html" class="btn-light" data-en="View Portfolio" data-jp="作品集を見る">View Portfolio</a>
     </div>
   </section>
 
@@ -171,6 +238,77 @@
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="js/main.js"></script>
   <script src="js/animation.js"></script>
+  <script>
+    /* ---- Category filter + search ---- */
+    (function () {
+      const featured   = document.querySelector('.featured-post');
+      const cards      = [...document.querySelectorAll('.blog-grid .blog-card')];
+      const allItems   = featured ? [featured, ...cards] : cards;
+      const tabs       = document.querySelectorAll('.cat-tab');
+      const searchInput = document.getElementById('blogSearch');
+      const noResults  = document.getElementById('blogNoResults');
+
+      let activeCat = 'all';
+      let searchQuery = '';
+
+      function normalize(str) {
+        return str.toLowerCase().trim();
+      }
+
+      function applyFilters() {
+        let visibleCount = 0;
+
+        allItems.forEach(item => {
+          const cat     = (item.dataset.category || '').toLowerCase();
+          const title   = normalize(item.dataset.title || '');
+          const excerpt = normalize(item.dataset.excerpt || '');
+
+          const catMatch = activeCat === 'all' || cat === activeCat.toLowerCase();
+          const searchMatch = !searchQuery ||
+            title.includes(searchQuery) ||
+            excerpt.includes(searchQuery) ||
+            cat.includes(searchQuery);
+
+          if (catMatch && searchMatch) {
+            item.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+
+        noResults.classList.toggle('visible', visibleCount === 0);
+      }
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          activeCat = tab.dataset.cat;
+          applyFilters();
+        });
+      });
+
+      searchInput.addEventListener('input', () => {
+        searchQuery = normalize(searchInput.value);
+        applyFilters();
+      });
+    }());
+
+    /* ---- Newsletter stub ---- */
+    function handleNewsletter(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      const original = btn.textContent;
+      btn.textContent = '✓ Subscribed!';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.disabled = false;
+        e.target.reset();
+      }, 3000);
+    }
+  </script>
 
 </body>
 </html>
