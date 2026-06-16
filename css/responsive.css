@@ -33,9 +33,15 @@
   .about-snippet-img {
     max-height: 400px;
     aspect-ratio: auto;
+    order: -1;
   }
 
   .services-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .home-blog-grid {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
@@ -108,54 +114,63 @@
 
   /* ======= NAVBAR ======= */
 
-  /* Hide desktop nav links on mobile */
+  /* Full-screen centered overlay nav */
   .nav-links {
     position: fixed;
-    top: var(--nav-height);
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: rgba(245, 241, 232, 0.98);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
     gap: 0;
-    padding: 0.5rem 0 2rem;
-    transform: translateX(100%);
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-12px);
+    transition: opacity 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 999;
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: calc(100vh - var(--nav-height));
   }
 
   .nav-links.nav-open {
-    transform: translateX(0);
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
   }
 
   .nav-links li {
-    width: 100%;
-    border-bottom: 0.5px solid var(--color-border);
+    width: auto;
+    border-bottom: none;
     flex-shrink: 0;
   }
 
   .nav-links a {
     display: block;
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
-    letter-spacing: 0.05em;
+    padding: 0.55rem 2rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-align: center;
+    color: var(--color-text-dark);
   }
 
   .nav-links a::after {
     display: none;
   }
 
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--color-tan);
+  }
+
   .nav-links .lang-toggle {
-    margin: 1rem 1.5rem;
-    padding: 0.5rem 1.2rem;
+    margin: 1.25rem auto 0;
+    padding: 0.5rem 1.5rem;
     font-size: 0.85rem;
+    display: block;
   }
 
   /* Show mobile nav right (lang button + hamburger) */
@@ -230,6 +245,13 @@
   .about-snippet-img {
     aspect-ratio: 4/3;
     max-height: 280px;
+    order: -1;
+  }
+
+  /* ======= NEW HOMEPAGE SECTIONS ======= */
+  .home-blog-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   /* ======= SERVICES TEASER ======= */

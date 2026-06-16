@@ -1,6 +1,6 @@
 /* ============================================
    PRASHANT CAPTURES — main.js
-   Handles: Nav, Hamburger, Language Toggle
+   Handles: Nav, Hamburger, Language Toggle, Hero Slider
    ============================================ */
 
 // ---------- NAVBAR SCROLL EFFECT ----------
@@ -99,3 +99,43 @@ if (langFloat) {
     applyLanguage(currentLang);
   });
 }
+
+// ---------- HERO SLIDER ----------
+(function () {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots   = document.querySelectorAll('.hero-dot');
+  if (!slides.length) return;
+
+  let current = 0;
+  let timer   = null;
+
+  function goTo(i) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (i + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function startAuto() {
+    timer = setInterval(() => goTo(current + 1), 5000);
+  }
+
+  function resetAuto() {
+    clearInterval(timer);
+    startAuto();
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => { goTo(i); resetAuto(); });
+  });
+
+  // Pause on hover, resume on leave
+  const heroEl = document.querySelector('.hero');
+  if (heroEl) {
+    heroEl.addEventListener('mouseenter', () => clearInterval(timer));
+    heroEl.addEventListener('mouseleave', startAuto);
+  }
+
+  startAuto();
+}());

@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Prashant Captures — Portrait photographer based in Osaka, Japan. Capturing moments that tell your story." />
+  <meta name="description" content="Prashant Captures — Bilingual portrait photographer based in Osaka, Japan. English & Japanese. Portraits, events, and lifestyle sessions." />
   <meta property="og:title" content="Prashant Captures | Portrait Photographer in Osaka" />
-  <meta property="og:description" content="Bilingual portrait photographer (EN/JP) based in Osaka. Tourist sessions, portraits, couples & events." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&q=80" />
+  <meta property="og:description" content="Bilingual portrait photographer (EN/JP) based in Osaka. Tourist sessions, portraits, couples &amp; events." />
+  <meta property="og:image" content="images/about/IMG_0848.JPG" />
   <meta property="og:url" content="https://photography-site-bay-three.vercel.app/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Prashant Captures | Portrait Photographer in Osaka" />
-  <meta name="twitter:description" content="Bilingual portrait photographer (EN/JP) based in Osaka. Tourist sessions, portraits, couples & events." />
+  <meta name="twitter:description" content="Bilingual portrait photographer (EN/JP) based in Osaka. Tourist sessions, portraits, couples &amp; events." />
 
   <title>Prashant Captures | Portrait Photographer in Osaka</title>
 
@@ -20,25 +20,14 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Prashant Captures",
-    "description": "Bilingual portrait photographer based in Osaka, Japan. Specialising in tourist photo sessions, portraits, couple sessions, and event coverage.",
+    "description": "Bilingual portrait photographer based in Osaka, Japan. English and Japanese spoken. Portrait sessions, tourist photo walks, couples, and event coverage.",
     "url": "https://photography-site-bay-three.vercel.app/",
     "email": "prashant.captures.photo@gmail.com",
-    "image": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&q=80",
     "priceRange": "¥8,000–¥30,000",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Osaka",
-      "addressRegion": "Osaka",
       "addressCountry": "JP"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 34.6937,
-      "longitude": 135.5023
-    },
-    "areaServed": {
-      "@type": "Place",
-      "name": "Kansai Region, Japan"
     },
     "sameAs": [
       "https://instagram.com/prashantsub12",
@@ -48,20 +37,14 @@
   }
   </script>
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
-
-  <!-- Styles -->
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
 </head>
 
 <body>
-
-    
-
 
   <!-- ======= NAVBAR ======= -->
   <nav class="navbar">
@@ -79,7 +62,7 @@
         <li><button class="lang-toggle" id="langToggle">日本語</button></li>
       </ul>
 
-    <div class="mobile-nav-right">
+      <div class="mobile-nav-right">
         <button class="lang-toggle-mobile" id="langFloat">日本語</button>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu">
           <span></span><span></span><span></span>
@@ -88,19 +71,38 @@
     </div>
   </nav>
 
-  <!-- ======= HERO SECTION ======= -->
+  <!-- ======= §1 HERO SLIDER ======= -->
   <section class="hero" id="hero">
-    <div class="hero-bg">
-      <img
-        src="images/anuj%26%20bd/DSC06151.jpg"
-        alt="Portrait of Anuj on Osaka streets"
-        class="hero-img"
-        loading="eager"
-      />
-      <div class="hero-overlay"></div>
+
+    <div class="hero-slides">
+      <div class="hero-slide active">
+        <img
+          src="images/anuj%26%20bd/DSC06151.jpg"
+          alt="Portrait session — Osaka streets"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+      <div class="hero-slide">
+        <img
+          src="images/andygarden/DSC07692.jpg"
+          alt="Event photography — live concert in Osaka"
+          loading="lazy"
+        />
+      </div>
+      <div class="hero-slide">
+        <img
+          src="images/parajuli%20and%20nabin/DSC05847.jpg"
+          alt="Portrait of Parajuli near Osaka station"
+          loading="lazy"
+        />
+      </div>
     </div>
+
+    <div class="hero-overlay"></div>
+
     <div class="hero-content container">
-      <p class="hero-eyebrow" data-en="Portrait Photographer · Osaka, Japan" data-jp="ポートレート写真家・大阪、日本">Portrait Photographer · Osaka, Japan</p>
+      <p class="hero-eyebrow" data-en="Portrait Photographer · Osaka, Japan · EN / JP" data-jp="ポートレート写真家・大阪、日本・英語／日本語対応">Portrait Photographer · Osaka, Japan · EN / JP</p>
       <h1 class="hero-title">Prashant<br><em>Captures</em></h1>
       <p class="hero-tagline" data-en="I photograph people the way they deserve to be remembered." data-jp="人々をその記憶に相応しい姿で撮影します。">I photograph people the way they deserve to be remembered.</p>
       <div class="hero-cta">
@@ -108,34 +110,75 @@
         <a href="contact.html" class="btn btn-outline" data-en="Book a Session" data-jp="セッションを予約">Book a Session</a>
       </div>
     </div>
-    <div class="hero-scroll">
-      <span></span>
+
+    <div class="hero-dots" aria-label="Slide navigation">
+      <button class="hero-dot active" aria-label="Slide 1"></button>
+      <button class="hero-dot" aria-label="Slide 2"></button>
+      <button class="hero-dot" aria-label="Slide 3"></button>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true"><span></span></div>
+
+  </section>
+
+  <!-- ======= §2 ABOUT ME ======= -->
+  <section class="section about-snippet bg-white">
+    <div class="container about-snippet-grid">
+
+      <!-- Text FIRST = left column on desktop -->
+      <div class="about-snippet-text">
+        <p class="about-eyebrow" style="font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--color-tan);margin-bottom:1rem;" data-en="About Me" data-jp="プロフィール">About Me</p>
+        <h2 data-en="Hello, I'm Prashant" data-jp="はじめまして、プラシャントです">Hello, I'm Prashant</h2>
+        <div class="divider" style="margin: 1rem 0 1.5rem;"></div>
+        <p data-en="21 years old, based in Osaka. I'm a bilingual photographer (English &amp; Japanese) with a passion for capturing authentic human moments. What started as a way out of a dark place became the thing I love most — and now I want to share that with you." data-jp="21歳、大阪在住。英語・日本語対応の写真家として、本物の瞬間を切り取ることに情熱を注いでいます。暗い時期からの出口として始めたことが、今では最も愛するものになりました。">21 years old, based in Osaka. I'm a bilingual photographer (English &amp; Japanese) with a passion for capturing authentic human moments. What started as a way out of a dark place became the thing I love most — and now I want to share that with you.</p>
+        <a href="about.html" class="btn btn-primary mt-md" data-en="My Story" data-jp="私のストーリー">My Story</a>
+      </div>
+
+      <!-- Image SECOND = right column on desktop -->
+      <div class="about-snippet-img">
+        <img
+          src="images/about/IMG_0848.JPG"
+          alt="Prashant — portrait photographer at the Osaka waterfront at golden hour"
+          loading="lazy"
+        />
+      </div>
+
     </div>
   </section>
 
-  <!-- ======= FEATURED WORK ======= -->
+  <!-- ======= §3 PHILOSOPHY ======= -->
+  <section class="philosophy-section">
+    <div class="philosophy-inner">
+      <span class="philosophy-eyebrow" data-en="My Philosophy" data-jp="私のフィロソフィー">My Philosophy</span>
+      <h2 data-en="Photography is about feeling, not just seeing." data-jp="写真とは感じることであり、見ることではない。">Photography is about feeling, not just seeing.</h2>
+      <p data-en="Before every session I talk to you. Not about poses, not about lighting — about you. I want to understand how you see yourself, how you'd like to be remembered, and what makes you feel at ease. Only then do I pick up the camera." data-jp="すべてのセッションの前に話します。ポーズや照明についてではなく、あなた自身について。自分をどう見ているか、どう記憶されたいか、何をすれば心が落ち着くかを知りたいのです。そのあとでカメラを手にします。">Before every session I talk to you. Not about poses, not about lighting — about you. I want to understand how you see yourself, how you'd like to be remembered, and what makes you feel at ease. Only then do I pick up the camera.</p>
+      <p data-en="I don't create shots — I recognise them. The best moments happen between the planned ones. My job is to be present enough to catch them." data-jp="私はショットを「作る」のではなく、「気づく」のです。最高の瞬間は、計画と計画の間に生まれます。それに気づけるほど存在感を持つことが、私の仕事です。">I don't create shots — I recognise them. The best moments happen between the planned ones. My job is to be present enough to catch them.</p>
+    </div>
+  </section>
+
+  <!-- ======= §4 SELECTED WORKS ======= -->
   <section class="section featured" id="featured">
     <div class="container">
-      <h2 class="section-title" data-en="Featured Work" data-jp="注目作品">Featured Work</h2>
+      <h2 class="section-title" data-en="Selected Works" data-jp="厳選作品">Selected Works</h2>
       <div class="divider"></div>
-      <p class="section-subtitle" data-en="A glimpse into my world through the lens" data-jp="レンズを通した私の世界をご覧ください">A glimpse into my world through the lens</p>
+      <p class="section-subtitle" data-en="Portraits, events, and lifestyle moments from Osaka and beyond." data-jp="大阪とその周辺でのポートレート、イベント、ライフスタイルの瞬間。">Portraits, events, and lifestyle moments from Osaka and beyond.</p>
       <div class="featured-grid">
         <div class="featured-item featured-large">
-          <img src="images/parajuli%20and%20nabin/DSC05862.jpg" alt="Portrait of Parajuli and Nabin near Osaka station" loading="lazy" />
+          <img src="images/parajuli%20and%20nabin/DSC05862.jpg" alt="Portrait session near Osaka station" loading="lazy" />
           <div class="featured-overlay">
             <span data-en="Portraits" data-jp="ポートレート">Portraits</span>
           </div>
         </div>
         <div class="featured-item">
-          <img src="images/andygarden/DSC07623.jpg" alt="Concert photography at Andy Garden" loading="lazy" />
+          <img src="images/andygarden/DSC07623.jpg" alt="Concert photography at live event in Osaka" loading="lazy" />
           <div class="featured-overlay">
             <span data-en="Events" data-jp="イベント">Events</span>
           </div>
         </div>
         <div class="featured-item">
-          <img src="images/parajuli%20and%20nabin/DSC05808.jpg" alt="Friends in Osaka" loading="lazy" />
+          <img src="images/parajuli%20and%20nabin/DSC05808.jpg" alt="Lifestyle photography — friends in Osaka" loading="lazy" />
           <div class="featured-overlay">
-            <span data-en="Friends" data-jp="友人">Friends</span>
+            <span data-en="Lifestyle" data-jp="ライフスタイル">Lifestyle</span>
           </div>
         </div>
       </div>
@@ -145,46 +188,88 @@
     </div>
   </section>
 
-  <!-- ======= ABOUT SNIPPET ======= -->
-  <section class="section about-snippet bg-white">
-    <div class="container about-snippet-grid">
-      <div class="about-snippet-img">
-        <img src="images/about/IMG_0848.JPG" alt="Prashant — portrait photographer at the Osaka waterfront at golden hour" loading="lazy" />
+  <!-- ======= §5 SERVICES PREVIEW ======= -->
+  <section class="section services-teaser bg-white">
+    <div class="container">
+      <h2 class="section-title" data-en="What I Offer" data-jp="サービス内容">What I Offer</h2>
+      <div class="divider"></div>
+      <p class="section-subtitle" data-en="Every session is tailored to you — your story, your style, your city." data-jp="すべてのセッションはあなたのために — あなたのストーリー、スタイル、街。">Every session is tailored to you — your story, your style, your city.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3 data-en="Portrait Sessions" data-jp="ポートレートセッション">Portrait Sessions</h3>
+          <p data-en="1-on-1 outdoor sessions at Osaka's most photogenic locations. I get to know you before we shoot." data-jp="大阪の風景豊かな場所での1対1の屋外セッション。撮影前にあなたのことを知ります。">1-on-1 outdoor sessions at Osaka's most photogenic locations. I get to know you before we shoot.</p>
+          <a href="services.html" style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-tan);margin-top:1rem;" data-en="Learn more →" data-jp="詳しく →">Learn more →</a>
+        </div>
+        <div class="service-card">
+          <h3 data-en="Photo Walks &amp; Couples" data-jp="フォトウォーク・カップル">Photo Walks &amp; Couples</h3>
+          <p data-en="Walk Osaka together and I photograph you at the city's iconic spots. Perfect for tourists, couples, and visitors." data-jp="大阪を一緒に歩きながら撮影。旅行者、カップル、訪日客の方に最適です。">Walk Osaka together and I photograph you at the city's iconic spots. Perfect for tourists, couples, and visitors.</p>
+          <a href="services.html" style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-tan);margin-top:1rem;" data-en="Learn more →" data-jp="詳しく →">Learn more →</a>
+        </div>
+        <div class="service-card">
+          <h3 data-en="Event Coverage" data-jp="イベント撮影">Event Coverage</h3>
+          <p data-en="Concerts, sports, festivals, and parties — I capture the energy of the moment, start to finish." data-jp="コンサート、スポーツ、フェスティバル、パーティー — 始まりから終わりまで、その瞬間のエネルギーを記録します。">Concerts, sports, festivals, and parties — I capture the energy of the moment, start to finish.</p>
+          <a href="services.html" style="display:inline-flex;align-items:center;gap:0.35rem;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-tan);margin-top:1rem;" data-en="Learn more →" data-jp="詳しく →">Learn more →</a>
+        </div>
       </div>
-      <div class="about-snippet-text">
-        <h2 data-en="Hello, I'm Prashant" data-jp="はじめまして、プラシャントです">Hello, I'm Prashant</h2>
-        <div class="divider" style="margin: 1rem 0;"></div>
-        <p data-en="Based in Osaka, Japan — I'm a portrait photographer with a passion for capturing authentic human moments. What started as a hobby has grown into a journey of telling stories through light and shadow." data-jp="大阪を拠点に活動するポートレート写真家として、真のひとときを切り取ることに情熱を注いでいます。趣味から始まったこの旅は、光と影で物語を語る探求へと成長しました。">Based in Osaka, Japan — I'm a portrait photographer with a passion for capturing authentic human moments. What started as a hobby has grown into a journey of telling stories through light and shadow.</p>
-        <a href="about.html" class="btn btn-primary mt-md" data-en="More About Me" data-jp="詳しくはこちら">More About Me</a>
+      <div class="text-center mt-md">
+        <a href="services.html" class="btn btn-primary" data-en="View All Services &amp; Pricing" data-jp="全サービスと料金を見る">View All Services &amp; Pricing</a>
       </div>
     </div>
   </section>
 
-  <!-- ======= SERVICES TEASER ======= -->
-  <section class="section services-teaser">
+  <!-- ======= §6 BLOG PREVIEW ======= -->
+  <section class="home-blog-preview">
     <div class="container">
-      <h2 class="section-title" data-en="What I Offer" data-jp="サービス内容">What I Offer</h2>
-      <div class="divider"></div>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">📸</div>
-          <h3 data-en="Portrait Sessions" data-jp="ポートレートセッション">Portrait Sessions</h3>
-          <p data-en="1-on-1 portrait sessions tailored to your personality and vision." data-jp="あなたの個性とビジョンに合わせた1対1のポートレートセッション。">1-on-1 portrait sessions tailored to your personality and vision.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🎵</div>
-          <h3 data-en="Event Coverage" data-jp="イベント撮影">Event Coverage</h3>
-          <p data-en="Concerts, sports, and special events captured with energy and precision." data-jp="コンサート、スポーツ、特別なイベントを躍動感とともに撮影。">Concerts, sports, and special events captured with energy and precision.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🎨</div>
-          <h3 data-en="Lightroom Presets" data-jp="Lightroomプリセット">Lightroom Presets</h3>
-          <p data-en="My signature editing styles — available for you to use on your own photos." data-jp="私のシグネチャー編集スタイルをあなたの写真に。">My signature editing styles — available for you to use on your own photos.</p>
-        </div>
+      <div class="home-blog-header">
+        <h2 data-en="From the Blog" data-jp="ブログより">From the Blog</h2>
+        <p data-en="Photography tips, Osaka location guides, and stories from behind the lens." data-jp="写真のヒント、大阪のロケーションガイド、そしてレンズの裏側のストーリー。">Photography tips, Osaka location guides, and stories from behind the lens.</p>
       </div>
-      <div class="text-center mt-md">
-        <a href="services.html" class="btn btn-primary" data-en="View All Services" data-jp="全サービスを見る">View All Services</a>
+      <div class="home-blog-grid">
+
+        <a href="blog/post-1.html" class="home-blog-card" aria-label="Read: Why I Carry My Camera Everywhere">
+          <div class="home-blog-img">
+            <img src="images/anuj%26%20bd/DSC06082.jpg" alt="Always carry your camera — candid Osaka portrait" loading="lazy" />
+          </div>
+          <div class="home-blog-body">
+            <span class="home-blog-cat" data-en="Photography Tips" data-jp="写真のヒント">Photography Tips</span>
+            <span class="home-blog-title" data-en="Why I Carry My Camera Everywhere" data-jp="カメラをどこへでも持ち歩く理由">Why I Carry My Camera Everywhere</span>
+          </div>
+        </a>
+
+        <a href="blog/post-2.html" class="home-blog-card" aria-label="Read: 5 Best Photography Spots in Osaka">
+          <div class="home-blog-img">
+            <img src="images/parajuli%20and%20nabin/DSC05745.jpg" alt="Photography locations in Osaka" loading="lazy" />
+          </div>
+          <div class="home-blog-body">
+            <span class="home-blog-cat" data-en="Locations" data-jp="ロケーション">Locations</span>
+            <span class="home-blog-title" data-en="5 Best Photography Spots in Osaka" data-jp="大阪の写真スポット5選">5 Best Photography Spots in Osaka</span>
+          </div>
+        </a>
+
+        <a href="blog/post-4.html" class="home-blog-card" aria-label="Read: What I'm Really Doing When I Photograph Someone">
+          <div class="home-blog-img">
+            <img src="images/suprout/DSC06051.jpg" alt="The philosophy of portrait photography" loading="lazy" />
+          </div>
+          <div class="home-blog-body">
+            <span class="home-blog-cat" data-en="Portraits" data-jp="ポートレート">Portraits</span>
+            <span class="home-blog-title" data-en="What I'm Really Doing When I Photograph Someone" data-jp="人を撮るとき、私が本当にやっていること">What I'm Really Doing When I Photograph Someone</span>
+          </div>
+        </a>
+
       </div>
+      <div class="text-center">
+        <a href="blog.html" class="btn btn-outline" data-en="Read All Articles" data-jp="すべての記事を読む">Read All Articles</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= §7 LET'S CONNECT ======= -->
+  <section class="home-cta">
+    <div class="container">
+      <span class="home-cta-eyebrow" data-en="Let's Create Something Together" data-jp="一緒に何かを作りましょう">Let's Create Something Together</span>
+      <h2 data-en="Every great photo starts with a conversation." data-jp="すべての素晴らしい写真は、会話から始まる。">Every great photo starts with a conversation.</h2>
+      <p data-en="Whether you're a tourist visiting Osaka, a couple looking for candid photos, or someone who just wants to feel good in front of a camera — I'd love to hear from you. I reply within 24 hours." data-jp="大阪を訪れる旅行者、自然な写真を求めるカップル、あるいはただカメラの前で自分らしくいたい方——ぜひご連絡ください。24時間以内に返信します。">Whether you're a tourist visiting Osaka, a couple looking for candid photos, or someone who just wants to feel good in front of a camera — I'd love to hear from you. I reply within 24 hours.</p>
+      <a href="contact.html" class="btn-cream" data-en="Get In Touch" data-jp="お問い合わせ">Get In Touch</a>
     </div>
   </section>
 
@@ -194,7 +279,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <span class="nav-logo">Prashant Captures</span>
-          <p data-en="Portrait photographer based in Osaka, Japan. Available for portrait sessions and events." data-jp="大阪を拠点とするポートレート写真家。ポートレートセッションとイベント撮影受付中。">Portrait photographer based in Osaka, Japan. Available for portrait sessions and events.</p>
+          <p data-en="Portrait photographer based in Osaka, Japan. Available for portrait sessions, photo walks, and events." data-jp="大阪を拠点とするポートレート写真家。ポートレートセッション、フォトウォーク、イベント撮影受付中。">Portrait photographer based in Osaka, Japan. Available for portrait sessions, photo walks, and events.</p>
           <div class="footer-social">
             <a href="https://instagram.com/prashantsub12" target="_blank" rel="noopener noreferrer">Instagram</a>
             <a href="https://tiktok.com/@prashantsub12" target="_blank" rel="noopener noreferrer">TikTok</a>
@@ -232,7 +317,6 @@
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="js/main.js"></script>
   <script src="js/animation.js"></script>
-
 
 </body>
 </html>
