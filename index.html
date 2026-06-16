@@ -42,6 +42,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+  <!-- Preload hero slides 2–4 so first transitions are instant -->
+  <link rel="preload" as="image" href="images/andygarden/DSC07692.jpg" />
+  <link rel="preload" as="image" href="images/parajuli%20and%20nabin/DSC05847.jpg" />
+  <link rel="preload" as="image" href="images/anuj%26%20bd/DSC06156.jpg" />
 </head>
 
 <body>
@@ -75,31 +79,48 @@
   <section class="hero" id="hero">
 
     <div class="hero-slides">
+      <!-- Slide 1: full-body night portrait — head at ~20%, show face + neon environment -->
       <div class="hero-slide active">
-        <img
-          src="images/anuj%26%20bd/DSC06151.jpg"
-          alt="Portrait session — Osaka streets"
-          loading="eager"
-          fetchpriority="high"
-        />
+        <img src="images/anuj%26%20bd/DSC06151.jpg" alt="Portrait session — Osaka streets at night" loading="eager" fetchpriority="high" style="object-position: center 22%;" />
       </div>
+      <!-- Slide 2: guitarist on stage — head at ~15%, dark stage atmosphere -->
       <div class="hero-slide">
-        <img
-          src="images/andygarden/DSC07692.jpg"
-          alt="Event photography — live concert in Osaka"
-          loading="lazy"
-        />
+        <img src="images/andygarden/DSC07692.jpg" alt="Event photography — live concert in Osaka" loading="lazy" style="object-position: center 18%;" />
       </div>
+      <!-- Slide 3: close-up smiling portrait — face fills upper half -->
       <div class="hero-slide">
-        <img
-          src="images/parajuli%20and%20nabin/DSC05847.jpg"
-          alt="Portrait of Parajuli near Osaka station"
-          loading="lazy"
-        />
+        <img src="images/parajuli%20and%20nabin/DSC05847.jpg" alt="Portrait near Osaka station — natural smile" loading="lazy" style="object-position: center 20%;" />
+      </div>
+      <!-- Slide 4: full-body at restaurant entrance — head at ~20% -->
+      <div class="hero-slide">
+        <img src="images/anuj%26%20bd/DSC06156.jpg" alt="Street portrait outside Osaka restaurant" loading="lazy" style="object-position: center 22%;" />
+      </div>
+      <!-- Slide 5: landscape B&W soccer — subjects spread across mid-frame -->
+      <div class="hero-slide">
+        <img src="images/Jordan%20%26%20Others/DSC06824.jpg" alt="Night sports photography — Osaka" loading="lazy" style="object-position: center 40%;" />
+      </div>
+      <!-- Slide 6: landscape concert duo — action spans full frame -->
+      <div class="hero-slide">
+        <img src="images/andygarden/DSC07633.jpg" alt="Concert photography — live performance in Osaka" loading="lazy" style="object-position: center 30%;" />
+      </div>
+      <!-- Slide 7: upper-body portrait looking sideways — face at ~15% -->
+      <div class="hero-slide">
+        <img src="images/parajuli%20and%20nabin/DSC05752.jpg" alt="Candid portrait — Osaka shopping district" loading="lazy" style="object-position: center 18%;" />
+      </div>
+      <!-- Slide 8: landscape café scene — faces in upper third -->
+      <div class="hero-slide">
+        <img src="images/suprout/DSC06043.jpg" alt="Documentary photography — café session in Osaka" loading="lazy" style="object-position: center 28%;" />
       </div>
     </div>
 
     <div class="hero-overlay"></div>
+
+    <button class="hero-arrow hero-arrow-prev" id="heroPrev" aria-label="Previous slide">
+      <svg viewBox="0 0 24 24" stroke-width="1.6"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="hero-arrow hero-arrow-next" id="heroNext" aria-label="Next slide">
+      <svg viewBox="0 0 24 24" stroke-width="1.6"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
 
     <div class="hero-content container">
       <p class="hero-eyebrow" data-en="Portrait Photographer · Osaka, Japan · EN / JP" data-jp="ポートレート写真家・大阪、日本・英語／日本語対応">Portrait Photographer · Osaka, Japan · EN / JP</p>
@@ -115,6 +136,11 @@
       <button class="hero-dot active" aria-label="Slide 1"></button>
       <button class="hero-dot" aria-label="Slide 2"></button>
       <button class="hero-dot" aria-label="Slide 3"></button>
+      <button class="hero-dot" aria-label="Slide 4"></button>
+      <button class="hero-dot" aria-label="Slide 5"></button>
+      <button class="hero-dot" aria-label="Slide 6"></button>
+      <button class="hero-dot" aria-label="Slide 7"></button>
+      <button class="hero-dot" aria-label="Slide 8"></button>
     </div>
 
     <div class="hero-scroll" aria-hidden="true"><span></span></div>

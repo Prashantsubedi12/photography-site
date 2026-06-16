@@ -102,8 +102,10 @@ if (langFloat) {
 
 // ---------- HERO SLIDER ----------
 (function () {
-  const slides = document.querySelectorAll('.hero-slide');
-  const dots   = document.querySelectorAll('.hero-dot');
+  const slides  = document.querySelectorAll('.hero-slide');
+  const dots    = document.querySelectorAll('.hero-dot');
+  const prevBtn = document.getElementById('heroPrev');
+  const nextBtn = document.getElementById('heroNext');
   if (!slides.length) return;
 
   let current = 0;
@@ -118,7 +120,7 @@ if (langFloat) {
   }
 
   function startAuto() {
-    timer = setInterval(() => goTo(current + 1), 5000);
+    timer = setInterval(() => goTo(current + 1), 8000);
   }
 
   function resetAuto() {
@@ -126,13 +128,36 @@ if (langFloat) {
     startAuto();
   }
 
+  // Dot navigation
   dots.forEach((dot, i) => {
     dot.addEventListener('click', () => { goTo(i); resetAuto(); });
   });
 
-  // Pause on hover, resume on leave
+  // Arrow button navigation
+  if (prevBtn) prevBtn.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+
+  // Keyboard navigation (ArrowLeft / ArrowRight)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft')  { goTo(current - 1); resetAuto(); }
+    if (e.key === 'ArrowRight') { goTo(current + 1); resetAuto(); }
+  });
+
+  // Touch swipe on hero
   const heroEl = document.querySelector('.hero');
   if (heroEl) {
+    let touchStartX = 0;
+    heroEl.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    heroEl.addEventListener('touchend', (e) => {
+      const diff = touchStartX - e.changedTouches[0].screenX;
+      if (Math.abs(diff) > 50) {
+        diff > 0 ? (goTo(current + 1), resetAuto()) : (goTo(current - 1), resetAuto());
+      }
+    }, { passive: true });
+
+    // Pause on hover
     heroEl.addEventListener('mouseenter', () => clearInterval(timer));
     heroEl.addEventListener('mouseleave', startAuto);
   }

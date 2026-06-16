@@ -117,20 +117,28 @@
   /* Full-screen centered overlay nav */
   .nav-links {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 100svh;
     background: rgba(245, 241, 232, 0.98);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 0;
-    padding: 0;
+    /* pad top so items aren't hidden under navbar; pad bottom for balance */
+    padding: var(--nav-height) 1rem 1.5rem;
+    overflow-y: auto;          /* scroll safety on landscape */
+    overflow-x: hidden;
     opacity: 0;
     pointer-events: none;
-    transform: translateY(-12px);
-    transition: opacity 0.38s cubic-bezier(0.4, 0, 0.2, 1),
-                transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(-10px);
+    transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 999;
   }
 
@@ -144,17 +152,20 @@
     width: auto;
     border-bottom: none;
     flex-shrink: 0;
+    text-align: center;
   }
 
+  /* Nav link items — use a comfortable but not oversized size */
   .nav-links a {
     display: block;
-    padding: 0.55rem 2rem;
+    padding: 0.5rem 2.5rem;
     font-family: var(--font-heading);
-    font-size: clamp(1.6rem, 6vw, 2.2rem);
+    font-size: clamp(1.35rem, 5vw, 1.75rem);
     font-weight: 400;
     letter-spacing: 0.04em;
     text-align: center;
     color: var(--color-text-dark);
+    line-height: 1.2;
   }
 
   .nav-links a::after {
@@ -166,10 +177,11 @@
     color: var(--color-tan);
   }
 
+  /* Lang toggle inside the fullscreen overlay */
   .nav-links .lang-toggle {
-    margin: 1.25rem auto 0;
-    padding: 0.5rem 1.5rem;
-    font-size: 0.85rem;
+    margin: 1.5rem auto 0;
+    padding: 0.45rem 1.5rem;
+    font-size: 0.82rem;
     display: block;
   }
 
@@ -187,7 +199,7 @@
   }
 
   .nav-logo {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
   }
 
   /* ======= HERO ======= */
@@ -195,6 +207,19 @@
     height: 100svh;
     min-height: 500px;
   }
+
+  .hero-arrow {
+    width: 42px;
+    height: 42px;
+  }
+
+  .hero-arrow svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .hero-arrow-prev { left: 0.85rem; }
+  .hero-arrow-next { right: 0.85rem; }
 
   .hero-eyebrow {
     font-size: 0.7rem;
@@ -469,6 +494,29 @@
   .hero-tagline {
     font-size: 0.9rem;
     margin-bottom: 1.5rem;
+  }
+
+  /* Compact nav for landscape phones — items too many for small height */
+  .nav-links a {
+    font-size: 1.05rem;
+    padding: 0.3rem 2rem;
+  }
+
+  .nav-links .lang-toggle {
+    margin-top: 0.75rem;
+  }
+}
+
+/* Short viewport safety (e.g. landscape iPhone SE) */
+@media (max-height: 580px) and (max-width: 900px) {
+  .nav-links a {
+    font-size: 1.1rem;
+    padding: 0.3rem 2rem;
+  }
+
+  .nav-links .lang-toggle {
+    margin-top: 0.75rem;
+    padding: 0.35rem 1.2rem;
   }
 }
 

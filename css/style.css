@@ -516,35 +516,88 @@ footer {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 30%;
   display: block;
 }
 
+/* --- Hero Arrows --- */
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(245, 241, 232, 0.12);
+  border: 1px solid rgba(245, 241, 232, 0.35);
+  color: #F5F1E8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 0;
+}
+
+.hero-arrow:hover {
+  background: rgba(245, 241, 232, 0.28);
+  border-color: rgba(245, 241, 232, 0.65);
+  transform: translateY(-50%) scale(1.06);
+}
+
+.hero-arrow:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.hero-arrow svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  flex-shrink: 0;
+}
+
+.hero-arrow-prev { left: 1.75rem; }
+.hero-arrow-next { right: 1.75rem; }
+
+/* --- Hero Dots (centered bottom) --- */
 .hero-dots {
   position: absolute;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 3;
   display: flex;
-  gap: 0.5rem;
+  gap: 0.6rem;
   align-items: center;
 }
 
 .hero-dot {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: rgba(245, 241, 232, 0.4);
   border: none;
   cursor: pointer;
   padding: 0;
   transition: all 0.3s ease;
+  /* Larger tap target via ::after */
+  position: relative;
+}
+
+.hero-dot::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
 }
 
 .hero-dot.active {
   background: rgba(245, 241, 232, 0.95);
-  width: 20px;
-  border-radius: 3px;
+  width: 24px;
+  border-radius: 4px;
 }
 
 /* ---------- FEATURED GRID ---------- */
