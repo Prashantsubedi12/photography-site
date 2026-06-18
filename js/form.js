@@ -10,7 +10,6 @@
   const submitBtn = form.querySelector('[type="submit"]');
   const statusEl  = form.querySelector('.form-status');
   const successEl = document.getElementById('contactSuccess');
-  const resetBtn  = successEl ? successEl.querySelector('.contact-success-reset') : null;
 
   const LABELS = {
     loading: { en: 'Sending…',    jp: '送信中…' },
@@ -78,18 +77,28 @@
   });
 
   /* ---- Reset — let user send another message ---- */
-  if (resetBtn) {
-    resetBtn.addEventListener('click', () => {
-      form.reset();
-      form.hidden = false;
-      if (successEl) successEl.hidden = true;
-      if (statusEl) {
-        statusEl.textContent = '';
-        statusEl.className   = 'form-status';
-      }
-      // Re-sync bilingual placeholders after form.reset() clears them
-      const lang = getLang();
-      if (typeof applyLanguage === 'function') applyLanguage(lang);
-    });
-  }
+  /* Event delegation: catches the click even if the button wasn't in the DOM
+     at init time or if GSAP/Lenis shifted references after load. */
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.contact-success-reset')) return;
+
+    form.reset();
+    form.hidden = false;
+    if (successEl) successEl.hidden = true;
+
+    // Ensure submit button is fully re-enabled
+    if (submitBtn) {
+      submitBtn.disabled    = false;
+      submitBtn.textContent = getLang() === 'en' ? LABELS.btnEN : LABELS.btnJP;
+    }
+
+    if (statusEl) {
+      statusEl.textContent = '';
+      statusEl.className   = 'form-status';
+    }
+
+    // Re-sync bilingual placeholders after form.reset() wipes them
+    const lang = getLang();
+    if (typeof applyLanguage === 'function') applyLanguage(lang);
+  });
 }());
