@@ -523,49 +523,6 @@ footer {
   display: block;
 }
 
-/* --- Hero Arrows --- */
-.hero-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 3;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: rgba(245, 241, 232, 0.08);
-  border: 1px solid rgba(245, 241, 232, 0.28);
-  color: #F5F1E8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  padding: 0;
-}
-
-.hero-arrow:hover {
-  background: rgba(245, 241, 232, 0.22);
-  border-color: rgba(245, 241, 232, 0.55);
-  transform: translateY(-50%) scale(1.06);
-}
-
-.hero-arrow:active {
-  transform: translateY(-50%) scale(0.96);
-}
-
-.hero-arrow svg {
-  width: 16px;
-  height: 16px;
-  stroke: currentColor;
-  fill: none;
-  flex-shrink: 0;
-}
-
-.hero-arrow-prev { left: 1.75rem; }
-.hero-arrow-next { right: 1.75rem; }
-
 /* --- Hero Dots (centered bottom) --- */
 .hero-dots {
   position: absolute;

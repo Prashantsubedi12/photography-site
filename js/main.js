@@ -102,10 +102,8 @@ if (langFloat) {
 
 // ---------- HERO SLIDER ----------
 (function () {
-  const slides  = document.querySelectorAll('.hero-slide');
-  const dots    = document.querySelectorAll('.hero-dot');
-  const prevBtn = document.getElementById('heroPrev');
-  const nextBtn = document.getElementById('heroNext');
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots   = document.querySelectorAll('.hero-dot');
   if (!slides.length) return;
 
   let current = 0;
@@ -132,10 +130,6 @@ if (langFloat) {
   dots.forEach((dot, i) => {
     dot.addEventListener('click', () => { goTo(i); resetAuto(); });
   });
-
-  // Arrow button navigation
-  if (prevBtn) prevBtn.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
-  if (nextBtn) nextBtn.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
 
   // Keyboard navigation (ArrowLeft / ArrowRight)
   document.addEventListener('keydown', (e) => {
