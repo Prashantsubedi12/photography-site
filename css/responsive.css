@@ -15,6 +15,20 @@
     font-size: clamp(3rem, 8vw, 5rem);
   }
 
+  /* Tablet: scale arrows down from desktop 46px */
+  .hero-arrow {
+    width: 42px;
+    height: 42px;
+  }
+
+  .hero-arrow svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .hero-arrow-prev { left: 1.25rem; }
+  .hero-arrow-next { right: 1.25rem; }
+
   .featured-grid {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 220px 220px;
@@ -209,17 +223,25 @@
   }
 
   .hero-arrow {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
+    background: rgba(245, 241, 232, 0.05);
+    border-color: rgba(245, 241, 232, 0.2);
+  }
+
+  .hero-arrow:hover,
+  .hero-arrow:focus-visible {
+    background: rgba(245, 241, 232, 0.15);
+    border-color: rgba(245, 241, 232, 0.4);
   }
 
   .hero-arrow svg {
-    width: 15px;
-    height: 15px;
+    width: 13px;
+    height: 13px;
   }
 
-  .hero-arrow-prev { left: 0.85rem; }
-  .hero-arrow-next { right: 0.85rem; }
+  .hero-arrow-prev { left: 0.5rem; }
+  .hero-arrow-next { right: 0.5rem; }
 
   .hero-eyebrow {
     font-size: 0.7rem;

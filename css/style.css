@@ -529,11 +529,11 @@ footer {
   top: 50%;
   transform: translateY(-50%);
   z-index: 3;
-  width: 52px;
-  height: 52px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  background: rgba(245, 241, 232, 0.12);
-  border: 1px solid rgba(245, 241, 232, 0.35);
+  background: rgba(245, 241, 232, 0.08);
+  border: 1px solid rgba(245, 241, 232, 0.28);
   color: #F5F1E8;
   display: flex;
   align-items: center;
@@ -546,8 +546,8 @@ footer {
 }
 
 .hero-arrow:hover {
-  background: rgba(245, 241, 232, 0.28);
-  border-color: rgba(245, 241, 232, 0.65);
+  background: rgba(245, 241, 232, 0.22);
+  border-color: rgba(245, 241, 232, 0.55);
   transform: translateY(-50%) scale(1.06);
 }
 
@@ -556,8 +556,8 @@ footer {
 }
 
 .hero-arrow svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   stroke: currentColor;
   fill: none;
   flex-shrink: 0;
