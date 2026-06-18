@@ -7,7 +7,7 @@
   const lightbox         = document.getElementById('lightbox');
   const lightboxBackdrop = document.getElementById('lightboxBackdrop');
   const lightboxImg      = document.getElementById('lightboxImg');
-  const lightboxCaption  = document.getElementById('lightboxCaption');
+
   const lightboxCounter  = document.getElementById('lightboxCounter');
   const lightboxClose    = document.getElementById('lightboxClose');
   const lightboxPrev     = document.getElementById('lightboxPrev');
@@ -34,7 +34,7 @@
       lightboxImg.alt = img.alt;
     }
 
-    if (lightboxCaption) lightboxCaption.textContent = img.alt;
+
     if (lightboxCounter) lightboxCounter.textContent = `${index + 1} / ${items.length}`;
     currentIndex = index;
   }
