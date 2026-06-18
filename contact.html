@@ -62,12 +62,10 @@
         </div>
 
         <!-- Form -->
-        <form
-          class="contact-form"
-          action="https://formspree.io/f/REPLACE_WITH_YOUR_CONTACT_FORM_ID"
-          method="POST"
-          data-formspree
-        >
+        <form id="contactForm" class="contact-form">
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE" />
+          <input type="hidden" name="subject" value="New Inquiry — Prashant Captures" />
+
           <div class="form-row">
             <div class="form-group">
               <label for="c-name" data-en="Your Name" data-jp="お名前">Your Name</label>
@@ -110,6 +108,18 @@
 
           <button type="submit" class="btn btn-primary contact-submit" data-en="Send Message" data-jp="送信する">Send Message</button>
         </form>
+
+        <!-- Success State (shown after submission) -->
+        <div id="contactSuccess" class="contact-success" hidden>
+          <div class="contact-success-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <h3 data-en="Message Sent" data-jp="送信完了">Message Sent</h3>
+          <p data-en="Thank you for reaching out. I'll reply within 24 hours — usually sooner." data-jp="メッセージを送信しました。24時間以内にご返信いたします。">Thank you for reaching out. I'll reply within 24 hours — usually sooner.</p>
+          <button class="contact-success-reset" data-en="Send Another Message" data-jp="別のメッセージを送る">Send Another Message</button>
+        </div>
 
         <!-- Contact Details Strip -->
         <div class="contact-details">

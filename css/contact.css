@@ -195,6 +195,71 @@ a.contact-detail-value:hover {
   color: var(--color-tan);
 }
 
+/* ---------- SUCCESS PANEL ---------- */
+.contact-success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 2rem 0;
+  animation: fadeUp 0.45s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.contact-success-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(139, 111, 71, 0.1);
+  border: 1.5px solid var(--color-tan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-tan);
+  flex-shrink: 0;
+}
+
+.contact-success h3 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 400;
+  color: var(--color-text-dark);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.contact-success p {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  max-width: 380px;
+}
+
+.contact-success-reset {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-tan);
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: color 0.25s ease, border-color 0.25s ease;
+  margin-top: 0.5rem;
+}
+
+.contact-success-reset:hover {
+  color: var(--color-brown);
+  border-bottom-color: var(--color-brown);
+}
+
 /* ---------- RIGHT COLUMN (Photo) ---------- */
 .contact-right {
   overflow: hidden;
