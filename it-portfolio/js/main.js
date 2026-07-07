@@ -24,10 +24,11 @@ navLinks.querySelectorAll('a').forEach(a => {
 /* ---- TYPING EFFECT ---- */
 const roles  = ['Web Developer', 'IT Student in Osaka, Japan', 'Bilingual EN / 日本語', 'Photographer'];
 let ri = 0, ci = 0, del = false;
-const roleEl = document.getElementById('roleText');
+const roleEl = document.getElementById('typedText');
 
 function type() {
   const cur = roles[ri];
+  if (!roleEl) return;
   roleEl.textContent = del ? cur.slice(0, ci - 1) : cur.slice(0, ci + 1);
   del ? ci-- : ci++;
 

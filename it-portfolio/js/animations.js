@@ -18,18 +18,35 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---- REGISTER ---- */
   gsap.registerPlugin(ScrollTrigger, SplitText);
 
-  /* ---- HERO ENTRANCE ---- */
-  /* Text elements: opacity:0 + translateY in CSS; photo: opacity:0 + translateX(40px) in CSS */
+  /* ---- HERO ENTRANCE — cinematic depth sequence ---- */
   gsap.timeline({ delay: 0.1 })
-    .to('.hero-eyebrow',    { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' }, 0)
-    .to('.hero-name',       { opacity: 1, y: 0, duration: 0.95, ease: 'power3.out' }, 0.1)
-    .to('.hero-role',       { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' }, 0.35)
-    .to('.hero-tagline',    { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' }, 0.48)
-    .to('.hero-ctas',       { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' }, 0.60)
-    .to('.hero-socials',    { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' }, 0.72)
-    .to('.hero-photo-wrap', { opacity: 1, x: 0,  duration: 1.05, ease: 'power3.out' }, 0.18)
-    .to('.hero-scroll-hint', { opacity: 1, duration: 1.1, ease: 'power1.out' }, 1.05)
-    .call(() => { if (window._startTyping) window._startTyping(); }, null, 0.45);
+    /* 1. Big background name slides up and fades in */
+    .fromTo('.hero-name-bg',
+      { opacity: 0, y: 40 },
+      { opacity: 0.95, y: 0, duration: 1.0, ease: 'power4.out' }, 0.5)
+    /* 2. Portrait slides up from bottom */
+    .fromTo('.hero-portrait',
+      { opacity: 0, y: 60 },
+      { opacity: 1,  y: 0, duration: 1.1, ease: 'power4.out' }, 0.7)
+    /* 3. Eyebrow fades in */
+    .fromTo('.hero-eyebrow',
+      { opacity: 0 },
+      { opacity: 1, duration: 0.7, ease: 'power2.out' }, 0.9)
+    /* 4. SUBEDI slides in */
+    .fromTo('.hero-subtitle',
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.85, ease: 'power4.out' }, 1.0)
+    /* 5. Typed line and social links */
+    .fromTo('.hero-tagline-wrap',
+      { opacity: 0 },
+      { opacity: 1, duration: 0.6, ease: 'power2.out' }, 1.2)
+    .fromTo('.hero-social',
+      { opacity: 0 },
+      { opacity: 1, duration: 0.6, ease: 'power2.out' }, 1.25)
+    .fromTo('.hero-scroll-hint',
+      { opacity: 0 },
+      { opacity: 1, duration: 0.8, ease: 'power1.out' }, 1.4)
+    .call(() => { if (window._startTyping) window._startTyping(); }, null, 1.0);
 
   /* ---- EYEBROWS ---- */
   gsap.utils.toArray('.eyebrow').forEach(el => {
