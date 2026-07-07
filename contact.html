@@ -32,6 +32,7 @@
         <li><a href="blog.html" data-en="Blog" data-jp="ブログ">Blog</a></li>
         <li><a href="presets.html" data-en="Presets" data-jp="プリセット">Presets</a></li>
         <li><a href="contact.html" class="active" data-en="Contact" data-jp="お問い合わせ">Contact</a></li>
+        <li><a href="/it-portfolio/" class="nav-dev-link" data-en="Dev Portfolio" data-jp="開発ポートフォリオ">💻 Dev Portfolio</a></li>
         <li><button class="lang-toggle" id="langToggle">日本語</button></li>
       </ul>
       <div class="mobile-nav-right">
@@ -148,9 +149,16 @@
       </div>
     </div>
 
-    <!-- RIGHT: Portrait Image -->
+    <!-- RIGHT: Photo Slideshow -->
     <div class="contact-right">
-      <img src="images/andygarden/DSC07692.jpg" alt="Prashant Captures — portrait photography in Osaka" />
+      <div class="contact-slideshow" id="contactSlideshow">
+        <img src="images/andygarden/DSC07692.jpg"                alt="Concert photography — Osaka"      class="slide active" loading="eager">
+        <img src="images/andygarden/DSC07633.jpg"                alt="Live performance — Osaka"         class="slide" loading="lazy">
+        <img src="images/parajuli%20and%20nabin/DSC05847.jpg"    alt="Portrait near Osaka station"      class="slide" loading="lazy">
+        <img src="images/parajuli%20and%20nabin/DSC05862.jpg"    alt="Portrait session — Osaka"         class="slide" loading="lazy">
+        <img src="images/anuj%26%20bd/DSC06151.jpg"              alt="Night portrait — Osaka streets"   class="slide" loading="lazy">
+        <img src="images/suprout/DSC06051.jpg"                   alt="Documentary photography — Osaka"  class="slide" loading="lazy">
+      </div>
     </div>
 
   </section>
@@ -199,6 +207,18 @@
   <script src="js/main.js"></script>
   <script src="js/form.js"></script>
   <script src="js/animation.js"></script>
+  <script>
+    (function() {
+      var slides = document.querySelectorAll('#contactSlideshow .slide');
+      var current = 0;
+      if (slides.length < 2) return;
+      setInterval(function() {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+      }, 4000);
+    })();
+  </script>
 
 </body>
 </html>

@@ -62,6 +62,7 @@
         <li><a href="blog.html" data-en="Blog" data-jp="ブログ">Blog</a></li>
         <li><a href="presets.html" data-en="Presets" data-jp="プリセット">Presets</a></li>
         <li><a href="contact.html" data-en="Contact" data-jp="お問い合わせ">Contact</a></li>
+        <li><a href="/it-portfolio/" class="nav-dev-link" data-en="Dev Portfolio" data-jp="開発ポートフォリオ">💻 Dev Portfolio</a></li>
         <li><button class="lang-toggle" id="langToggle">日本語</button></li>
       </ul>
 
@@ -73,6 +74,14 @@
       </div>
     </div>
   </nav>
+
+  <!-- Dev Portfolio announcement bar (dismissable) -->
+  <div class="dev-bar" id="devBar" role="banner">
+    <p class="dev-bar-text">
+      <span data-en="💻 Also a Web Developer — " data-jp="💻 Webデベロッパーでもあります — ">💻 Also a Web Developer — </span><a href="/it-portfolio/" data-en="See my IT Portfolio →" data-jp="ITポートフォリオを見る →">See my IT Portfolio →</a>
+    </p>
+    <button class="dev-bar-close" id="devBarClose" aria-label="Dismiss">✕</button>
+  </div>
 
   <!-- ======= §1 HERO SLIDER ======= -->
   <section class="hero" id="hero">
@@ -335,6 +344,19 @@
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="js/main.js"></script>
   <script src="js/animation.js"></script>
+  <script>
+    (function() {
+      var bar = document.getElementById('devBar');
+      var btn = document.getElementById('devBarClose');
+      if (localStorage.getItem('devBarDismissed')) {
+        bar.classList.add('dev-bar--hidden');
+      }
+      btn.addEventListener('click', function() {
+        bar.classList.add('dev-bar--hidden');
+        localStorage.setItem('devBarDismissed', '1');
+      });
+    })();
+  </script>
 
 </body>
 </html>

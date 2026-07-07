@@ -935,3 +935,67 @@ html.lenis body {
     transition: none !important;
   }
 }
+
+/* ============================================================
+   DEV PORTFOLIO CROSS-LINKS
+   ============================================================ */
+
+/* "Dev Portfolio" nav item */
+.nav-dev-link {
+  font-style: italic;
+  color: var(--color-tan) !important;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+.nav-dev-link:hover { opacity: 1; }
+
+/* Announcement bar — homepage hero */
+.dev-bar {
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  z-index: 98;
+  background: rgba(92, 64, 51, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(139, 111, 71, 0.35);
+  padding: 9px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+.dev-bar.dev-bar--hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+.dev-bar-text {
+  font-size: 0.82rem;
+  color: var(--color-bg-primary);
+  letter-spacing: 0.02em;
+}
+.dev-bar-text a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(245,241,232,0.45);
+  transition: text-decoration-color 0.2s;
+}
+.dev-bar-text a:hover { text-decoration-color: rgba(245,241,232,0.9); }
+.dev-bar-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-bg-primary);
+  opacity: 0.55;
+  font-size: 15px;
+  line-height: 1;
+  padding: 2px 4px;
+  margin-left: auto;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+.dev-bar-close:hover { opacity: 1; }

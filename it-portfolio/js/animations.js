@@ -4,9 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---- LENIS ---- */
   const lenis = new Lenis({
-    duration: 1.2,
-    easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    duration: 0.8,
+    easing: (t) => 1 - Math.pow(1 - t, 3),
     smoothWheel: true,
+    wheelMultiplier: 1.2,
+    touchMultiplier: 2,
+    infinite: false,
   });
   gsap.ticker.add(time => lenis.raf(time * 1000));
   gsap.ticker.lagSmoothing(0);
@@ -16,14 +19,16 @@ document.addEventListener('DOMContentLoaded', () => {
   gsap.registerPlugin(ScrollTrigger, SplitText);
 
   /* ---- HERO ENTRANCE ---- */
-  /* Elements start with opacity:0 + translateY set in CSS */
+  /* Text elements: opacity:0 + translateY in CSS; photo: opacity:0 + translateX(40px) in CSS */
   gsap.timeline({ delay: 0.1 })
-    .to('.hero-eyebrow', { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' }, 0)
-    .to('.hero-name',    { opacity: 1, y: 0, duration: 0.95, ease: 'power3.out' }, 0.1)
-    .to('.hero-role',    { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' }, 0.35)
-    .to('.hero-tagline', { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' }, 0.48)
-    .to('.hero-ctas',    { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' }, 0.6)
-    .to('.hero-scroll-hint', { opacity: 1, duration: 1.1, ease: 'power1.out' }, 1.0)
+    .to('.hero-eyebrow',    { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' }, 0)
+    .to('.hero-name',       { opacity: 1, y: 0, duration: 0.95, ease: 'power3.out' }, 0.1)
+    .to('.hero-role',       { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' }, 0.35)
+    .to('.hero-tagline',    { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' }, 0.48)
+    .to('.hero-ctas',       { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out' }, 0.60)
+    .to('.hero-socials',    { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out' }, 0.72)
+    .to('.hero-photo-wrap', { opacity: 1, x: 0,  duration: 1.05, ease: 'power3.out' }, 0.18)
+    .to('.hero-scroll-hint', { opacity: 1, duration: 1.1, ease: 'power1.out' }, 1.05)
     .call(() => { if (window._startTyping) window._startTyping(); }, null, 0.45);
 
   /* ---- EYEBROWS ---- */

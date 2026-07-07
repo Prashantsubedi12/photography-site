@@ -269,12 +269,26 @@ a.contact-detail-value:hover {
   align-self: start;
 }
 
-.contact-right img {
+.contact-slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.contact-slideshow .slide {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
   display: block;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.contact-slideshow .slide.active {
+  opacity: 1;
 }
 
 /* ---------- RESPONSIVE: TABLET ---------- */

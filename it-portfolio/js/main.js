@@ -22,7 +22,7 @@ navLinks.querySelectorAll('a').forEach(a => {
 });
 
 /* ---- TYPING EFFECT ---- */
-const roles  = ['Web Developer', 'IT Student in Osaka', 'Bilingual EN / 日本語'];
+const roles  = ['Web Developer', 'IT Student in Osaka, Japan', 'Bilingual EN / 日本語', 'Photographer'];
 let ri = 0, ci = 0, del = false;
 const roleEl = document.getElementById('roleText');
 
