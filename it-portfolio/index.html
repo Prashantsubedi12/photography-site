@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Prashant Subedi — Web Developer & IT Student based in Osaka, Japan. Building websites for restaurants, artists, and businesses.">
+  <meta property="og:title" content="Prashant Subedi | Web Developer — Osaka, Japan">
+  <meta property="og:description" content="IT student and web developer in Osaka. Bilingual EN/JP. Building clean, modern websites.">
+  <meta property="og:url" content="https://photography-site-bay-three.vercel.app/it-portfolio/">
+  <meta property="og:type" content="website">
+  <title>Prashant Subedi | Web Developer — Osaka, Japan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#top">Prashant Subedi</a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a href="../" class="nav-photo-btn" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></svg>
+        Photography →
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="top">
+    <div class="hero-grid-bg" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Hello, I'm</p>
+      <h1 class="hero-name">Prashant Subedi</h1>
+      <div class="hero-role">
+        <span id="roleText" class="role-text"></span><span class="cursor" aria-hidden="true">|</span>
+      </div>
+      <p class="hero-tagline">I build websites and capture moments.</p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn btn-gold">See My Projects ↓</a>
+        <a href="../" class="btn btn-outline">View Photography →</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span>scroll</span>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-text">
+          <p class="eyebrow">01 — About</p>
+          <h2 class="section-heading">Building things<br><em>on the internet</em></h2>
+          <p>I'm an IT student at a junior college in Osaka, Japan, graduating March 2027. I'm Nepali, 21 years old, fluent in English and Japanese.</p>
+          <p>I build websites — for restaurants, for artists, for people who need a real online presence. I also photograph people. The two aren't so different — both are about showing someone at their best.</p>
+          <p>Founder of <strong>Team Extra</strong>, a programming club at my university. Started building in 2022 and haven't stopped.</p>
+          <div class="lang-row">
+            <span class="lang-chip">🇬🇧 English</span>
+            <span class="lang-chip">🇯🇵 日本語</span>
+            <span class="lang-chip">🇳🇵 नेपाली</span>
+          </div>
+          <a href="../about.html" class="text-link" rel="noopener">Read the full story →</a>
+        </div>
+
+        <aside class="about-stats">
+          <div class="stat-card">
+            <div class="stat-row">
+              <div class="stat">
+                <span class="stat-num">3+</span>
+                <span class="stat-label">Years building</span>
+              </div>
+              <div class="stat">
+                <span class="stat-num">4</span>
+                <span class="stat-label">Languages spoken</span>
+              </div>
+              <div class="stat">
+                <span class="stat-num">2027</span>
+                <span class="stat-label">Graduation</span>
+              </div>
+            </div>
+            <div class="stat-location">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Osaka, Japan
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJECTS ========== -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <p class="eyebrow">02 — Projects</p>
+      <h2 class="section-heading">Everything I've Built</h2>
+
+      <!-- MAIN PROJECTS -->
+      <div class="projects-main-grid">
+
+        <!-- Photography Portfolio — FEATURED -->
+        <article class="project-card project-card--featured">
+          <div class="project-preview project-preview--photo">
+            <div class="preview-circles" aria-hidden="true">
+              <div class="pc pc1"></div>
+              <div class="pc pc2"></div>
+              <div class="pc pc3"></div>
+            </div>
+            <span class="preview-title">Prashant Captures</span>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="badge badge--gold">Featured</span>
+              <span class="project-year">2024</span>
+            </div>
+            <h3 class="project-name">Photography Portfolio Site</h3>
+            <p class="project-desc">Bilingual (EN/JP) photography portfolio with GSAP scroll animations, lightbox gallery, and Lenis smooth scroll. Built from scratch — no frameworks.</p>
+            <div class="tag-row">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>GSAP</span><span>Lenis</span><span>Bilingual</span>
+            </div>
+            <div class="project-links">
+              <a href="https://photography-site-bay-three.vercel.app/" target="_blank" rel="noopener" class="plink plink--live">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Live Site
+              </a>
+              <a href="https://github.com/Prashantsubedi12/photography-site" target="_blank" rel="noopener" class="plink plink--gh">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Space Game -->
+        <article class="project-card">
+          <div class="project-preview project-preview--space">
+            <canvas class="stars-canvas" id="starsCanvas" aria-hidden="true"></canvas>
+            <span class="preview-title preview-title--space">Orbital Survival</span>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="badge badge--outline">School Project</span>
+              <span class="project-year">2025</span>
+            </div>
+            <h3 class="project-name">Orbital Survival</h3>
+            <p class="project-desc">Browser-based space quiz game. Pilot Earth through the solar system by answering astronomy questions to defeat planets and a supermassive black hole.</p>
+            <div class="tag-row">
+              <span>HTML</span><span>CSS</span><span>Canvas API</span><span>JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Prashantsubedi12/Space-Game" target="_blank" rel="noopener" class="plink plink--gh">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Restaurant -->
+        <article class="project-card">
+          <div class="project-preview project-preview--restaurant">
+            <div class="restaurant-glow" aria-hidden="true"></div>
+            <span class="preview-title">MEGA Restaurant</span>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="badge badge--coming">Coming Soon</span>
+              <span class="project-year">2025</span>
+            </div>
+            <h3 class="project-name">Indian Nepali Restaurant MEGA</h3>
+            <p class="project-desc">Website built for a family-run Indian & Nepali restaurant in Osaka. Full menu, location info, and warm branding — all custom built.</p>
+            <div class="tag-row">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://maps.app.goo.gl/qdvXjimvfLZbdRxm6" target="_blank" rel="noopener" class="plink plink--maps">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                View on Maps
+              </a>
+              <span class="plink-note">Site deploying soon</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- EARLY WORK -->
+      <div class="early-work">
+        <h3 class="early-work-label">Early Work</h3>
+        <div class="early-grid">
+
+          <article class="early-card">
+            <div class="early-preview early-preview--ranking">
+              <span>🎬</span>
+            </div>
+            <div class="early-body">
+              <h4>Movie Ranking Page</h4>
+              <p>My top 3 movies — one of the first HTML pages I ever wrote.</p>
+              <div class="tag-row tag-row--sm">
+                <span>HTML</span>
+              </div>
+              <a href="https://github.com/Prashantsubedi12/my-portfolio" target="_blank" rel="noopener" class="plink plink--gh plink--sm">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+                GitHub
+              </a>
+            </div>
+          </article>
+
+          <article class="early-card">
+            <div class="early-preview early-preview--birthday">
+              <span>🎂</span>
+            </div>
+            <div class="early-body">
+              <h4>Birthday Invite Page</h4>
+              <p>A simple HTML birthday invitation page — early learning project.</p>
+              <div class="tag-row tag-row--sm">
+                <span>HTML</span>
+              </div>
+              <a href="https://github.com/Prashantsubedi12/my-portfolio" target="_blank" rel="noopener" class="plink plink--gh plink--sm">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+                GitHub
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== SKILLS ========== -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <p class="eyebrow">03 — Skills</p>
+      <h2 class="section-heading">Tech Stack</h2>
+      <div class="skills-grid">
+
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="#E34C26" d="M5.9 27.2L3.655 2h24.69l-2.25 25.197-10.043 2.803z"/><path fill="#EF652A" d="M16 27.858l8.123-2.253 1.917-21.485H16z"/><path fill="#EBEBEB" d="M16 13.407h-4.09l-.282-3.165H16V7.151H8.27l.074.83.759 8.509H16zm0 8.836l-.014.004-3.442-.93-.22-2.465H9.221l.433 4.852 6.332 1.758.014-.004z"/><path fill="#fff" d="M15.989 13.407v3.093h3.806l-.358 4.009-3.448.93v3.216l6.337-1.757.046-.522.726-8.137.076-.832zm0-6.256v3.091h7.466l.062-.694.141-1.567.074-.83z"/></svg>
+          </div>
+          <span>HTML5</span>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="#1572B6" d="M5.9 27.2L3.655 2h24.69l-2.25 25.197-10.043 2.803z"/><path fill="#33A9DC" d="M16 27.858l8.123-2.253 1.917-21.485H16z"/><path fill="#fff" d="M16 13.407h-4.09l-.113-1.277H16V9.039H8.53l.074.83.759 8.509H16zm0 7.717l-.014.004-3.442-.93-.22-2.465H9.221l.433 4.852 6.332 1.758.014-.004z"/><path fill="#EBEBEB" d="M15.989 13.407v3.093h3.449l-.325 3.651-3.124.843v3.23l6.337-1.757.046-.522.726-8.137.076-.832-.015-.169zm0-4.368v3.091h6.77l.056-.628.127-1.633.074-.83z"/></svg>
+          </div>
+          <span>CSS3</span>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="#F7DF1E" d="M0 0h32v32H0z"/><path d="M8.93 24.47l2.04-1.235c.393.697.751 1.287 1.611 1.287.823 0 1.341-.322 1.341-1.573v-8.501h2.509v8.538c0 2.591-1.518 3.77-3.734 3.77-2.003 0-3.162-1.038-3.767-2.286M18.32 24.15l2.04-1.182c.537.876 1.235 1.52 2.466 1.52 1.036 0 1.697-.519 1.697-1.234 0-.857-.679-1.162-1.822-1.661l-.626-.269c-1.804-.768-3.003-1.733-3.003-3.77 0-1.877 1.43-3.306 3.663-3.306 1.591 0 2.733.554 3.555 2.003l-1.948 1.251c-.429-.769-.893-1.073-1.608-1.073-.732 0-1.198.465-1.198 1.073 0 .751.465 1.055 1.54 1.519l.625.269c2.126.912 3.325 1.841 3.325 3.932 0 2.254-1.769 3.487-4.147 3.487-2.324 0-3.826-1.109-4.559-2.559"/></svg>
+          </div>
+          <span>JavaScript</span>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="#F05032" d="M31.4 14.55L17.45.6a2.042 2.042 0 0 0-2.888 0l-2.86 2.86 3.639 3.639a2.426 2.426 0 0 1 3.073 3.088l3.508 3.508a2.427 2.427 0 1 1-1.454 1.367l-3.27-3.27v8.609a2.426 2.426 0 1 1-1.992-.057V11.7a2.426 2.426 0 0 1-1.318-3.188L11.29 4.9.6 15.6a2.042 2.042 0 0 0 0 2.888l13.95 13.95a2.042 2.042 0 0 0 2.888 0l13.968-13.997a2.042 2.042 0 0 0 0-2.888"/></svg>
+          </div>
+          <span>Git</span>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon skill-icon--circle">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="white" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+          </div>
+          <span>GitHub</span>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><rect fill="#0AE448" width="32" height="32" rx="5"/><text x="3.5" y="22" font-size="13" font-weight="900" font-family="sans-serif" fill="#000">GSAP</text></svg>
+          </div>
+          <span>GSAP</span>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="#0ACF83" d="M11 32a5 5 0 0 0 5-5v-5h-5a5 5 0 0 0 0 10z"/><path fill="#A259FF" d="M6 17a5 5 0 0 1 5-5h5v10h-5a5 5 0 0 1-5-5z"/><path fill="#F24E1E" d="M6 7a5 5 0 0 1 5-5h5v10h-5a5 5 0 0 1-5-5z"/><path fill="#FF7262" d="M16 2h5a5 5 0 0 1 0 10h-5z"/><path fill="#1ABCFE" d="M26 17a5 5 0 1 1-10 0 5 5 0 0 1 10 0z"/></svg>
+          </div>
+          <span>Figma</span>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-icon">
+            <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><rect fill="#31A8FF" width="32" height="32" rx="4"/><text x="5" y="23" font-size="15" font-weight="700" font-family="sans-serif" fill="#001e36">Lr</text></svg>
+          </div>
+          <span>Lightroom</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+
+        <div class="contact-info">
+          <p class="eyebrow">04 — Contact</p>
+          <h2 class="section-heading">Let's build<br><em>something great</em></h2>
+          <p class="contact-lead">Want to build something together? Let's talk. Based in Osaka — replies within 24 hours.</p>
+
+          <div class="contact-links">
+            <a href="mailto:prashant.captures.photo@gmail.com" class="clink">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              prashant.captures.photo@gmail.com
+            </a>
+            <a href="https://github.com/Prashantsubedi12" target="_blank" rel="noopener" class="clink">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+              github.com/Prashantsubedi12
+            </a>
+            <a href="https://instagram.com/prashantsub12" target="_blank" rel="noopener" class="clink">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              @prashantsub12
+            </a>
+          </div>
+
+          <div class="contact-photo-note">
+            <p>Looking for a photographer?</p>
+            <a href="../" class="gold-link">Visit Prashant Captures →</a>
+          </div>
+        </div>
+
+        <!-- Replace YOUR_FORM_ID with your actual Formspree ID -->
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-group">
+            <label for="fname">Name</label>
+            <input type="text" id="fname" name="name" placeholder="Your name" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="femail">Email</label>
+            <input type="email" id="femail" name="email" placeholder="your@email.com" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="fmessage">Message</label>
+            <textarea id="fmessage" name="message" rows="5" placeholder="Tell me about your project…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold btn-full" id="submitBtn">Send Message</button>
+          <p class="form-status" id="formStatus" aria-live="polite"></p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">© 2026 Prashant Subedi</p>
+        <nav class="footer-links" aria-label="Footer links">
+          <a href="../">Photography Site</a>
+          <a href="https://github.com/Prashantsubedi12" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://instagram.com/prashantsub12" target="_blank" rel="noopener">Instagram</a>
+          <a href="mailto:prashant.captures.photo@gmail.com">Email</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+
+</body>
+</html>
