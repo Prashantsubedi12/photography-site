@@ -18,35 +18,36 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---- REGISTER ---- */
   gsap.registerPlugin(ScrollTrigger, SplitText);
 
-  /* ---- HERO ENTRANCE — cinematic depth sequence ---- */
-  gsap.timeline({ delay: 0.1 })
-    /* 1. Big background name: yPercent:-50 centers it (top:50% + yPercent:-50 = true vertical center) */
-    .fromTo('.hero-name-bg',
-      { opacity: 0, yPercent: -40 },
-      { opacity: 0.95, yPercent: -50, duration: 1.0, ease: 'power4.out' }, 0.5)
-    /* 2. Portrait slides up from bottom */
-    .fromTo('.hero-portrait',
-      { opacity: 0, y: 60 },
-      { opacity: 1,  y: 0, duration: 1.1, ease: 'power4.out' }, 0.7)
-    /* 3. Eyebrow fades in */
-    .fromTo('.hero-eyebrow',
-      { opacity: 0 },
-      { opacity: 1, duration: 0.7, ease: 'power2.out' }, 0.9)
-    /* 4. SUBEDI slides in */
-    .fromTo('.hero-subtitle',
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.85, ease: 'power4.out' }, 1.0)
-    /* 5. Typed line and social links */
-    .fromTo('.hero-tagline-wrap',
-      { opacity: 0 },
-      { opacity: 1, duration: 0.6, ease: 'power2.out' }, 1.2)
-    .fromTo('.hero-social',
-      { opacity: 0 },
-      { opacity: 1, duration: 0.6, ease: 'power2.out' }, 1.25)
-    .fromTo('.hero-scroll-hint',
-      { opacity: 0 },
-      { opacity: 1, duration: 0.8, ease: 'power1.out' }, 1.4)
-    .call(() => { if (window._startTyping) window._startTyping(); }, null, 1.0);
+  /* ---- HERO ENTRANCE — editorial split sequence ---- */
+  /* Set initial hidden states immediately so nothing flashes before timeline starts */
+  gsap.set('.hero-photo',      { x: 60, opacity: 0 });
+  gsap.set('.hero-eyebrow',    { y: 20, opacity: 0 });
+  gsap.set('.hero-name-line1', { y: 40, opacity: 0 });
+  gsap.set('.hero-name-line2', { y: 40, opacity: 0 });
+  gsap.set('.hero-role',       { opacity: 0 });
+  gsap.set('.hero-tagline',    { opacity: 0 });
+  gsap.set('.hero-ctas',       { y: 20, opacity: 0 });
+  gsap.set('.hero-social',     { opacity: 0 });
+
+  gsap.timeline({ defaults: { ease: 'power3.out', duration: 0.8 } })
+    /* 1. Photo slides in from right */
+    .to('.hero-photo',      { x: 0, opacity: 1 },       0)
+    /* 2. Eyebrow fades up */
+    .to('.hero-eyebrow',    { y: 0, opacity: 1 },        0.3)
+    /* 3. PRASHANT slides up */
+    .to('.hero-name-line1', { y: 0, opacity: 1 },        0.5)
+    /* 4. SUBEDI slides up */
+    .to('.hero-name-line2', { y: 0, opacity: 1 },        0.65)
+    /* 5. Role / typed text fades in */
+    .to('.hero-role',       { opacity: 1 },              0.8)
+    /* 6. Tagline fades in */
+    .to('.hero-tagline',    { opacity: 1 },              0.9)
+    /* 7. CTAs slide up */
+    .to('.hero-ctas',       { y: 0, opacity: 1 },        1.0)
+    /* 8. Social links fade in */
+    .to('.hero-social',     { opacity: 1 },              1.1)
+    /* Start typing after role element is visible */
+    .call(() => { if (window._startTyping) window._startTyping(); }, null, 0.8);
 
   /* ---- EYEBROWS ---- */
   gsap.utils.toArray('.eyebrow').forEach(el => {

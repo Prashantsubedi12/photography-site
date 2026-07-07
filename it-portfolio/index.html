@@ -42,37 +42,48 @@
 
   <!-- ========== HERO ========== -->
   <section class="hero" id="top">
-    <div class="hero-grid-bg" aria-hidden="true"></div>
+    <div class="hero-inner">
 
-    <!-- LAYER 1: Background name text (behind photo) -->
-    <div class="hero-name-bg" aria-hidden="true">PRASHANT</div>
-
-    <!-- LAYER 2: Portrait photo (in front of name) -->
-    <div class="hero-photo-wrap">
-      <img src="images/hero-portrait.jpg" alt="Prashant Subedi" class="hero-portrait">
-    </div>
-
-    <!-- LAYER 3: Foreground content (in front of photo) -->
-    <div class="hero-content">
-      <div class="hero-top">
+      <!-- LEFT: Text content -->
+      <div class="hero-text">
         <p class="hero-eyebrow">Hello, I'm</p>
-      </div>
-      <div class="hero-bottom">
-        <p class="hero-subtitle">SUBEDI</p>
-        <div class="hero-tagline-wrap">
-          <p class="hero-typed-label">—</p>
-          <p class="hero-typed" id="typedText">Web Developer</p>
-        </div>
-        <div class="hero-social">
-          <a href="https://github.com/Prashantsubedi12" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://instagram.com/prashantsub12" target="_blank" rel="noopener">Instagram</a>
-        </div>
-      </div>
-    </div>
 
-    <!-- Scroll indicator -->
-    <div class="hero-scroll-hint" aria-hidden="true">
-      <span></span>
+        <div class="hero-name">
+          <span class="hero-name-line1">PRASHANT</span>
+          <span class="hero-name-line2">SUBEDI</span>
+        </div>
+
+        <div class="hero-role">
+          <span class="hero-dash">—</span>
+          <span id="typedText" class="hero-typed">Web Developer</span>
+        </div>
+
+        <p class="hero-tagline">
+          I build websites and capture moments.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="#projects" class="btn-hero-primary">See My Projects ↓</a>
+          <a href="../index.html" class="btn-hero-secondary">📷 View Photography →</a>
+        </div>
+
+        <div class="hero-social">
+          <a href="https://github.com/Prashantsubedi12" target="_blank" rel="noopener">GITHUB</a>
+          <span class="hero-social-divider">/</span>
+          <a href="https://instagram.com/prashantsub12" target="_blank" rel="noopener">INSTAGRAM</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Photo -->
+      <div class="hero-photo">
+        <div class="hero-photo-inner">
+          <img src="images/hero-portrait.jpg"
+               alt="Prashant Subedi — Web Developer & Photographer"
+               loading="eager" />
+          <div class="hero-photo-fade"></div>
+        </div>
+      </div>
+
     </div>
   </section>
 
