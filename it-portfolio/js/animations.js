@@ -20,10 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---- HERO ENTRANCE — cinematic depth sequence ---- */
   gsap.timeline({ delay: 0.1 })
-    /* 1. Big background name slides up and fades in */
+    /* 1. Big background name: yPercent:-50 centers it (top:50% + yPercent:-50 = true vertical center) */
     .fromTo('.hero-name-bg',
-      { opacity: 0, y: 40 },
-      { opacity: 0.95, y: 0, duration: 1.0, ease: 'power4.out' }, 0.5)
+      { opacity: 0, yPercent: -40 },
+      { opacity: 0.95, yPercent: -50, duration: 1.0, ease: 'power4.out' }, 0.5)
     /* 2. Portrait slides up from bottom */
     .fromTo('.hero-portrait',
       { opacity: 0, y: 60 },
