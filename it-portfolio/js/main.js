@@ -93,6 +93,32 @@ if (slides.length > 0) {
   }, { threshold: 0.1 }).observe(canvas);
 })();
 
+/* ---- LANGUAGE TOGGLE ---- */
+function applyItLanguage(lang) {
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.jp;
+  });
+  const btnD = document.getElementById('itLangToggle');
+  const btnM = document.getElementById('itLangToggleMobile');
+  if (btnD) btnD.textContent = lang === 'en' ? '日本語' : 'English';
+  if (btnM) btnM.textContent = lang === 'en' ? '日本語' : 'English';
+  document.documentElement.lang = lang === 'en' ? 'en' : 'ja';
+}
+
+let itCurrentLang = localStorage.getItem('itLang') || 'en';
+applyItLanguage(itCurrentLang);
+
+function toggleItLang() {
+  itCurrentLang = itCurrentLang === 'en' ? 'jp' : 'en';
+  localStorage.setItem('itLang', itCurrentLang);
+  applyItLanguage(itCurrentLang);
+}
+
+const itLangToggle = document.getElementById('itLangToggle');
+const itLangToggleMobile = document.getElementById('itLangToggleMobile');
+if (itLangToggle) itLangToggle.addEventListener('click', toggleItLang);
+if (itLangToggleMobile) itLangToggleMobile.addEventListener('click', toggleItLang);
+
 /* ---- CONTACT FORM (Formspree AJAX) ---- */
 const form    = document.getElementById('contactForm');
 const submitB = document.getElementById('submitBtn');

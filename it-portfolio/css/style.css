@@ -192,6 +192,29 @@ button { font-family: inherit; }
   border-color: #D4B870;
   transform: translateY(-1px);
 }
+
+/* ---- LANG TOGGLE (desktop) ---- */
+.it-lang-toggle {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gold);
+  background: transparent;
+  border: 1px solid var(--gold);
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  letter-spacing: 0.03em;
+}
+.it-lang-toggle:hover {
+  background: var(--gold);
+  color: #0A0A0A;
+  transform: translateY(-1px);
+}
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -552,6 +575,35 @@ button { font-family: inherit; }
 .nav-photo-mobile-link:hover {
   background: #D4B870;
   transform: translateY(-1px);
+}
+
+/* ---- LANG TOGGLE (mobile nav) ---- */
+.nav-lang-mobile-item {
+  display: none;
+}
+.nav-links.open .nav-lang-mobile-item {
+  display: block;
+  padding-top: 12px;
+  margin-top: 2px;
+}
+.it-lang-toggle-mobile {
+  display: inline-flex;
+  align-items: center;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold);
+  background: transparent;
+  border: 1px solid var(--gold);
+  border-radius: 100px;
+  padding: 0.4rem 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  letter-spacing: 0.03em;
+}
+.it-lang-toggle-mobile:hover {
+  background: var(--gold);
+  color: #0A0A0A;
 }
 
 /* ---- HERO MOBILE ---- */
@@ -983,6 +1035,7 @@ button { font-family: inherit; }
   .container, .nav-inner { padding-left: 24px; padding-right: 24px; }
   .nav-links { display: none; }
   .nav-photo-btn { display: none; }
+  .it-lang-toggle { display: none; }
   .nav-toggle { display: flex; }
   .nav-links.open { padding-left: 24px; padding-right: 24px; }
   .section { padding: 80px 0; }
