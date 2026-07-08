@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---- HERO ENTRANCE — editorial split sequence ---- */
   /* Set initial hidden states immediately so nothing flashes before timeline starts */
-  gsap.set('.hero-photo',      { x: 60, opacity: 0 });
+  gsap.set('.hero-photo',      { opacity: 0 });
   gsap.set('.hero-eyebrow',    { y: 20, opacity: 0 });
   gsap.set('.hero-name-line1', { y: 40, opacity: 0 });
   gsap.set('.hero-name-line2', { y: 40, opacity: 0 });
@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
   gsap.set('.hero-social',     { opacity: 0 });
 
   gsap.timeline({ defaults: { ease: 'power3.out', duration: 0.8 } })
-    /* 1. Photo slides in from right */
-    .to('.hero-photo',      { x: 0, opacity: 1 },       0)
+    /* 1. Photo fades in */
+    .to('.hero-photo',      { opacity: 1 },              0)
     /* 2. Eyebrow fades up */
     .to('.hero-eyebrow',    { y: 0, opacity: 1 },        0.3)
     /* 3. PRASHANT slides up */
