@@ -40,6 +40,17 @@ function type() {
 /* Called from animations.js after hero entrance */
 window._startTyping = type;
 
+/* ---- HERO SLIDESHOW ---- */
+const slides = document.querySelectorAll('.hero-slideshow .slide');
+let currentSlide = 0;
+if (slides.length > 0) {
+  setInterval(() => {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }, 4000);
+}
+
 /* ---- STAR CANVAS (Space Game card) ---- */
 (function initStars() {
   const canvas = document.getElementById('starsCanvas');

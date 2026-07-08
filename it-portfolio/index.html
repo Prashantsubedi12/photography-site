@@ -74,12 +74,29 @@
         </div>
       </div>
 
-      <!-- RIGHT: Photo -->
+      <!-- RIGHT: Slideshow -->
       <div class="hero-photo">
         <div class="hero-photo-inner">
-          <img src="images/hero-portrait.jpg"
-               alt="Prashant Subedi — Web Developer & Photographer"
-               loading="eager" />
+          <div class="hero-slideshow">
+            <div class="slide active">
+              <img src="images/slideshow/photo-1.jpg" alt="Prashant — photography" loading="eager" />
+            </div>
+            <div class="slide">
+              <img src="images/slideshow/photo-2.jpg" alt="Prashant — photography" loading="lazy" />
+            </div>
+            <div class="slide">
+              <img src="images/slideshow/photo-3.jpg" alt="Prashant — photography" loading="lazy" />
+            </div>
+            <div class="slide">
+              <img src="images/slideshow/photo-4.jpg" alt="Prashant — photography" loading="lazy" />
+            </div>
+            <div class="slide">
+              <img src="images/slideshow/photo-5.jpg" alt="Prashant — photography" loading="lazy" />
+            </div>
+            <div class="slide">
+              <img src="images/slideshow/photo-6.jpg" alt="Prashant — photography" loading="lazy" />
+            </div>
+          </div>
           <div class="hero-photo-fade"></div>
         </div>
       </div>
@@ -138,7 +155,7 @@
       <p class="eyebrow">02 — Projects</p>
       <h2 class="section-heading">Everything I've Built</h2>
 
-      <!-- MAIN PROJECTS -->
+      <!-- FEATURED PROJECTS (2 cards) -->
       <div class="projects-main-grid">
 
         <!-- Photography Portfolio — FEATURED -->
@@ -164,31 +181,6 @@
                 Live Site
               </a>
               <a href="https://github.com/Prashantsubedi12/photography-site" target="_blank" rel="noopener" class="plink plink--gh">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
-                GitHub
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Space Game -->
-        <article class="project-card">
-          <div class="project-preview project-preview--space">
-            <canvas class="stars-canvas" id="starsCanvas" aria-hidden="true"></canvas>
-            <span class="preview-title preview-title--space">Orbital Survival</span>
-          </div>
-          <div class="project-body">
-            <div class="project-meta">
-              <span class="badge badge--outline">School Project</span>
-              <span class="project-year">2025</span>
-            </div>
-            <h3 class="project-name">Orbital Survival</h3>
-            <p class="project-desc">Browser-based space quiz game. Pilot Earth through the solar system by answering astronomy questions to defeat planets and a supermassive black hole.</p>
-            <div class="tag-row">
-              <span>HTML</span><span>CSS</span><span>Canvas API</span><span>JavaScript</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/Prashantsubedi12/Space-Game" target="_blank" rel="noopener" class="plink plink--gh">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
                 GitHub
               </a>
@@ -225,42 +217,201 @@
 
       </div>
 
-      <!-- EARLY WORK -->
-      <div class="early-work">
-        <h3 class="early-work-label">Early Work</h3>
-        <div class="early-grid">
+      <!-- MORE PROJECTS (7 cards) -->
+      <div class="projects-more">
+        <h3 class="more-projects-label">More Projects</h3>
+        <div class="projects-more-grid">
 
-          <article class="early-card">
-            <div class="early-preview early-preview--ranking">
-              <span>🎬</span>
+          <!-- Space Game -->
+          <article class="project-card">
+            <div class="project-preview project-preview--space">
+              <canvas class="stars-canvas" id="starsCanvas" aria-hidden="true"></canvas>
+              <span class="preview-title preview-title--space">Space Game</span>
             </div>
-            <div class="early-body">
-              <h4>Movie Ranking Page</h4>
-              <p>My top 3 movies — one of the first HTML pages I ever wrote.</p>
-              <div class="tag-row tag-row--sm">
-                <span>HTML</span>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-year">2025</span>
               </div>
-              <a href="https://github.com/Prashantsubedi12/my-portfolio" target="_blank" rel="noopener" class="plink plink--gh plink--sm">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
-                GitHub
-              </a>
+              <h3 class="project-name">Space Game</h3>
+              <p class="project-desc">A browser-based space game built during a mini hackathon with limited time. My first ever game — developed with AI tools, focused on fast delivery and fun gameplay.</p>
+              <div class="tag-row">
+                <span>HTML</span><span>JavaScript</span><span>CSS</span>
+              </div>
+              <div class="project-links">
+                <a href="https://space-game-amber.vercel.app/" target="_blank" rel="noopener" class="plink plink--live">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Live Demo
+                </a>
+                <a href="https://github.com/Prashantsubedi12/Space-Game" target="_blank" rel="noopener" class="plink plink--gh">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+                  GitHub
+                </a>
+              </div>
             </div>
           </article>
 
-          <article class="early-card">
-            <div class="early-preview early-preview--birthday">
-              <span>🎂</span>
+          <!-- Maze Escape -->
+          <article class="project-card">
+            <div class="project-preview">
+              <img src="images/projects/maze-escape.png" alt="Maze Escape Game" class="preview-img" loading="lazy">
+              <div class="preview-overlay" aria-hidden="true"></div>
             </div>
-            <div class="early-body">
-              <h4>Birthday Invite Page</h4>
-              <p>A simple HTML birthday invitation page — early learning project.</p>
-              <div class="tag-row tag-row--sm">
-                <span>HTML</span>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-year">2025</span>
               </div>
-              <a href="https://github.com/Prashantsubedi12/my-portfolio" target="_blank" rel="noopener" class="plink plink--gh plink--sm">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
-                GitHub
-              </a>
+              <h3 class="project-name">Maze Escape</h3>
+              <p class="project-desc">A 2-player competitive maze game originally written in C for college. Ported to the browser — each player races through a randomly generated maze to reach the goal in the shortest time and fewest steps.</p>
+              <div class="tag-row">
+                <span>C Language</span><span>JavaScript</span><span>HTML</span>
+              </div>
+              <div class="project-links">
+                <a href="https://my-profile-template-svelte-sigma.vercel.app/maze-escape.html" target="_blank" rel="noopener" class="plink plink--live">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Play Game
+                </a>
+                <a href="https://github.com/Prashantsubedi12/Maze-Escape-Game" target="_blank" rel="noopener" class="plink plink--gh">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Mosaic Camera -->
+          <article class="project-card">
+            <div class="project-preview">
+              <img src="images/projects/mosaic-camera.png" alt="Mosaic Camera" class="preview-img" loading="lazy">
+              <div class="preview-overlay" aria-hidden="true"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-year">2025</span>
+              </div>
+              <h3 class="project-name">Mosaic Camera</h3>
+              <p class="project-desc">A webcam interactive art tool built in Processing for 情報処理基礎実験. Ported to the browser — hold the mouse or press any key to shatter your live camera feed into mosaic blocks. Drag to control block size and color tone.</p>
+              <div class="tag-row">
+                <span>Processing</span><span>JavaScript</span><span>WebRTC</span>
+              </div>
+              <div class="project-links">
+                <a href="https://my-profile-template-svelte-sigma.vercel.app/mosaic-cam.html" target="_blank" rel="noopener" class="plink plink--live">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Try It
+                </a>
+                <a href="https://github.com/Prashantsubedi12/Processing-mosaic-" target="_blank" rel="noopener" class="plink plink--gh">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Binary Adventure -->
+          <article class="project-card">
+            <div class="project-preview">
+              <img src="images/projects/binary-adventure.png" alt="Binary Adventure" class="preview-img" loading="lazy">
+              <div class="preview-overlay" aria-hidden="true"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-year">2025</span>
+              </div>
+              <h3 class="project-name">Binary Adventure</h3>
+              <p class="project-desc">An interactive browser-based platform for learning binary numbers from scratch. Flip light bulbs, toggle magic boxes, play a prize guessing game, and watch an 8-bit counter machine — then test your knowledge with a 10-question quiz.</p>
+              <div class="tag-row">
+                <span>HTML</span><span>JavaScript</span><span>CSS</span>
+              </div>
+              <div class="project-links">
+                <a href="https://my-profile-template-svelte-sigma.vercel.app/binary-adventure.html" target="_blank" rel="noopener" class="plink plink--live">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Play
+                </a>
+                <a href="https://github.com/Prashantsubedi12/binary-learning-project" target="_blank" rel="noopener" class="plink plink--gh">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Python Adventure -->
+          <article class="project-card">
+            <div class="project-preview">
+              <img src="images/projects/python-adventure.png" alt="Python Adventure" class="preview-img" loading="lazy">
+              <div class="preview-overlay" aria-hidden="true"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="project-year">2025</span>
+              </div>
+              <h3 class="project-name">Python Adventure</h3>
+              <p class="project-desc">A full interactive Python learning platform with 15 lessons, a live code playground, quiz arena, badge system, and XP progression. Includes 5 pro projects: Password Generator, Contact Book, Text Analyzer, Quiz Engine, and RPG Inventory.</p>
+              <div class="tag-row">
+                <span>HTML</span><span>JavaScript</span><span>CSS</span>
+              </div>
+              <div class="project-links">
+                <a href="https://python-adventure-six.vercel.app/" target="_blank" rel="noopener" class="plink plink--live">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Live Demo
+                </a>
+                <a href="https://github.com/Prashantsubedi12/python-adventure" target="_blank" rel="noopener" class="plink plink--gh">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Early Work divider -->
+          <div class="more-projects-divider">Early Work</div>
+
+          <!-- Movie Ranking -->
+          <article class="project-card">
+            <div class="project-preview">
+              <img src="images/projects/movie-ranking.png" alt="Movie Ranking Project" class="preview-img" loading="lazy">
+              <div class="preview-overlay" aria-hidden="true"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="badge badge--outline">1st Project</span>
+                <span class="project-year">2023</span>
+              </div>
+              <h3 class="project-name">Movie Ranking</h3>
+              <p class="project-desc">My very first project — built when I had just started coding and only knew HTML. I wanted to put my new skills to use, so I made a ranked list of my top 3 all-time favourite movies: Interstellar, Avengers: Endgame, and Top Gun.</p>
+              <div class="tag-row">
+                <span>HTML</span><span>CSS</span>
+              </div>
+              <div class="project-links">
+                <a href="https://my-profile-template-svelte-sigma.vercel.app/movie-ranking.html" target="_blank" rel="noopener" class="plink plink--live">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  View Project
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Birthday Invite -->
+          <article class="project-card">
+            <div class="project-preview">
+              <img src="images/projects/birthday-invite.png" alt="Birthday Invite Project" class="preview-img" loading="lazy">
+              <div class="preview-overlay" aria-hidden="true"></div>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span class="badge badge--outline">2nd Project</span>
+                <span class="project-year">2023</span>
+              </div>
+              <h3 class="project-name">Birthday Invite</h3>
+              <p class="project-desc">My second project, still early in my coding journey with just HTML knowledge. I challenged myself to build a birthday invitation page complete with event details, a wishlist, and a location link.</p>
+              <div class="tag-row">
+                <span>HTML</span><span>CSS</span>
+              </div>
+              <div class="project-links">
+                <a href="https://my-profile-template-svelte-sigma.vercel.app/birthday-invite.html" target="_blank" rel="noopener" class="plink plink--live">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  View Project
+                </a>
+              </div>
             </div>
           </article>
 
