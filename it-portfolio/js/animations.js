@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---- HERO ENTRANCE — editorial split sequence ---- */
   /* Set initial hidden states immediately so nothing flashes before timeline starts */
-  gsap.set('.hero-photo',      { opacity: 0 });
   gsap.set('.hero-eyebrow',    { y: 20, opacity: 0 });
   gsap.set('.hero-name-line1', { y: 40, opacity: 0 });
   gsap.set('.hero-name-line2', { y: 40, opacity: 0 });
@@ -29,22 +28,29 @@ document.addEventListener('DOMContentLoaded', () => {
   gsap.set('.hero-ctas',       { y: 20, opacity: 0 });
   gsap.set('.hero-social',     { opacity: 0 });
 
+  /* Photo fades in, clearProps removes all inline styles GSAP applies */
+  gsap.from('.hero-photo', {
+    opacity: 0,
+    duration: 0.6,
+    delay: 0.2,
+    ease: 'power2.out',
+    clearProps: 'all',
+  });
+
   gsap.timeline({ defaults: { ease: 'power3.out', duration: 0.8 } })
-    /* 1. Photo fades in */
-    .to('.hero-photo',      { opacity: 1 },              0)
-    /* 2. Eyebrow fades up */
+    /* 1. Eyebrow fades up */
     .to('.hero-eyebrow',    { y: 0, opacity: 1 },        0.3)
-    /* 3. PRASHANT slides up */
+    /* 2. PRASHANT slides up */
     .to('.hero-name-line1', { y: 0, opacity: 1 },        0.5)
-    /* 4. SUBEDI slides up */
+    /* 3. SUBEDI slides up */
     .to('.hero-name-line2', { y: 0, opacity: 1 },        0.65)
-    /* 5. Role / typed text fades in */
+    /* 4. Role / typed text fades in */
     .to('.hero-role',       { opacity: 1 },              0.8)
-    /* 6. Tagline fades in */
+    /* 5. Tagline fades in */
     .to('.hero-tagline',    { opacity: 1 },              0.9)
-    /* 7. CTAs slide up */
+    /* 6. CTAs slide up */
     .to('.hero-ctas',       { y: 0, opacity: 1 },        1.0)
-    /* 8. Social links fade in */
+    /* 7. Social links fade in */
     .to('.hero-social',     { opacity: 1 },              1.1)
     /* Start typing after role element is visible */
     .call(() => { if (window._startTyping) window._startTyping(); }, null, 0.8);

@@ -496,39 +496,55 @@ button { font-family: inherit; }
 
   .hero-photo {
     order: 1 !important;
-    height: 70vw !important;
-    min-height: 340px !important;
-    max-height: 480px !important;
     width: 100% !important;
-    overflow: hidden !important;
+    height: 380px !important;
+    min-height: 380px !important;
+    max-height: 380px !important;
     position: relative !important;
+    overflow: hidden !important;
+    transform: none !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+
+  .hero-photo-inner {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
   }
 
   .hero-slideshow {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    position: relative !important;
-    overflow: hidden !important;
+    transform: none !important;
   }
 
   .hero-slideshow .slide {
     position: absolute !important;
-    inset: 0 !important;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
-  }
-
-  .hero-slideshow .slide.active {
-    opacity: 1;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
   }
 
   .hero-slideshow .slide img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: center 20% !important;
+    object-position: top center !important;
     display: block !important;
-    filter: brightness(0.85);
     transform: none !important;
   }
 
