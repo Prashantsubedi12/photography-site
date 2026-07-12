@@ -1,6 +1,6 @@
 /* ============================================
    PRASHANT CAPTURES — form.js
-   Web3Forms async submission for contact form
+   Formspree async submission for contact form
    ============================================ */
 
 (function () {
@@ -40,18 +40,18 @@
       statusEl.className   = 'form-status';
     }
 
-    // Build JSON payload from all named fields (includes hidden access_key + subject)
+    // Build JSON payload from all named fields (includes hidden _subject)
     const payload = Object.fromEntries(new FormData(form));
 
     try {
-      const res  = await fetch('https://api.web3forms.com/submit', {
-        method:  'POST',
+      const res  = await fetch(form.action, {
+        method:  form.method || 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body:    JSON.stringify(payload),
       });
       const json = await res.json();
 
-      if (json.success) {
+      if (res.ok && json.ok !== false) {
         // Swap form for success panel
         form.hidden = true;
         if (successEl) {
