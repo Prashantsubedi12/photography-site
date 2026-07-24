@@ -1,6 +1,8 @@
 /* ============================================
    PRASHANT CAPTURES — booking.js
-   Multi-step booking flow + Formspree submission
+   6-step booking flow embedded in contact.html
+   Submits via Formspree (same endpoint as the
+   previous contact form) to prashant.captures.photo@gmail.com
    ============================================ */
 
 (function () {
@@ -10,18 +12,18 @@
   const FORM_ENDPOINT = 'https://formspree.io/f/mzdnpaqr';
   const TOTAL_STEPS = 6;
 
-  const steps       = Array.from(flow.querySelectorAll('.booking-step'));
-  const progressLbl = document.getElementById('progressLabel');
-  const progressName= document.getElementById('progressStepName');
-  const progressFill= document.getElementById('progressFill');
-  const progressBox = document.getElementById('bookingFlow');
-  const successEl   = document.getElementById('bookingSuccess');
+  const steps        = Array.from(flow.querySelectorAll('.booking-step'));
+  const progressLbl  = document.getElementById('progressLabel');
+  const progressName = document.getElementById('progressStepName');
+  const progressFill = document.getElementById('progressFill');
+  const progressBox  = document.querySelector('.booking-flow .booking-progress');
+  const successEl    = document.getElementById('bookingSuccess');
 
   const getLang = () => localStorage.getItem('lang') || 'en';
 
   const STEP_NAMES = {
-    en: ['Choose Your Session', 'Pick a Date', 'Pick a Time', 'Choose Location', 'Your Details', 'Confirmation'],
-    jp: ['セッションを選択', '日程を選択', '時間を選択', '撮影場所を選択', 'お客様情報', '確認'],
+    en: ['Choose Your Session', 'Pick a Date', 'Pick a Time', 'Where shall we shoot?', 'A little about you', 'Review Your Booking'],
+    jp: ['セッションを選択', '日程を選択', '時間帯を選択', '撮影場所を選択', 'お客様情報', '予約内容の確認'],
   };
   const MONTHS = {
     en: ['January','February','March','April','May','June','July','August','September','October','November','December'],
@@ -35,15 +37,21 @@
     en: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
     jp: ['日','月','火','水','木','金','土'],
   };
+  const TBD = { en: 'To be discussed', jp: '後ほど相談' };
 
   // ---- Booking state ----
   const state = {
     step: 1,
     service: null,   // { name, nameJp, price }
-    date: null,      // Date
-    time: null,      // { name, nameJp, range }
-    location: null,  // { name, nameJp }
+    date: null,      // Date | null
+    time: null,      // { name, nameJp, range } | null
+    timeCustom: '',
+    location: null,  // { name, nameJp } | null
+    locationCustom: '',
   };
+
+  const ftTime = document.getElementById('ft-time');
+  const ftLoc  = document.getElementById('ft-location');
 
   /* ============ STEP NAVIGATION ============ */
   function showStep(n) {
@@ -54,12 +62,16 @@
     progressName.textContent = STEP_NAMES[lang][n - 1];
     progressFill.style.width = `${(n / TOTAL_STEPS) * 100}%`;
     if (n === 6) buildSummary();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function showError(key, show) {
+    const el = flow.querySelector(`.flow-error[data-err="${key}"]`);
+    if (el) el.classList.toggle('is-shown', show);
   }
 
   flow.querySelectorAll('[data-next]').forEach(btn => {
     btn.addEventListener('click', () => {
-      if (state.step === 5 && !validateDetails()) return;
+      if (!validateStep(state.step)) return;
       if (state.step < TOTAL_STEPS) showStep(state.step + 1);
     });
   });
@@ -74,6 +86,30 @@
     if (nextBtn) nextBtn.disabled = !enabled;
   }
 
+  /* ============ VALIDATION ============ */
+  function validateStep(step) {
+    switch (step) {
+      case 1:
+        return !!state.service; // Next is gated/disabled, always true when reachable
+      case 2:
+        return !!state.date;
+      case 3: {
+        const ok = !!state.time || ftTime.value.trim().length > 0;
+        showError('time', !ok);
+        return ok;
+      }
+      case 4: {
+        const ok = !!state.location || ftLoc.value.trim().length > 0;
+        showError('location', !ok);
+        return ok;
+      }
+      case 5:
+        return validateDetails();
+      default:
+        return true;
+    }
+  }
+
   /* ============ GENERIC CARD SELECTION ============ */
   function wireCardGroup(selector, onSelect) {
     const cards = flow.querySelectorAll(selector);
@@ -82,36 +118,30 @@
         cards.forEach(c => c.classList.remove('is-selected'));
         card.classList.add('is-selected');
         onSelect(card);
-        setNextEnabled(card.closest('.booking-step'), true);
       });
     });
   }
 
-  // STEP 1 — service
+  // STEP 1 — service (gates the Next button)
   wireCardGroup('.service-card', card => {
-    state.service = {
-      name:   card.dataset.service,
-      nameJp: card.dataset.serviceJp,
-      price:  card.dataset.price,
-    };
+    state.service = { name: card.dataset.service, nameJp: card.dataset.serviceJp, price: card.dataset.price };
+    setNextEnabled(steps[0], true);
+    showError('service', false);
   });
 
   // STEP 3 — time
   wireCardGroup('.time-card', card => {
-    state.time = {
-      name:   card.dataset.time,
-      nameJp: card.dataset.timeJp,
-      range:  card.dataset.range,
-    };
+    state.time = { name: card.dataset.time, nameJp: card.dataset.timeJp, range: card.dataset.range };
+    showError('time', false);
   });
+  ftTime.addEventListener('input', () => { if (ftTime.value.trim()) showError('time', false); });
 
   // STEP 4 — location
   wireCardGroup('.location-card', card => {
-    state.location = {
-      name:   card.dataset.loc,
-      nameJp: card.dataset.locJp,
-    };
+    state.location = { name: card.dataset.loc, nameJp: card.dataset.locJp };
+    showError('location', false);
   });
+  ftLoc.addEventListener('input', () => { if (ftLoc.value.trim()) showError('location', false); });
 
   /* ============ STEP 2 — CALENDAR ============ */
   const calMonthEl = document.getElementById('calMonth');
@@ -127,7 +157,7 @@
   let viewMonth = today.getMonth();
 
   function isUnavailable(date) {
-    const dow = date.getDay();          // 0 Sun, 1 Mon
+    const dow = date.getDay();      // 0 Sun, 1 Mon
     if (dow === 0 || dow === 1) return true;
     if (date < today) return true;
     return false;
@@ -137,7 +167,6 @@
     const lang = getLang();
     calMonthEl.textContent = `${MONTHS[lang][viewMonth]} ${viewYear}`;
 
-    // Day-of-week headers
     calDowEl.innerHTML = '';
     DOW[lang].forEach(d => {
       const el = document.createElement('div');
@@ -146,9 +175,8 @@
       calDowEl.appendChild(el);
     });
 
-    // Days
     calDaysEl.innerHTML = '';
-    const firstDay = new Date(viewYear, viewMonth, 1).getDay(); // 0=Sun
+    const firstDay = new Date(viewYear, viewMonth, 1).getDay();
     const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
 
     for (let i = 0; i < firstDay; i++) {
@@ -180,7 +208,6 @@
       calDaysEl.appendChild(btn);
     }
 
-    // Prev disabled if we're at the current month
     calPrev.disabled = (viewYear === today.getFullYear() && viewMonth === today.getMonth());
   }
 
@@ -209,68 +236,88 @@
     renderCalendar();
   });
 
-  /* ============ STEP 5 — VALIDATION ============ */
-  const nameInput  = document.getElementById('b-name');
-  const emailInput = document.getElementById('b-email');
+  /* ============ STEP 5 — DETAILS VALIDATION ============ */
+  const nameInput   = document.getElementById('b-name');
+  const emailInput  = document.getElementById('b-email');
+  const peopleInput = document.getElementById('b-people');
 
-  function toggleError(input, key, show) {
+  function toggleFieldError(input, key, show) {
     input.classList.toggle('is-invalid', show);
-    const err = flow.querySelector(`[data-err="${key}"]`);
+    const err = flow.querySelector(`.field-error[data-err="${key}"]`);
     if (err) err.classList.toggle('is-shown', show);
   }
 
   function validateDetails() {
     let ok = true;
     const nameOk = nameInput.value.trim().length > 0;
-    toggleError(nameInput, 'name', !nameOk);
+    toggleFieldError(nameInput, 'name', !nameOk);
     if (!nameOk) ok = false;
 
     const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim());
-    toggleError(emailInput, 'email', !emailOk);
+    toggleFieldError(emailInput, 'email', !emailOk);
     if (!emailOk) ok = false;
+
+    const peopleOk = parseInt(peopleInput.value, 10) >= 1;
+    toggleFieldError(peopleInput, 'people', !peopleOk);
+    if (!peopleOk) ok = false;
 
     return ok;
   }
 
-  [nameInput, emailInput].forEach(inp => {
+  [nameInput, emailInput, peopleInput].forEach(inp => {
     inp.addEventListener('input', () => {
       if (inp.classList.contains('is-invalid')) validateDetails();
     });
   });
 
-  /* ============ STEP 6 — SUMMARY ============ */
+  /* ============ DERIVED VALUES ============ */
   function getDetails() {
     return {
-      name:     document.getElementById('b-name').value.trim(),
-      email:    document.getElementById('b-email').value.trim(),
+      name:     nameInput.value.trim(),
+      email:    emailInput.value.trim(),
       phone:    document.getElementById('b-phone').value.trim(),
-      people:   document.getElementById('b-people').value.trim() || '1',
+      people:   peopleInput.value.trim() || '1',
       langpref: (document.querySelector('input[name="langpref"]:checked') || {}).value || 'English',
       requests: document.getElementById('b-requests').value.trim(),
     };
   }
 
+  function timeText(lang) {
+    if (state.time) return `${lang === 'en' ? state.time.name : state.time.nameJp} (${state.time.range})`;
+    if (ftTime.value.trim()) return ftTime.value.trim();
+    return TBD[lang];
+  }
+  function locationText(lang) {
+    if (state.location) return `${state.location.name} / ${state.location.nameJp}`;
+    if (ftLoc.value.trim()) return ftLoc.value.trim();
+    return TBD[lang];
+  }
+  function dateText(lang) {
+    return state.date ? formatDate(state.date, lang) : TBD[lang];
+  }
+
+  /* ============ STEP 6 — SUMMARY ============ */
   function buildSummary() {
     const lang = getLang();
     const d = getDetails();
-    const s = state;
     const L = lang === 'en'
-      ? { service:'Service', datetime:'Date & Time', location:'Location', name:'Name', email:'Email', people:'People' }
-      : { service:'サービス', datetime:'日時', location:'撮影場所', name:'お名前', email:'メール', people:'人数' };
+      ? { service:'Session', date:'Date', time:'Time', location:'Location', name:'Name', email:'Email', people:'People', langpref:'Language', requests:'Requests' }
+      : { service:'セッション', date:'日程', time:'時間', location:'撮影場所', name:'お名前', email:'メール', people:'人数', langpref:'言語', requests:'ご要望' };
 
-    const serviceTxt = s.service ? `${lang === 'en' ? s.service.name : s.service.nameJp} · <strong>${s.service.price}</strong>` : '—';
-    const timeTxt    = s.time ? `${lang === 'en' ? s.time.name : s.time.nameJp} (${s.time.range})` : '—';
-    const dateTxt    = s.date ? formatDate(s.date, lang) : '—';
-    const locTxt     = s.location ? `${s.location.name} / ${s.location.nameJp}` : '—';
+    const serviceTxt = state.service ? `${lang === 'en' ? state.service.name : state.service.nameJp} · <strong>${state.service.price}</strong>` : '—';
+    const langTxt = d.langpref === '日本語' ? '日本語' : (lang === 'en' ? 'English' : '英語');
 
     const rows = [
       [L.service,  serviceTxt],
-      [L.datetime, `${dateTxt}<br>${timeTxt}`],
-      [L.location, locTxt],
+      [L.date,     dateText(lang)],
+      [L.time,     timeText(lang)],
+      [L.location, locationText(lang)],
       [L.name,     d.name || '—'],
       [L.email,    d.email || '—'],
       [L.people,   d.people],
+      [L.langpref, langTxt],
     ];
+    if (d.requests) rows.push([L.requests, d.requests]);
 
     document.getElementById('summaryCard').innerHTML = rows.map(([k, v]) =>
       `<div class="summary-row"><span class="summary-label">${k}</span><span class="summary-value">${v}</span></div>`
@@ -278,28 +325,28 @@
   }
 
   /* ============ SUBMISSION ============ */
-  const submitBtn = document.getElementById('submitBooking');
-  const errorEl   = document.getElementById('bookingError');
+  const submitBtn   = document.getElementById('submitBooking');
+  const errorEl     = document.getElementById('bookingError');
   const successText = document.getElementById('successText');
 
   submitBtn.addEventListener('click', async () => {
     const lang = getLang();
     const d = getDetails();
+    errorEl.classList.remove('is-shown');
     errorEl.textContent = '';
 
     const payload = {
       _subject: `New Booking Request — ${state.service ? state.service.name : ''} (${d.name})`,
-      'Service':          state.service ? `${state.service.name} / ${state.service.nameJp}` : '',
-      'Price':            state.service ? state.service.price : '',
-      'Date':             state.date ? formatDate(state.date, 'en') : '',
-      'Time':             state.time ? `${state.time.name} (${state.time.range})` : '',
-      'Location':         state.location ? `${state.location.name} / ${state.location.nameJp}` : '',
+      'Session':          state.service ? `${state.service.name} — ${state.service.price}` : '',
+      'Date':             dateText('en'),
+      'Time':             state.time ? `${state.time.name} (${state.time.range})` : (ftTime.value.trim() || TBD.en),
+      'Location':         state.location ? `${state.location.name} / ${state.location.nameJp}` : (ftLoc.value.trim() || TBD.en),
       'Name':             d.name,
       'Email':            d.email,
-      'Phone':            d.phone || '(not provided)',
-      'Number of People': d.people,
-      'Language Pref':    d.langpref,
-      'Special Requests': d.requests || '(none)',
+      'Phone':            d.phone || 'Not provided',
+      'People':           d.people,
+      'Language':         d.langpref === '日本語' ? 'Japanese' : 'English',
+      'Special Requests': d.requests || 'None',
       email:              d.email, // Formspree reply-to
     };
 
@@ -323,6 +370,7 @@
       errorEl.textContent = lang === 'en'
         ? 'Something went wrong. Please try again or email me directly.'
         : 'エラーが発生しました。もう一度お試しいただくか、直接メールをお送りください。';
+      errorEl.classList.add('is-shown');
       submitBtn.disabled = false;
       submitBtn.textContent = lang === 'en' ? 'Send Booking Request →' : '予約リクエストを送信 →';
     }
@@ -330,25 +378,26 @@
 
   function showSuccess(d) {
     flow.style.display = 'none';
-    progressBox.style.display = 'none';
-    document.querySelector('.booking-head').style.display = 'none';
+    if (progressBox) progressBox.style.display = 'none';
     successEl.classList.add('is-active');
-    updateSuccessText(d);
+    successText.dataset.name = d.name;
+    successText.dataset.email = d.email;
+    updateSuccessText();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  function updateSuccessText(d) {
+  function updateSuccessText() {
+    if (!successText.dataset.name) return;
     const lang = getLang();
-    successText.dataset.name = d.name;
-    successText.dataset.email = d.email;
+    const name = successText.dataset.name;
+    const email = successText.dataset.email;
     successText.textContent = lang === 'en'
-      ? `Thank you ${d.name}! I'll reply to ${d.email} within 24 hours to confirm your session. Looking forward to shooting with you in Osaka.`
-      : `${d.name}様、ありがとうございます！24時間以内に ${d.email} 宛にご返信し、セッションを確定いたします。大阪での撮影を楽しみにしています。`;
+      ? `Thank you ${name}! I'll reply to ${email} within 24 hours to confirm your session.`
+      : `${name} 様、ありがとうございます！${email} 宛に24時間以内にご連絡いたします。`;
   }
 
   /* ============ LANGUAGE RE-RENDER ============ */
   function refreshDynamic() {
-    // main.js already swapped [data-en] text; refresh JS-generated content
     const n = state.step;
     const lang = getLang();
     progressLbl.textContent  = lang === 'en' ? `Step ${n} of ${TOTAL_STEPS}` : `ステップ ${n} / ${TOTAL_STEPS}`;
@@ -356,9 +405,7 @@
     renderCalendar();
     updateSelectedLabel();
     if (n === 6) buildSummary();
-    if (successEl.classList.contains('is-active') && successText.dataset.name) {
-      updateSuccessText({ name: successText.dataset.name, email: successText.dataset.email });
-    }
+    if (successEl.classList.contains('is-active')) updateSuccessText();
   }
   ['langToggle', 'langFloat'].forEach(id => {
     const b = document.getElementById(id);

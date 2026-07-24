@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Get in touch with Prashant Captures — book a portrait session or ask anything. Based in Osaka, Japan." />
+  <meta name="description" content="Book a photography session with Prashant Captures — portrait, couple, group, or event coverage in Osaka. Choose your session, date, time, and location. Bilingual EN/JP." />
   <meta property="og:title" content="Contact | Prashant Captures" />
-  <meta property="og:description" content="Book a portrait session or ask anything. Based in Osaka — replies within 24 hours." />
+  <meta property="og:description" content="Book a portrait, couple, group, or event session in Osaka. Bilingual EN/JP — replies within 24 hours." />
   <meta property="og:image" content="images/andygarden/DSC07692.jpg" />
   <meta property="og:url" content="https://photography-site-bay-three.vercel.app/contact.html" />
   <meta property="og:type" content="website" />
@@ -17,6 +17,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/booking.css" />
   <link rel="stylesheet" href="css/contact.css" />
 </head>
 <body>
@@ -32,7 +33,6 @@
         <li><a href="blog.html" data-en="Blog" data-jp="ブログ">Blog</a></li>
         <li><a href="presets.html" data-en="Presets" data-jp="プリセット">Presets</a></li>
         <li><a href="contact.html" class="active" data-en="Contact" data-jp="お問い合わせ">Contact</a></li>
-        <li><a href="booking.html" data-en="Book" data-jp="予約">Book</a></li>
         <li><a href="/it-portfolio/" class="nav-dev-link" data-en="Dev Portfolio" data-jp="開発ポートフォリオ">💻 Dev Portfolio</a></li>
         <li><button class="lang-toggle" id="langToggle">日本語</button></li>
       </ul>
@@ -45,111 +45,295 @@
     </div>
   </nav>
 
-  <!-- CONTACT SPLIT LAYOUT -->
+  <!-- SPLIT LAYOUT -->
   <section class="contact-split">
 
-    <!-- LEFT: Form + Info -->
+    <!-- LEFT: Booking flow -->
     <div class="contact-left">
       <div class="contact-left-inner">
 
-        <!-- Heading -->
         <div class="contact-intro">
-          <span class="contact-eyebrow" data-en="Get In Touch" data-jp="お問い合わせ">Get In Touch</span>
+          <span class="contact-eyebrow" data-en="Book a Session" data-jp="セッション予約">Book a Session</span>
           <h1 class="contact-heading">
             <span data-en="Let's Create" data-jp="一緒に">Let's Create</span>
             <em data-en="Together" data-jp="創ろう">Together</em>
           </h1>
-          <p class="contact-subtext" data-en="Have a session in mind? I'd love to hear it. Based in Osaka — available across the Kansai region. Replies within 24 hours." data-jp="撮影のご要望はお気軽に。大阪を拠点に関西エリア全域で対応しています。24時間以内にご返信します。">Have a session in mind? I'd love to hear it. Based in Osaka — available across the Kansai region. Replies within 24 hours.</p>
+          <p class="contact-subtext" data-en="Tell me about your shoot — I'll reply within 24 hours." data-jp="撮影についてお聞かせください。24時間以内に返信します。">Tell me about your shoot — I'll reply within 24 hours.</p>
         </div>
 
-        <!-- Form -->
-        <form id="contactForm" class="contact-form" action="https://formspree.io/f/mzdnpaqr" method="POST">
-          <input type="hidden" name="_subject" value="New message from Photography Site">
+        <!-- BOOKING FLOW -->
+        <div class="booking-flow" id="bookingFlow">
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="c-name" data-en="Your Name" data-jp="お名前">Your Name</label>
-              <input type="text" id="c-name" name="name" required
-                placeholder="Your name"
-                data-placeholder-en="Your name"
-                data-placeholder-jp="お名前を入力" />
+          <!-- PROGRESS -->
+          <div class="booking-progress">
+            <div class="booking-progress-top">
+              <span class="booking-progress-label" id="progressLabel">Step 1 of 6</span>
+              <span class="booking-progress-step-name" id="progressStepName"></span>
             </div>
-            <div class="form-group">
-              <label for="c-email" data-en="Email" data-jp="メールアドレス">Email</label>
-              <input type="email" id="c-email" name="email" required
-                placeholder="you@example.com"
-                data-placeholder-en="you@example.com"
-                data-placeholder-jp="メールアドレスを入力" />
+            <div class="booking-progress-track">
+              <div class="booking-progress-fill" id="progressFill"></div>
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="c-service" data-en="Interested In" data-jp="ご希望のサービス">Interested In</label>
-            <select id="c-service" name="service">
-              <option value="" data-en="Select (optional)" data-jp="選択してください（任意）">Select (optional)</option>
-              <option value="portrait" data-en="Portrait Session" data-jp="ポートレートセッション">Portrait Session</option>
-              <option value="couple" data-en="Couple Session" data-jp="カップルセッション">Couple Session</option>
-              <option value="group" data-en="Group Session" data-jp="グループセッション">Group Session</option>
-              <option value="event" data-en="Event Coverage" data-jp="イベント撮影">Event Coverage</option>
-              <option value="presets" data-en="Lightroom Presets" data-jp="Lightroomプリセット">Lightroom Presets</option>
-              <option value="other" data-en="Just saying hello" data-jp="ご挨拶・その他">Just saying hello</option>
-            </select>
+          <div class="booking-steps" id="bookingSteps">
+
+            <!-- STEP 1 — SESSION -->
+            <section class="booking-step is-active" data-step="1">
+              <h2 class="step-heading" data-en="Choose Your Session" data-jp="セッションを選択してください">Choose Your Session</h2>
+              <div class="service-grid">
+                <button type="button" class="select-card service-card" data-service="Portrait Session" data-service-jp="ポートレートセッション" data-price="¥15,000">
+                  <div class="service-card-top">
+                    <span class="service-card-name" data-en="Portrait Session" data-jp="ポートレートセッション">Portrait Session</span>
+                    <span class="service-card-price">¥15,000</span>
+                  </div>
+                  <span class="service-card-meta" data-en="1-on-1 · 1–2 hours · 20+ edited photos" data-jp="1対1 · 1〜2時間 · 編集済み写真20枚以上">1-on-1 · 1–2 hours · 20+ edited photos</span>
+                </button>
+                <button type="button" class="select-card service-card" data-service="Couple Session" data-service-jp="カップルセッション" data-price="¥18,000">
+                  <div class="service-card-top">
+                    <span class="service-card-name" data-en="Couple Session" data-jp="カップルセッション">Couple Session</span>
+                    <span class="service-card-price">¥18,000</span>
+                  </div>
+                  <span class="service-card-meta" data-en="2 people · 1.5–2 hours · 25+ edited photos" data-jp="2名 · 1.5〜2時間 · 編集済み写真25枚以上">2 people · 1.5–2 hours · 25+ edited photos</span>
+                </button>
+                <button type="button" class="select-card service-card" data-service="Group Session" data-service-jp="グループセッション" data-price="¥22,000">
+                  <div class="service-card-top">
+                    <span class="service-card-name" data-en="Group Session" data-jp="グループセッション">Group Session</span>
+                    <span class="service-card-price">¥22,000</span>
+                  </div>
+                  <span class="service-card-meta" data-en="3+ people · 1.5–2 hours · 30+ edited photos" data-jp="3名以上 · 1.5〜2時間 · 編集済み写真30枚以上">3+ people · 1.5–2 hours · 30+ edited photos</span>
+                </button>
+                <button type="button" class="select-card service-card" data-service="Event Coverage" data-service-jp="イベント撮影" data-price="¥30,000">
+                  <div class="service-card-top">
+                    <span class="service-card-name" data-en="Event Coverage" data-jp="イベント撮影">Event Coverage</span>
+                    <span class="service-card-price">¥30,000</span>
+                  </div>
+                  <span class="service-card-meta" data-en="Full event · 50+ edited photos · flexible" data-jp="イベント全体 · 編集済み写真50枚以上 · 時間応相談">Full event · 50+ edited photos · flexible</span>
+                </button>
+              </div>
+              <p class="flow-error" data-err="service" data-en="Please select a session type to continue." data-jp="セッションタイプを選択してください。">Please select a session type to continue.</p>
+              <div class="booking-nav center">
+                <button type="button" class="btn btn-primary" data-next disabled data-en="Next →" data-jp="次へ →">Next →</button>
+              </div>
+            </section>
+
+            <!-- STEP 2 — DATE -->
+            <section class="booking-step" data-step="2">
+              <h2 class="step-heading" data-en="Pick a Date" data-jp="日程を選択してください">Pick a Date</h2>
+              <div class="calendar">
+                <div class="calendar-head">
+                  <button type="button" class="calendar-nav" id="calPrev" aria-label="Previous month">‹</button>
+                  <span class="calendar-month" id="calMonth"></span>
+                  <button type="button" class="calendar-nav" id="calNext" aria-label="Next month">›</button>
+                </div>
+                <div class="calendar-grid" id="calDow"></div>
+                <div class="calendar-grid" id="calDays"></div>
+                <p class="calendar-legend" id="calSelected"></p>
+              </div>
+              <p class="calendar-legend" style="margin-top:0.9rem;" data-en="Sundays and Mondays I'm unavailable." data-jp="日曜・月曜日は対応できません。">Sundays and Mondays I'm unavailable.</p>
+              <div class="booking-nav">
+                <button type="button" class="btn btn-outline" data-back data-en="← Back" data-jp="← 戻る">← Back</button>
+                <button type="button" class="btn btn-primary" data-next disabled data-en="Next →" data-jp="次へ →">Next →</button>
+              </div>
+            </section>
+
+            <!-- STEP 3 — TIME -->
+            <section class="booking-step" data-step="3">
+              <h2 class="step-heading" data-en="Pick a Time" data-jp="時間帯を選択してください">Pick a Time</h2>
+              <div class="time-grid">
+                <button type="button" class="select-card time-card" data-time="Morning" data-time-jp="午前" data-range="9:00 AM – 11:00 AM">
+                  <div class="time-card-name" data-en="Morning" data-jp="午前">Morning</div>
+                  <span class="time-card-range">9:00 AM – 11:00 AM</span>
+                </button>
+                <button type="button" class="select-card time-card" data-time="Afternoon" data-time-jp="午後" data-range="1:00 PM – 4:00 PM">
+                  <div class="time-card-name" data-en="Afternoon" data-jp="午後">Afternoon</div>
+                  <span class="time-card-range">1:00 PM – 4:00 PM</span>
+                </button>
+                <button type="button" class="select-card time-card" data-time="Evening (Golden Hour)" data-time-jp="夕方（ゴールデンアワー）" data-range="5:00 PM – 7:00 PM">
+                  <div class="time-card-name" data-en="Evening (Golden Hour) ⭐" data-jp="夕方（ゴールデンアワー）⭐">Evening (Golden Hour) ⭐</div>
+                  <span class="time-card-range">5:00 PM – 7:00 PM</span>
+                  <span class="time-card-note" data-en="Most popular — best natural light" data-jp="人気No.1 — 最高の自然光">Most popular — best natural light</span>
+                </button>
+              </div>
+              <div class="flow-freetext">
+                <div class="flow-divider"></div>
+                <label class="flow-ft-label" for="ft-time" data-en="None of these times work? Let's figure it out." data-jp="ご都合が合わない場合はご相談ください。">None of these times work? Let's figure it out.</label>
+                <textarea id="ft-time" class="flow-ft-input" rows="3"
+                  placeholder="Tell me your preferred time or any time constraints — I'll do my best to accommodate you."
+                  data-placeholder-en="Tell me your preferred time or any time constraints — I'll do my best to accommodate you."
+                  data-placeholder-jp="ご希望の時間帯や制約があればご記入ください。できる限り対応いたします。"></textarea>
+              </div>
+              <p class="flow-error" data-err="time" data-en="Please make a selection or describe your preference in the text box below." data-jp="選択するか、以下のテキストボックスにご希望を入力してください。">Please make a selection or describe your preference in the text box below.</p>
+              <div class="booking-nav">
+                <button type="button" class="btn btn-outline" data-back data-en="← Back" data-jp="← 戻る">← Back</button>
+                <button type="button" class="btn btn-primary" data-next data-en="Next →" data-jp="次へ →">Next →</button>
+              </div>
+            </section>
+
+            <!-- STEP 4 — LOCATION -->
+            <section class="booking-step" data-step="4">
+              <h2 class="step-heading" data-en="Where shall we shoot?" data-jp="撮影場所を選んでください">Where shall we shoot?</h2>
+              <div class="location-grid">
+                <button type="button" class="select-card location-card" data-loc="Dotonbori" data-loc-jp="道頓堀">
+                  <span class="location-num">01</span>
+                  <div class="location-name">Dotonbori</div>
+                  <div class="location-jp">道頓堀</div>
+                  <p class="location-desc" data-en="Osaka's neon soul — best at blue hour 6–7 PM" data-jp="大阪のネオン — ブルーアワーが最高">Osaka's neon soul — best at blue hour 6–7 PM</p>
+                </button>
+                <button type="button" class="select-card location-card" data-loc="Osaka Castle" data-loc-jp="大阪城">
+                  <span class="location-num">02</span>
+                  <div class="location-name">Osaka Castle</div>
+                  <div class="location-jp">大阪城</div>
+                  <p class="location-desc" data-en="Classic Japan backdrop — stunning year round" data-jp="定番の日本らしい背景 — 一年中美しい">Classic Japan backdrop — stunning year round</p>
+                </button>
+                <button type="button" class="select-card location-card" data-loc="Nakazakicho" data-loc-jp="中崎町">
+                  <span class="location-num">03</span>
+                  <div class="location-name">Nakazakicho</div>
+                  <div class="location-jp">中崎町</div>
+                  <p class="location-desc" data-en="Retro neighbourhood — quiet lanes, wooden facades" data-jp="レトロな街並み — 静かな路地と木造の建物">Retro neighbourhood — quiet lanes, wooden facades</p>
+                </button>
+                <button type="button" class="select-card location-card" data-loc="Umeda Sky Building" data-loc-jp="梅田スカイビル">
+                  <span class="location-num">04</span>
+                  <div class="location-name">Umeda Sky Building</div>
+                  <div class="location-jp">梅田スカイビル</div>
+                  <p class="location-desc" data-en="Futuristic architecture — great at sunset" data-jp="未来的な建築 — 夕暮れ時が特に美しい">Futuristic architecture — great at sunset</p>
+                </button>
+                <button type="button" class="select-card location-card" data-loc="Shinsekai" data-loc-jp="新世界">
+                  <span class="location-num">05</span>
+                  <div class="location-name">Shinsekai</div>
+                  <div class="location-jp">新世界</div>
+                  <p class="location-desc" data-en="Retro neon district — warm evening tones" data-jp="レトロなネオン街 — 夕方の温かい色調">Retro neon district — warm evening tones</p>
+                </button>
+                <button type="button" class="select-card location-card" data-loc="Nakanoshima" data-loc-jp="中之島">
+                  <span class="location-num">06</span>
+                  <div class="location-name">Nakanoshima</div>
+                  <div class="location-jp">中之島</div>
+                  <p class="location-desc" data-en="Riverside parks — golden hour glow on water" data-jp="川沿いの公園 — ゴールデンアワーの水面">Riverside parks — golden hour glow on water</p>
+                </button>
+                <button type="button" class="select-card location-card" data-loc="Hozenji Yokocho" data-loc-jp="法善寺横丁">
+                  <span class="location-num">07</span>
+                  <div class="location-name">Hozenji Yokocho</div>
+                  <div class="location-jp">法善寺横丁</div>
+                  <p class="location-desc" data-en="Moss-covered lantern alley — cinematic and quiet" data-jp="苔むした石畳の路地 — 静寂と映画的な雰囲気">Moss-covered lantern alley — cinematic and quiet</p>
+                </button>
+                <button type="button" class="select-card location-card" data-loc="Kuromon Market" data-loc-jp="黒門市場">
+                  <span class="location-num">08</span>
+                  <div class="location-name">Kuromon Market</div>
+                  <div class="location-jp">黒門市場</div>
+                  <p class="location-desc" data-en="Covered arcade — great light any time of day" data-jp="アーケード — 時間を問わず光が美しい">Covered arcade — great light any time of day</p>
+                </button>
+                <button type="button" class="select-card location-card" data-loc="Sumiyoshi Taisha" data-loc-jp="住吉大社">
+                  <span class="location-num">09</span>
+                  <div class="location-name">Sumiyoshi Taisha</div>
+                  <div class="location-jp">住吉大社</div>
+                  <p class="location-desc" data-en="Iconic red bridge shrine — peaceful and beautiful" data-jp="住吉大社の反橋 — 静かで美しい神社">Iconic red bridge shrine — peaceful and beautiful</p>
+                </button>
+                <button type="button" class="select-card location-card" data-loc="Tennoji" data-loc-jp="天王寺">
+                  <span class="location-num">10</span>
+                  <div class="location-name">Tennoji</div>
+                  <div class="location-jp">天王寺</div>
+                  <p class="location-desc" data-en="Park greenspace meets urban energy" data-jp="公園の緑と都市のエネルギーが交差する場所">Park greenspace meets urban energy</p>
+                </button>
+              </div>
+              <div class="flow-freetext">
+                <div class="flow-divider"></div>
+                <label class="flow-ft-label" for="ft-location" data-en="Not sure about location? Let's talk it through." data-jp="場所に迷っている場合はご相談ください。">Not sure about location? Let's talk it through.</label>
+                <textarea id="ft-location" class="flow-ft-input" rows="3"
+                  placeholder="Tell me what kind of vibe or background you want — I'll suggest the perfect spot in Osaka."
+                  data-placeholder-en="Tell me what kind of vibe or background you want — I'll suggest the perfect spot in Osaka."
+                  data-placeholder-jp="希望する雰囲気や背景を教えてください。大阪の最適な場所をご提案します。"></textarea>
+              </div>
+              <p class="flow-error" data-err="location" data-en="Please make a selection or describe your preference in the text box below." data-jp="選択するか、以下のテキストボックスにご希望を入力してください。">Please make a selection or describe your preference in the text box below.</p>
+              <div class="booking-nav">
+                <button type="button" class="btn btn-outline" data-back data-en="← Back" data-jp="← 戻る">← Back</button>
+                <button type="button" class="btn btn-primary" data-next data-en="Next →" data-jp="次へ →">Next →</button>
+              </div>
+            </section>
+
+            <!-- STEP 5 — DETAILS -->
+            <section class="booking-step" data-step="5">
+              <h2 class="step-heading" data-en="A little about you" data-jp="お客様情報">A little about you</h2>
+              <div class="booking-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="b-name" data-en="Full Name *" data-jp="お名前 *">Full Name *</label>
+                    <input type="text" id="b-name" placeholder="Your name"
+                      data-placeholder-en="Your name" data-placeholder-jp="お名前" />
+                    <span class="field-error" data-err="name" data-en="Please enter your name." data-jp="お名前を入力してください。">Please enter your name.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="b-email" data-en="Email Address *" data-jp="メールアドレス *">Email Address *</label>
+                    <input type="email" id="b-email" placeholder="you@example.com"
+                      data-placeholder-en="you@example.com" data-placeholder-jp="you@example.com" />
+                    <span class="field-error" data-err="email" data-en="Please enter a valid email." data-jp="有効なメールアドレスを入力してください。">Please enter a valid email.</span>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="b-phone" data-en="Phone Number (optional)" data-jp="電話番号（任意）">Phone Number (optional)</label>
+                    <input type="tel" id="b-phone" placeholder="Optional"
+                      data-placeholder-en="Optional" data-placeholder-jp="任意" />
+                  </div>
+                  <div class="form-group">
+                    <label for="b-people" data-en="How many people? *" data-jp="人数 *">How many people? *</label>
+                    <input type="number" id="b-people" min="1" value="1" />
+                    <span class="field-error" data-err="people" data-en="Please enter at least 1." data-jp="1以上を入力してください。">Please enter at least 1.</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label data-en="Preferred language for our chat" data-jp="やり取りの言語">Preferred language for our chat</label>
+                  <div class="radio-row">
+                    <label class="radio-opt">
+                      <input type="radio" name="langpref" value="English" checked />
+                      <span data-en="English" data-jp="英語">English</span>
+                    </label>
+                    <label class="radio-opt">
+                      <input type="radio" name="langpref" value="日本語" />
+                      <span data-en="日本語" data-jp="日本語">日本語</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="b-requests" data-en="Anything else I should know?" data-jp="その他ご要望・備考">Anything else I should know?</label>
+                  <textarea id="b-requests" rows="4"
+                    placeholder="Outfits, specific shots, occasions, mobility needs — anything that helps me prepare."
+                    data-placeholder-en="Outfits, specific shots, occasions, mobility needs — anything that helps me prepare."
+                    data-placeholder-jp="服装、希望のショット、特別な場面、その他準備に役立つことを教えてください。"></textarea>
+                </div>
+              </div>
+              <div class="booking-nav">
+                <button type="button" class="btn btn-outline" data-back data-en="← Back" data-jp="← 戻る">← Back</button>
+                <button type="button" class="btn btn-primary" data-next data-en="Next →" data-jp="次へ →">Next →</button>
+              </div>
+            </section>
+
+            <!-- STEP 6 — CONFIRMATION -->
+            <section class="booking-step" data-step="6">
+              <h2 class="step-heading" data-en="Review Your Booking" data-jp="予約内容の確認">Review Your Booking</h2>
+              <div class="summary-card" id="summaryCard"><!-- filled by JS --></div>
+              <p class="almost" style="text-align:left;" data-en="Once you submit, I'll reply within 24 hours to confirm your session. Looking forward to shooting with you in Osaka! 📷" data-jp="送信後、24時間以内に確認のご返信をいたします。大阪でのセッションを楽しみにしています！📷">Once you submit, I'll reply within 24 hours to confirm your session. Looking forward to shooting with you in Osaka! 📷</p>
+              <div class="booking-nav">
+                <button type="button" class="btn btn-outline" data-back data-en="← Back" data-jp="← 戻る">← Back</button>
+                <button type="button" class="btn btn-primary" id="submitBooking" data-en="Send Booking Request →" data-jp="予約リクエストを送信 →">Send Booking Request →</button>
+              </div>
+              <p class="flow-error" id="bookingError" aria-live="polite"></p>
+            </section>
+
+          </div><!-- /booking-steps -->
+
+          <!-- SUCCESS -->
+          <div class="booking-success" id="bookingSuccess">
+            <div class="booking-success-icon">🎉</div>
+            <h2 data-en="Request Sent! 🎉" data-jp="リクエストを受け付けました！🎉">Request Sent! 🎉</h2>
+            <p id="successText"></p>
+            <a href="index.html" class="btn btn-primary" data-en="Back to Home →" data-jp="ホームに戻る →">Back to Home →</a>
           </div>
 
-          <div class="form-group">
-            <label for="c-message" data-en="Message" data-jp="メッセージ">Message</label>
-            <textarea id="c-message" name="message" rows="5" required
-              placeholder="Tell me anything — what you're looking for, when, where. No detail is too small."
-              data-placeholder-en="Tell me anything — what you're looking for, when, where. No detail is too small."
-              data-placeholder-jp="撮影のご要望、ご希望の日程・場所など、なんでもお気軽にご記入ください。"></textarea>
-          </div>
-
-          <p class="form-status" aria-live="polite"></p>
-
-          <button type="submit" class="btn btn-primary contact-submit" data-en="Send Message" data-jp="送信する">Send Message</button>
-        </form>
-
-        <!-- Success State (shown after submission) -->
-        <div id="contactSuccess" class="contact-success" hidden>
-          <div class="contact-success-icon" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-          </div>
-          <h3 data-en="Message Sent" data-jp="送信完了">Message Sent</h3>
-          <p data-en="Thank you for reaching out. I'll reply within 24 hours — usually sooner." data-jp="メッセージを送信しました。24時間以内にご返信いたします。">Thank you for reaching out. I'll reply within 24 hours — usually sooner.</p>
-          <button type="button" class="contact-success-reset" data-en="Send Another Message" data-jp="別のメッセージを送る">Send Another Message</button>
-        </div>
-
-        <!-- Web dev note -->
-        <p style="font-size:0.82rem;color:var(--color-brown);opacity:0.65;margin-bottom:1.5rem;" data-en="For web development enquiries, visit my developer portfolio →" data-jp="Web制作のご依頼は、デベロッパーポートフォリオへ →">
-          For web development enquiries, <a href="/it-portfolio/" style="color:var(--color-tan);" data-en="visit my developer portfolio →" data-jp="デベロッパーポートフォリオはこちら →">visit my developer portfolio →</a>
-        </p>
-
-        <!-- Contact Details Strip -->
-        <div class="contact-details">
-          <div class="contact-detail-item">
-            <span class="contact-detail-label" data-en="Email" data-jp="メール">Email</span>
-            <a href="mailto:prashant.captures.photo@gmail.com" class="contact-detail-value">prashant.captures.photo@gmail.com</a>
-          </div>
-          <div class="contact-detail-item">
-            <span class="contact-detail-label" data-en="Based In" data-jp="拠点">Based In</span>
-            <span class="contact-detail-value" data-en="Osaka, Japan" data-jp="大阪、日本">Osaka, Japan</span>
-          </div>
-          <div class="contact-detail-item">
-            <span class="contact-detail-label" data-en="Response" data-jp="返信目安">Response</span>
-            <span class="contact-detail-value" data-en="Within 24 hours" data-jp="24時間以内">Within 24 hours</span>
-          </div>
-          <div class="contact-detail-item">
-            <span class="contact-detail-label">Instagram</span>
-            <a href="https://instagram.com/prashantsub12" target="_blank" rel="noopener noreferrer" class="contact-detail-value">@prashantsub12</a>
-          </div>
-        </div>
+        </div><!-- /booking-flow -->
 
       </div>
     </div>
 
-    <!-- RIGHT: Photo Slideshow -->
+    <!-- RIGHT: Photo slideshow + contact info (desktop only) -->
     <div class="contact-right">
       <div class="contact-slideshow" id="contactSlideshow">
         <img src="images/andygarden/DSC07692.jpg"                alt="Concert photography — Osaka"      class="slide active" loading="eager">
@@ -158,6 +342,28 @@
         <img src="images/parajuli%20and%20nabin/DSC05862.jpg"    alt="Portrait session — Osaka"         class="slide" loading="lazy">
         <img src="images/anuj%26%20bd/DSC06151.jpg"              alt="Night portrait — Osaka streets"   class="slide" loading="lazy">
         <img src="images/suprout/DSC06051.jpg"                   alt="Documentary photography — Osaka"  class="slide" loading="lazy">
+      </div>
+      <div class="contact-right-info">
+        <div class="cri-item">
+          <span class="cri-label" data-en="Email" data-jp="メール">Email</span>
+          <a href="mailto:prashant.captures.photo@gmail.com" class="cri-value">prashant.captures.photo@gmail.com</a>
+        </div>
+        <div class="cri-item">
+          <span class="cri-label" data-en="Based In" data-jp="拠点">Based In</span>
+          <span class="cri-value" data-en="Osaka, Japan" data-jp="大阪、日本">Osaka, Japan</span>
+        </div>
+        <div class="cri-item">
+          <span class="cri-label" data-en="Languages" data-jp="対応言語">Languages</span>
+          <span class="cri-value" data-en="English / 日本語" data-jp="英語 / 日本語">English / 日本語</span>
+        </div>
+        <div class="cri-item">
+          <span class="cri-label" data-en="Response" data-jp="返信目安">Response</span>
+          <span class="cri-value" data-en="Within 24 hours" data-jp="24時間以内">Within 24 hours</span>
+        </div>
+        <div class="cri-socials">
+          <a href="https://instagram.com/prashantsub12" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://tiktok.com/@prashantsub12" target="_blank" rel="noopener noreferrer">TikTok</a>
+        </div>
       </div>
     </div>
 
@@ -202,11 +408,9 @@
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/form.js"></script>
-  <script src="js/animation.js"></script>
+  <script src="js/booking.js"></script>
   <script>
     (function() {
       var slides = document.querySelectorAll('#contactSlideshow .slide');

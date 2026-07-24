@@ -486,6 +486,55 @@
   margin-bottom: 1.75rem;
 }
 
+/* ---------- FREE-TEXT SECTION (steps 3 & 4) ---------- */
+.flow-freetext {
+  margin-top: 1.5rem;
+}
+.flow-divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: 0 0 1.25rem;
+}
+.flow-ft-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-brown);
+  margin-bottom: 0.6rem;
+}
+.flow-ft-input {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-text-dark);
+  padding: 0.75rem 0.9rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-white);
+  resize: vertical;
+  min-height: 76px;
+  transition: var(--transition);
+}
+.flow-ft-input::placeholder {
+  color: rgba(102, 102, 102, 0.55);
+  font-style: italic;
+}
+.flow-ft-input:focus {
+  outline: none;
+  border-color: var(--color-brown);
+  box-shadow: 0 0 0 3px rgba(92, 64, 51, 0.1);
+}
+
+/* ---------- STEP-LEVEL ERROR ---------- */
+.flow-error {
+  color: #B3543F;
+  font-size: 0.82rem;
+  margin-top: 0.9rem;
+  text-align: center;
+  display: none;
+}
+.flow-error.is-shown { display: block; }
+
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 560px) {
   .service-grid,

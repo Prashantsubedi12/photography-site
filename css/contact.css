@@ -260,7 +260,45 @@ a.contact-detail-value:hover {
   border-bottom-color: var(--color-brown);
 }
 
-/* ---------- RIGHT COLUMN (Photo) ---------- */
+/* ---------- BOOKING FLOW EMBED ---------- */
+.booking-flow { width: 100%; }
+
+/* Keep the flow's step-5 fields boxed (override contact.css underline inputs) */
+.booking-flow .booking-form label {
+  text-transform: none;
+  letter-spacing: 0.03em;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.booking-flow .booking-form input,
+.booking-flow .booking-form textarea {
+  border: 1.5px solid var(--color-border);
+  border-bottom: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.9rem;
+  background: var(--color-bg-white);
+}
+.booking-flow .booking-form input:focus,
+.booking-flow .booking-form textarea:focus {
+  border-color: var(--color-brown);
+  box-shadow: 0 0 0 3px rgba(92, 64, 51, 0.1);
+}
+.booking-flow .booking-form input::placeholder,
+.booking-flow .booking-form textarea::placeholder {
+  font-style: normal;
+}
+.booking-flow .radio-opt { text-transform: none; }
+.booking-flow .booking-progress { max-width: 100%; margin: 0 0 1.75rem; padding: 0; }
+.booking-flow .booking-nav { max-width: 100%; }
+.booking-flow .summary-card,
+.booking-flow .almost,
+.booking-flow .booking-form,
+.booking-flow .calendar { margin-left: 0; margin-right: 0; }
+.booking-flow .step-heading,
+.booking-flow .step-sub { text-align: left; }
+.booking-flow .booking-success { text-align: left; align-items: flex-start; margin: 1rem 0; padding: 1rem 0; }
+
+/* ---------- RIGHT COLUMN (Photo + Info) ---------- */
 .contact-right {
   overflow: hidden;
   position: sticky;
@@ -268,6 +306,58 @@ a.contact-detail-value:hover {
   height: calc(100vh - var(--nav-height));
   align-self: start;
 }
+
+/* Contact info overlay on the slideshow */
+.contact-right-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2.5rem 2rem 2rem;
+  background: linear-gradient(to top, rgba(62, 39, 35, 0.92) 0%, rgba(62, 39, 35, 0.7) 55%, transparent 100%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+  z-index: 2;
+}
+.cri-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.cri-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(245, 241, 232, 0.65);
+}
+.cri-value {
+  font-size: 0.85rem;
+  color: var(--color-bg-primary);
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color 0.25s ease;
+  word-break: break-word;
+}
+a.cri-value:hover { color: #D9C7A8; }
+.cri-socials {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 1.5rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid rgba(245, 241, 232, 0.2);
+  margin-top: 0.2rem;
+}
+.cri-socials a {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-bg-primary);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+.cri-socials a:hover { color: #D9C7A8; }
 
 .contact-slideshow {
   position: relative;
@@ -298,14 +388,9 @@ a.contact-detail-value:hover {
     min-height: unset;
   }
 
+  /* Right photo/info panel is desktop-only */
   .contact-right {
-    position: relative;
-    top: 0;
-    height: 55vw;
-    min-height: 280px;
-    max-height: 480px;
-    align-self: auto;
-    order: -1;
+    display: none;
   }
 
   .contact-left {
