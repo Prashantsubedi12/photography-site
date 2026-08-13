@@ -244,7 +244,7 @@
               <span class="preset-bundle-price">¥6,800</span>
               <span class="preset-bundle-saving" data-en="Save ¥2,200" data-jp="¥2,200お得">Save ¥2,200</span>
             </div>
-            <a class="preset-bundle-btn gumroad-button" href="REPLACE_WITH_GUMROAD_LINK_BUNDLE" data-gumroad-overlay-checkout="true" data-en="Buy Bundle — ¥6,800" data-jp="バンドル購入 — ¥6,800">Buy Bundle — ¥6,800</a>
+            <a class="preset-bundle-btn gumroad-button" href="#" data-gumroad-slug="bundle" data-gumroad-permalink="REPLACE_WITH_GUMROAD_LINK_BUNDLE" data-gumroad-overlay-checkout="true" data-en="Buy Bundle — ¥6,800" data-jp="バンドル購入 — ¥6,800">Buy Bundle — ¥6,800</a>
           </div>
         </div>
       </div>
@@ -593,13 +593,18 @@
       document.getElementById('pmBuyPrice').textContent = p.price;
       setBilingual(document.getElementById('pmStory'), p.story);
 
-      // Buy button — bilingual label carries the price, href is the (placeholder) permalink
+      // Buy button — bilingual label carries the price. Keep the href inert
+      // ("#") until real Gumroad links exist so it never resolves to a broken
+      // same-domain URL; the placeholder permalink lives in a data attribute
+      // for later swap-in (see REPLACE_WITH_GUMROAD_LINK_* in the PRESETS data).
       var buyLabel = {
         en: 'Buy on Gumroad — ' + p.price,
         jp: 'Gumroadで購入 — ' + p.price
       };
       setBilingual(buyBtn, buyLabel);
-      buyBtn.setAttribute('href', p.gumroad);
+      buyBtn.setAttribute('href', '#');
+      buyBtn.setAttribute('data-gumroad-slug', p.slug);
+      buyBtn.setAttribute('data-gumroad-permalink', p.gumroad);
 
       // Specs list
       specsUl.innerHTML = '';
@@ -651,19 +656,28 @@
       dialog.querySelector('.preset-modal-scroll').scrollTop = 0;
     }
 
+    // Single source of truth for releasing the page scroll lock.
+    function releaseScroll() {
+      document.body.style.overflow = '';
+      if (window.lenis) window.lenis.start();
+    }
+
     function closeModal() {
-      function finish() {
-        modal.classList.remove('is-open');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        if (window.lenis) window.lenis.start();
-        if (lastFocus && lastFocus.focus) lastFocus.focus();
-      }
+      // Release the scroll lock SYNCHRONOUSLY on every close path so no
+      // animation callback can be missed and leave the page unscrollable.
+      releaseScroll();
+      modal.setAttribute('aria-hidden', 'true');
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+
+      // The visual fade is cosmetic only — the lock is already cleared above.
       if (!reduce && window.gsap) {
         gsap.to(dialog, { opacity: 0, scale: 0.96, y: 8, duration: 0.2, ease: 'power2.in' });
-        gsap.to(backdrop, { opacity: 0, duration: 0.2, ease: 'power2.in', onComplete: finish });
+        gsap.to(backdrop, {
+          opacity: 0, duration: 0.2, ease: 'power2.in',
+          onComplete: function () { modal.classList.remove('is-open'); }
+        });
       } else {
-        finish();
+        modal.classList.remove('is-open');
       }
     }
 
