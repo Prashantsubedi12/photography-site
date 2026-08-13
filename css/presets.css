@@ -393,6 +393,369 @@
   color: var(--color-text-muted);
 }
 
+/* ---------- CARD HOVER CROSSFADE (cover -> before) ---------- */
+.preset-img-cover,
+.preset-img-peek {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: opacity 0.5s ease, transform 0.65s ease;
+}
+
+.preset-img-peek {
+  opacity: 0;
+}
+
+.preset-card:hover .preset-img-peek {
+  opacity: 1;
+}
+
+.preset-peek-hint {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  z-index: 2;
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-bg-primary);
+  background: rgba(0, 0, 0, 0.42);
+  padding: 0.25rem 0.6rem;
+  border-radius: 100px;
+  opacity: 0.85;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.preset-card:hover .preset-peek-hint {
+  opacity: 0;
+}
+
+/* ---------- VIEW DETAILS BUTTON ---------- */
+.preset-view-btn {
+  align-self: flex-end;
+  background: none;
+  border: 1px solid var(--color-brown);
+  color: var(--color-brown);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.preset-view-btn:hover,
+.preset-view-btn:focus-visible {
+  background: var(--color-brown);
+  color: var(--color-bg-primary);
+  outline: none;
+}
+
+/* ---------- BUNDLE BUY BUTTON ---------- */
+.preset-bundle-btn {
+  display: inline-block;
+  background: var(--color-bg-primary);
+  color: var(--color-brown);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.8rem 1.6rem;
+  border-radius: 100px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.preset-bundle-btn:hover,
+.preset-bundle-btn:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  outline: none;
+}
+
+/* ============================================
+   BEFORE / AFTER COMPARE SLIDER (reusable)
+   ============================================ */
+.cmp {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: #000;
+  cursor: ew-resize;
+  user-select: none;
+  touch-action: none;
+}
+
+.cmp-before,
+.cmp-after {
+  display: block;
+  width: 100%;
+}
+
+.cmp-before {
+  position: relative;   /* sets the container height */
+}
+
+.cmp-after {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
+  will-change: clip-path;
+  /* clip-path is set inline by JS: inset(0 <x>% 0 0) */
+}
+
+.cmp-label {
+  position: absolute;
+  bottom: 0.6rem;
+  z-index: 2;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.2rem 0.55rem;
+  border-radius: 100px;
+  pointer-events: none;
+}
+
+.cmp-label-after  { left: 0.6rem; }
+.cmp-label-before { right: 0.6rem; }
+
+.cmp-handle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-brown);
+  cursor: ew-resize;
+  z-index: 3;
+}
+
+.cmp-handle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: rgba(245, 241, 232, 0.9);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.45);
+}
+
+.cmp-handle svg {
+  position: relative;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  padding: 9px;
+  background: var(--color-bg-primary);
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.cmp-handle:focus-visible {
+  outline: none;
+}
+
+.cmp-handle:focus-visible svg {
+  box-shadow: 0 0 0 3px var(--color-tan);
+}
+
+.cmp-main {
+  margin-top: 0.5rem;
+}
+
+.cmp-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.cmp-duo-single {
+  grid-template-columns: 1fr;
+  max-width: 62%;
+}
+
+/* ============================================
+   PRESET MODAL / LIGHTBOX
+   ============================================ */
+.preset-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+}
+
+.preset-modal.is-open {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.preset-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(46, 26, 20, 0.72);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.preset-modal-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(920px, 94vw);
+  max-height: 92vh;
+  margin: 4vh 0;
+  background: var(--color-bg-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+}
+
+.preset-modal-scroll {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 2.25rem 2.25rem 2rem;
+}
+
+.preset-modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 4;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-brown);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.35s ease;
+}
+
+.preset-modal-close:hover,
+.preset-modal-close:focus-visible {
+  background: var(--color-bg-primary);
+  transform: rotate(90deg);
+  outline: none;
+}
+
+.preset-modal-head {
+  margin-bottom: 0.5rem;
+  padding-right: 2.5rem;
+}
+
+.preset-modal-tag {
+  position: static;
+  display: inline-block;
+  margin-bottom: 0.65rem;
+}
+
+.preset-modal-titlerow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.preset-modal-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  font-weight: 400;
+  color: var(--color-brown);
+  line-height: 1.1;
+}
+
+.preset-modal-price {
+  font-size: 1.35rem;
+}
+
+.preset-modal-section {
+  margin-top: 1.6rem;
+}
+
+.preset-modal-section h3 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-brown);
+  margin-bottom: 0.5rem;
+}
+
+.preset-modal-section p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+.preset-modal-specs {
+  border-bottom: none;
+}
+
+.preset-modal-buy {
+  margin-top: 1.8rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.preset-modal-buyprice {
+  font-size: 1.5rem;
+}
+
+.preset-buy-btn {
+  display: inline-block;
+  background: var(--color-brown);
+  color: var(--color-bg-primary);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.85rem 1.7rem;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.preset-buy-btn:hover,
+.preset-buy-btn:focus-visible {
+  background: var(--color-tan);
+  transform: translateY(-2px);
+  outline: none;
+}
+
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 960px) {
   .presets-grid {
@@ -440,5 +803,51 @@
 
   .preset-bundle-price {
     font-size: 1.6rem;
+  }
+
+  .preset-bundle-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Stack the two small compare sliders */
+  .cmp-duo {
+    grid-template-columns: 1fr;
+  }
+
+  .cmp-duo-single {
+    max-width: 100%;
+  }
+
+  .preset-modal-scroll {
+    padding: 1.6rem 1.25rem 1.5rem;
+  }
+
+  .preset-modal-buy {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .preset-buy-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 430px) {
+  .preset-modal-dialog {
+    width: 96vw;
+    margin: 2vh 0;
+    max-height: 96vh;
+  }
+
+  /* Larger touch target for the drag handle on small screens */
+  .cmp-handle {
+    width: 56px;
+  }
+
+  .cmp-handle svg {
+    width: 18px;
+    height: 18px;
   }
 }
