@@ -6,7 +6,8 @@
   <meta name="description" content="Prashant Captures — Bilingual portrait photographer based in Osaka, Japan. English & Japanese. Portraits, events, and lifestyle sessions." />
   <meta property="og:title" content="Prashant Captures | Portrait Photographer in Osaka" />
   <meta property="og:description" content="Bilingual portrait photographer (EN/JP) based in Osaka. Portrait, couple, group &amp; event sessions from ¥15,000." />
-  <meta property="og:image" content="images/about/IMG_0848.JPG" />
+  <meta property="og:image" content="https://photography-site-bay-three.vercel.app/images/about/IMG_0848-1200.jpg" />
+  <meta name="twitter:image" content="https://photography-site-bay-three.vercel.app/images/about/IMG_0848-1200.jpg" />
   <meta property="og:url" content="https://photography-site-bay-three.vercel.app/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -42,10 +43,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
-  <!-- Preload hero slides 2–4 so first transitions are instant -->
-  <link rel="preload" as="image" href="images/andygarden/DSC07692.jpg" />
-  <link rel="preload" as="image" href="images/parajuli%20and%20nabin/DSC05847.jpg" />
-  <link rel="preload" as="image" href="images/anuj%26%20bd/DSC06156.jpg" />
 </head>
 
 <body>
@@ -56,11 +53,11 @@
       <a href="index.html" class="nav-logo">Prashant Captures</a>
 
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" class="active" data-en="Home" data-jp="ホーム">Home</a></li>
         <li><a href="portfolio.html" data-en="Portfolio" data-jp="作品集">Portfolio</a></li>
+        <li><a href="services.html" data-en="Services" data-jp="サービス・料金">Services</a></li>
+        <li><a href="presets.html" data-en="Presets" data-jp="プリセット">Presets</a></li>
         <li><a href="about.html" data-en="About" data-jp="プロフィール">About</a></li>
         <li><a href="blog.html" data-en="Blog" data-jp="ブログ">Blog</a></li>
-        <li><a href="presets.html" data-en="Presets" data-jp="プリセット">Presets</a></li>
         <li><a href="contact.html" data-en="Contact" data-jp="お問い合わせ">Contact</a></li>
         <li><a href="/it-portfolio/" class="nav-dev-link" data-en="Dev Portfolio" data-jp="開発ポートフォリオ">💻 Dev Portfolio</a></li>
         <li><button class="lang-toggle" id="langToggle">日本語</button></li>
@@ -89,35 +86,35 @@
     <div class="hero-slides">
       <!-- Slide 1: full-body night portrait — head at ~20%, show face + neon environment -->
       <div class="hero-slide active">
-        <img src="images/anuj%26%20bd/DSC06151.jpg" alt="Portrait session — Osaka streets at night" loading="eager" fetchpriority="high" style="object-position: center 22%;" />
+        <img src="images/anuj%26%20bd/DSC06151.jpg" srcset="images/anuj%26%20bd/DSC06151-800.jpg 800w, images/anuj%26%20bd/DSC06151-1200.jpg 1200w, images/anuj%26%20bd/DSC06151.jpg 1513w" sizes="100vw" width="1513" height="2048" decoding="async" alt="Portrait session — Osaka streets at night" loading="eager" fetchpriority="high" style="object-position: center 22%;" />
       </div>
       <!-- Slide 2: guitarist on stage — head at ~15%, dark stage atmosphere -->
       <div class="hero-slide">
-        <img src="images/andygarden/DSC07692.jpg" alt="Event photography — live concert in Osaka" loading="lazy" style="object-position: center 18%;" />
+        <img src="images/andygarden/DSC07692.jpg" srcset="images/andygarden/DSC07692-800.jpg 800w, images/andygarden/DSC07692-1200.jpg 1200w, images/andygarden/DSC07692.jpg 1365w" sizes="100vw" width="1365" height="2048" decoding="async" alt="Event photography — live concert in Osaka" loading="lazy" style="object-position: center 18%;" />
       </div>
       <!-- Slide 3: close-up smiling portrait — face fills upper half -->
       <div class="hero-slide">
-        <img src="images/parajuli%20and%20nabin/DSC05847.jpg" alt="Portrait near Osaka station — natural smile" loading="lazy" style="object-position: center 20%;" />
+        <img src="images/parajuli%20and%20nabin/DSC05847.jpg" srcset="images/parajuli%20and%20nabin/DSC05847-800.jpg 800w, images/parajuli%20and%20nabin/DSC05847-1200.jpg 1200w, images/parajuli%20and%20nabin/DSC05847.jpg 1441w" sizes="100vw" width="1441" height="2048" decoding="async" alt="Portrait near Osaka station — natural smile" loading="lazy" style="object-position: center 20%;" />
       </div>
       <!-- Slide 4: full-body at restaurant entrance — head at ~20% -->
       <div class="hero-slide">
-        <img src="images/anuj%26%20bd/DSC06156.jpg" alt="Street portrait outside Osaka restaurant" loading="lazy" style="object-position: center 22%;" />
+        <img src="images/anuj%26%20bd/DSC06156.jpg" srcset="images/anuj%26%20bd/DSC06156-800.jpg 800w, images/anuj%26%20bd/DSC06156-1200.jpg 1200w, images/anuj%26%20bd/DSC06156.jpg 1286w" sizes="100vw" width="1286" height="2048" decoding="async" alt="Street portrait outside Osaka restaurant" loading="lazy" style="object-position: center 22%;" />
       </div>
       <!-- Slide 5: landscape B&W soccer — subjects spread across mid-frame -->
       <div class="hero-slide">
-        <img src="images/Jordan%20%26%20Others/DSC06824.jpg" alt="Night sports photography — Osaka" loading="lazy" style="object-position: center 40%;" />
+        <img src="images/Jordan%20%26%20Others/DSC06824.jpg" srcset="images/Jordan%20%26%20Others/DSC06824-800.jpg 800w, images/Jordan%20%26%20Others/DSC06824-1200.jpg 1200w, images/Jordan%20%26%20Others/DSC06824.jpg 2048w" sizes="100vw" width="2048" height="1365" decoding="async" alt="Night sports photography — Osaka" loading="lazy" style="object-position: center 40%;" />
       </div>
       <!-- Slide 6: landscape concert duo — action spans full frame -->
       <div class="hero-slide">
-        <img src="images/andygarden/DSC07633.jpg" alt="Concert photography — live performance in Osaka" loading="lazy" style="object-position: center 30%;" />
+        <img src="images/andygarden/DSC07633.jpg" srcset="images/andygarden/DSC07633-800.jpg 800w, images/andygarden/DSC07633-1200.jpg 1200w, images/andygarden/DSC07633.jpg 1365w" sizes="100vw" width="1365" height="2048" decoding="async" alt="Concert photography — live performance in Osaka" loading="lazy" style="object-position: center 30%;" />
       </div>
       <!-- Slide 7: upper-body portrait looking sideways — face at ~15% -->
       <div class="hero-slide">
-        <img src="images/parajuli%20and%20nabin/DSC05752.jpg" alt="Candid portrait — Osaka shopping district" loading="lazy" style="object-position: center 18%;" />
+        <img src="images/parajuli%20and%20nabin/DSC05752.jpg" srcset="images/parajuli%20and%20nabin/DSC05752-800.jpg 800w, images/parajuli%20and%20nabin/DSC05752-1200.jpg 1200w, images/parajuli%20and%20nabin/DSC05752.jpg 1444w" sizes="100vw" width="1444" height="2048" decoding="async" alt="Candid portrait — Osaka shopping district" loading="lazy" style="object-position: center 18%;" />
       </div>
       <!-- Slide 8: landscape café scene — faces in upper third -->
       <div class="hero-slide">
-        <img src="images/suprout/DSC06043.jpg" alt="Documentary photography — café session in Osaka" loading="lazy" style="object-position: center 28%;" />
+        <img src="images/suprout/DSC06043.jpg" srcset="images/suprout/DSC06043-800.jpg 800w, images/suprout/DSC06043-1200.jpg 1200w, images/suprout/DSC06043.jpg 1633w" sizes="100vw" width="1633" height="2048" decoding="async" alt="Documentary photography — café session in Osaka" loading="lazy" style="object-position: center 28%;" />
       </div>
     </div>
 
@@ -164,7 +161,7 @@
       <!-- Image SECOND = right column on desktop -->
       <div class="about-snippet-img">
         <img
-          src="images/about/IMG_0848.JPG"
+          src="images/about/IMG_0848.JPG" srcset="images/about/IMG_0848-800.jpg 800w, images/about/IMG_0848-1200.jpg 1200w, images/about/IMG_0848.JPG 1536w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" width="1536" height="2048" decoding="async"
           alt="Prashant — portrait photographer at the Osaka waterfront at golden hour"
           loading="lazy"
         />
@@ -191,19 +188,19 @@
       <p class="section-subtitle" data-en="Portraits, events, and lifestyle moments from Osaka and beyond." data-jp="大阪とその周辺でのポートレート、イベント、ライフスタイルの瞬間。">Portraits, events, and lifestyle moments from Osaka and beyond.</p>
       <div class="featured-grid">
         <div class="featured-item featured-large">
-          <img src="images/parajuli%20and%20nabin/DSC05862.jpg" alt="Portrait session near Osaka station" loading="lazy" />
+          <img src="images/parajuli%20and%20nabin/DSC05862.jpg" srcset="images/parajuli%20and%20nabin/DSC05862-800.jpg 800w, images/parajuli%20and%20nabin/DSC05862-1200.jpg 1200w, images/parajuli%20and%20nabin/DSC05862.jpg 1164w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" width="1164" height="2048" decoding="async" alt="Portrait session near Osaka station" loading="lazy" />
           <div class="featured-overlay">
             <span data-en="Portraits" data-jp="ポートレート">Portraits</span>
           </div>
         </div>
         <div class="featured-item">
-          <img src="images/andygarden/DSC07623.jpg" alt="Concert photography at live event in Osaka" loading="lazy" />
+          <img src="images/andygarden/DSC07623.jpg" srcset="images/andygarden/DSC07623-800.jpg 800w, images/andygarden/DSC07623-1200.jpg 1200w, images/andygarden/DSC07623.jpg 1365w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" width="1365" height="2048" decoding="async" alt="Concert photography at live event in Osaka" loading="lazy" />
           <div class="featured-overlay">
             <span data-en="Events" data-jp="イベント">Events</span>
           </div>
         </div>
         <div class="featured-item">
-          <img src="images/parajuli%20and%20nabin/DSC05808.jpg" alt="Lifestyle photography — friends in Osaka" loading="lazy" />
+          <img src="images/parajuli%20and%20nabin/DSC05808.jpg" srcset="images/parajuli%20and%20nabin/DSC05808-800.jpg 800w, images/parajuli%20and%20nabin/DSC05808-1200.jpg 1200w, images/parajuli%20and%20nabin/DSC05808.jpg 1365w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" width="1365" height="2048" decoding="async" alt="Lifestyle photography — friends in Osaka" loading="lazy" />
           <div class="featured-overlay">
             <span data-en="Lifestyle" data-jp="ライフスタイル">Lifestyle</span>
           </div>
@@ -260,7 +257,7 @@
 
         <a href="blog/post-1.html" class="home-blog-card" aria-label="Read: Why I Carry My Camera Everywhere">
           <div class="home-blog-img">
-            <img src="images/anuj%26%20bd/DSC06082.jpg" alt="Always carry your camera — candid Osaka portrait" loading="lazy" />
+            <img src="images/anuj%26%20bd/DSC06082.jpg" srcset="images/anuj%26%20bd/DSC06082-800.jpg 800w, images/anuj%26%20bd/DSC06082-1200.jpg 1200w, images/anuj%26%20bd/DSC06082.jpg 1567w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" width="1567" height="2048" decoding="async" alt="Always carry your camera — candid Osaka portrait" loading="lazy" />
           </div>
           <div class="home-blog-body">
             <span class="home-blog-cat" data-en="Photography Tips" data-jp="写真のヒント">Photography Tips</span>
@@ -270,7 +267,7 @@
 
         <a href="blog/post-2.html" class="home-blog-card" aria-label="Read: 5 Best Photography Spots in Osaka">
           <div class="home-blog-img">
-            <img src="images/parajuli%20and%20nabin/DSC05745.jpg" alt="Photography locations in Osaka" loading="lazy" />
+            <img src="images/parajuli%20and%20nabin/DSC05745.jpg" srcset="images/parajuli%20and%20nabin/DSC05745-800.jpg 800w, images/parajuli%20and%20nabin/DSC05745-1200.jpg 1200w, images/parajuli%20and%20nabin/DSC05745.jpg 1365w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" width="1365" height="2048" decoding="async" alt="Photography locations in Osaka" loading="lazy" />
           </div>
           <div class="home-blog-body">
             <span class="home-blog-cat" data-en="Locations" data-jp="ロケーション">Locations</span>
@@ -280,7 +277,7 @@
 
         <a href="blog/post-4.html" class="home-blog-card" aria-label="Read: What I'm Really Doing When I Photograph Someone">
           <div class="home-blog-img">
-            <img src="images/suprout/DSC06051.jpg" alt="The philosophy of portrait photography" loading="lazy" />
+            <img src="images/suprout/DSC06051.jpg" srcset="images/suprout/DSC06051-800.jpg 800w, images/suprout/DSC06051-1200.jpg 1200w, images/suprout/DSC06051.jpg 1796w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" width="1796" height="2048" decoding="async" alt="The philosophy of portrait photography" loading="lazy" />
           </div>
           <div class="home-blog-body">
             <span class="home-blog-cat" data-en="Portraits" data-jp="ポートレート">Portraits</span>
@@ -321,6 +318,7 @@
           <h4 class="footer-heading" data-en="Pages" data-jp="ページ">Pages</h4>
           <div class="footer-links">
             <a href="portfolio.html" data-en="Portfolio" data-jp="作品集">Portfolio</a>
+            <a href="services.html" data-en="Services" data-jp="サービス・料金">Services</a>
             <a href="about.html" data-en="About" data-jp="プロフィール">About</a>
             <a href="blog.html" data-en="Blog" data-jp="ブログ">Blog</a>
             <a href="presets.html" data-en="Presets" data-jp="プリセット">Presets</a>

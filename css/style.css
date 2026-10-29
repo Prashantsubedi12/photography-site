@@ -696,7 +696,7 @@ footer {
   background: var(--color-tan);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1000px) {
   .mobile-nav-right {
     display: flex;
   }

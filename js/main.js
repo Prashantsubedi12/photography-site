@@ -48,17 +48,6 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// ---------- ACTIVE NAV LINK ----------
-const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-document.querySelectorAll('.nav-links a').forEach(link => {
-  const href = link.getAttribute('href');
-  if (href === currentPage) {
-    link.classList.add('active');
-  } else {
-    link.classList.remove('active');
-  }
-});
-
 // ---------- LANGUAGE TOGGLE — PERSISTENT + DUAL BUTTON ----------
 const langToggle = document.getElementById('langToggle');
 const langFloat  = document.getElementById('langFloat');
@@ -66,6 +55,9 @@ const langFloat  = document.getElementById('langFloat');
 let currentLang = localStorage.getItem('lang') || 'en';
 
 function applyLanguage(lang) {
+  // Tell the browser (fonts, line breaking, screen readers) which language is showing
+  document.documentElement.lang = lang === 'jp' ? 'ja' : 'en';
+
   // Swap textContent for all elements with data-en / data-jp
   document.querySelectorAll('[data-en]').forEach(el => {
     el.textContent = el.dataset[lang];

@@ -89,28 +89,10 @@
 
 
 /* ==========================================
-   MOBILE (max-width: 640px)
+   NAV COLLAPSE (max-width: 1000px)
+   The full link row no longer fits below ~1000px, so switch to the hamburger overlay.
    ========================================== */
-@media (max-width: 640px) {
-
-  :root {
-    --space-lg: 2.5rem;
-    --space-xl: 3.5rem;
-    --nav-height: 60px;
-  }
-
-  .container {
-    padding: 0 1.25rem;
-  }
-
-  h1 { font-size: clamp(2rem, 8vw, 3rem); }
-  h2 { font-size: clamp(1.5rem, 6vw, 2rem); }
-  h3 { font-size: 1.1rem; }
-  p  { font-size: 0.95rem; }
-
-  .section-title {
-    font-size: clamp(1.5rem, 6vw, 2rem);
-  }
+@media (max-width: 1000px) {
 
   /* ======= NAVBAR ======= */
 
@@ -196,6 +178,33 @@
   /* Hide standalone hamburger — it's inside mobile-nav-right now */
   .hamburger {
     display: flex;
+  }
+
+}
+
+
+/* ==========================================
+   MOBILE (max-width: 640px)
+   ========================================== */
+@media (max-width: 640px) {
+
+  :root {
+    --space-lg: 2.5rem;
+    --space-xl: 3.5rem;
+    --nav-height: 60px;
+  }
+
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  h1 { font-size: clamp(2rem, 8vw, 3rem); }
+  h2 { font-size: clamp(1.5rem, 6vw, 2rem); }
+  h3 { font-size: 1.1rem; }
+  p  { font-size: 0.95rem; }
+
+  .section-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
   }
 
   .nav-logo {

@@ -157,8 +157,8 @@
   let viewMonth = today.getMonth();
 
   function isUnavailable(date) {
-    const dow = date.getDay();      // 0 Sun, 1 Mon
-    if (dow === 0 || dow === 1) return true;
+    const dow = date.getDay();      // 1 Mon, 6 Sat — must match the legend text in contact.html
+    if (dow === 6 || dow === 1) return true;
     if (date < today) return true;
     return false;
   }
