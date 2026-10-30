@@ -89,10 +89,10 @@
 
 
 /* ==========================================
-   NAV COLLAPSE (max-width: 1000px)
-   The full link row no longer fits below ~1000px, so switch to the hamburger overlay.
+   NAV COLLAPSE (max-width: 1200px)
+   The full link row (7 links + logo, longer in Japanese) no longer fits below ~1200px, so switch to the hamburger overlay.
    ========================================== */
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
 
   /* ======= NAVBAR ======= */
 
