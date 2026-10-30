@@ -167,12 +167,15 @@
     display: block;
   }
 
-  /* Show mobile nav right (lang button + hamburger) */
+  /* Show mobile nav right (lang button + hamburger).
+     Positioned above the open overlay (z-index 999) so the ✕ stays visible to close it. */
   .mobile-nav-right {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     margin-left: auto;
+    position: relative;
+    z-index: 1000;
   }
 
   /* Hide standalone hamburger — it's inside mobile-nav-right now */
